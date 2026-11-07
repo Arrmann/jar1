@@ -177,7 +177,7 @@ READY_IDS = (
         "timer_set", "timer_list", "task_add", "task_list",
         "task_speak", "task_clear", "remind", "remind_cancel",
         "search_google", "search_yandex", "search_youtube", "search_wiki",
-        "search_web", "scroll_up", "scroll_down", "scroll_page_up",
+        "search_web", "brightness_set", "scroll_up", "scroll_down", "scroll_page_up",
         "scroll_page_down", "scroll_top", "scroll_bottom",
         "minimize_window", "maximize_window", "minimize_video",
         "maximize_video", "open_recycle_bin", "reload_explorer",

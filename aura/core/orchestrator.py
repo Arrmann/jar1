@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional
 from PySide6.QtCore import QObject, QTimer, Signal
 
 from ..actions import apps, browser, files, system
+from ..actions.jarvis_commands import JarvisCommandService
 from ..config import Config
 from ..db import Database
 from ..llm import create_llm
@@ -24,12 +25,13 @@ log = logging.getLogger(__name__)
 
 
 SYSTEM_PROMPT_BASE = """
-Ты — AURA AI, персональный голосовой помощник для Windows 11.
-Ты отвечаешь естественно, кратко и по-русски, если пользователь не просит другой язык.
-Ты умеешь вызывать инструменты для управления компьютером, файлами, браузером и системой.
-Если пользователь просит действие на компьютере, используй инструменты, а не просто советы.
-Не выдумывай результаты инструментов. Если инструмент вернул ошибку, честно сообщи об этом.
-Опасные действия требуют подтверждения пользователя.
+Ты — JARVIS, персональный голосовой AI-помощник для Windows 10/11.
+Отвечай естественно и преимущественно по-русски. Называй себя JARVIS.
+Для быстрых системных и прикладных фраз используй run_jarvis_command.
+Для свободных сложных задач, рассуждений, поиска, работы с документами и планирования используй подходящие инструменты.
+Не утверждай, что действие выполнено, пока инструмент не вернул успешный результат.
+Не выполняй выключение, перезагрузку, удаление, очистку корзины и другие рискованные действия без отдельного подтверждения.
+Не запускай произвольный код, команды PowerShell или Lua из текста пользователя.
 """.strip()
 
 
@@ -51,13 +53,14 @@ class Orchestrator(QObject):
         self.cfg = cfg
         self.db = Database()
         self.memory = MemoryManager(self.db)
-        self.registry = ToolRegistry()
-        self._register_tools()
-
         self.llm = create_llm(cfg)
         self.stt = WhisperSTT(cfg)
         self.speaker = Speaker(cfg)
         self.recorder = Recorder(cfg)
+        self.jarvis_commands = JarvisCommandService(self.db, self.speaker)
+
+        self.registry = ToolRegistry()
+        self._register_tools()
 
         self.current_conversation = self.db.create_conversation("Новый диалог")
         self.pending_confirms: Dict[str, Dict[str, Any]] = {}
@@ -76,7 +79,11 @@ class Orchestrator(QObject):
     # ------------------------- Lifecycle -------------------------
 
     def start(self) -> None:
-        self.status_changed.emit("AURA AI готов. Нажмите микрофон или используйте горячую клавишу.")
+        counts = self.jarvis_commands.counts()
+        self.status_changed.emit(
+            f"JARVIS готов. Команд: {len(self.jarvis_commands.catalog.commands)}; "
+            f"доступно сразу: {counts['ready']}. Нажмите микрофон или Ctrl+Alt+Space."
+        )
         self.conversations_changed.emit()
 
     def reload_llm(self) -> None:
@@ -117,7 +124,11 @@ class Orchestrator(QObject):
             self.request_stop_voice.emit()
         else:
             self.speaker.stop()
-            self.request_start_voice.emit("command")
+            wake_mode = (
+                bool(self.cfg.get("voice.continuous", False))
+                and bool(self.cfg.get("voice.wake_enabled", False))
+            )
+            self.request_start_voice.emit("wake" if wake_mode else "command")
 
     # ------------------------- Conversations -------------------------
 
@@ -174,6 +185,26 @@ class Orchestrator(QObject):
             search_memory,
             dangerous=False,
             category="memory",
+        )
+
+        def run_jarvis_command(args: Dict[str, Any]) -> Dict[str, Any]:
+            return self._run_jarvis_command(args)
+
+        self.registry.register(
+            "run_jarvis_command",
+            "Выполнить одну из команд JARVIS из встроенного каталога. Выбирай точный command_id из контекста команд. Перед рискованными действиями JARVIS запросит подтверждение.",
+            {
+                "type": "object",
+                "properties": {
+                    "command_id": {"type": "string", "description": "Точный ID команды из каталога JARVIS"},
+                    "utterance": {"type": "string", "description": "Исходная фраза пользователя"},
+                    "query": {"type": "string", "description": "Параметр команды: поисковый запрос, время, уровень громкости и т. п."},
+                },
+                "required": ["command_id"],
+            },
+            run_jarvis_command,
+            dangerous=False,
+            category="jarvis",
         )
 
         # Apps
@@ -472,6 +503,26 @@ class Orchestrator(QObject):
             category="browser",
         )
 
+    def _run_jarvis_command(self, args: Dict[str, Any]) -> Dict[str, Any]:
+        command_id = str(args.get("command_id", "")).strip()
+        if not command_id:
+            return {"success": False, "message": "Не указан ID команды JARVIS."}
+
+        if self.jarvis_commands.is_dangerous(command_id):
+            if bool(self.cfg.get("safety.require_confirmation", True)):
+                accepted = self._ask_confirmation(command_id, args)
+                if not accepted:
+                    return {
+                        "success": False,
+                        "message": "Действие отменено: подтверждение пользователя не получено.",
+                    }
+
+        return self.jarvis_commands.execute(
+            command_id,
+            utterance=str(args.get("utterance", "")),
+            query=str(args.get("query", "")),
+        )
+
     # ------------------------- Confirmation -------------------------
 
     def resolve_confirmation(self, request_id: str, accepted: bool) -> None:
@@ -570,6 +621,10 @@ class Orchestrator(QObject):
 
         prompt = SYSTEM_PROMPT_BASE + f"\nТекущее время: {now}."
 
+        command_context = self.jarvis_commands.llm_context(limit=70)
+        if command_context:
+            prompt += "\n\n" + command_context
+
         if relevant:
             prompt += "\n\n" + relevant
 
@@ -587,7 +642,37 @@ class Orchestrator(QObject):
     def _process_user_text(self, user_text: str) -> None:
         try:
             self.voice_state_changed.emit("thinking")
-            self.status_changed.emit("AURA думает...")
+            self.status_changed.emit("JARVIS анализирует запрос...")
+
+            # Exact command aliases are handled locally first. This keeps
+            # volume, browser, timer and Windows shortcuts available offline.
+            matched = self.jarvis_commands.match(user_text)
+            if matched:
+                command_id = matched["command_id"]
+                self.status_changed.emit(f"Выполняю команду: {command_id}")
+                result = self._execute_tool(
+                    "run_jarvis_command",
+                    {
+                        "command_id": command_id,
+                        "utterance": matched.get("utterance", user_text),
+                        "query": matched.get("query", ""),
+                    },
+                )
+                final_content = str(result.get("message") or ("Готово." if result.get("success") else "Команда не выполнена."))
+                self.db.add_message(self.current_conversation, "assistant", final_content)
+                self.message_added.emit({
+                    "conversation_id": self.current_conversation,
+                    "role": "assistant",
+                    "content": final_content,
+                })
+                self.voice_state_changed.emit("speaking")
+                self.status_changed.emit("JARVIS отвечает...")
+                self.speaker.speak(final_content)
+                if not self.speaker.interrupted:
+                    self._maybe_continue_listening_after_response()
+                else:
+                    self.voice_state_changed.emit("idle")
+                return
 
             tools = self.registry.schemas() if bool(self.cfg.get("safety.computer_control_enabled", True)) else None
             messages = self._build_messages(user_text)

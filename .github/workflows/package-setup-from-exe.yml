@@ -1,0 +1,61 @@
+name: Package JARVIS one-click Setup
+
+on:
+  push:
+    branches:
+      - chatgpt/jarvis-setup-package
+    paths:
+      - ".github/workflows/package-setup-from-exe.yml"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout current installer definition
+        uses: actions/checkout@v4
+
+      - name: Download previously validated Windows EXE
+        uses: actions/download-artifact@v4
+        with:
+          name: JARVIS-Windows-x64-EXE
+          path: dist
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 42424539322
+
+      - name: Verify executable
+        shell: pwsh
+        run: |
+          $exe = "dist/JARVIS.exe"
+          if (-not (Test-Path $exe)) { throw "JARVIS.exe not found after artifact download." }
+          Get-Item $exe | Format-List Name,Length,LastWriteTime
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          $iscc = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) { throw "Inno Setup compiler not found: $iscc" }
+
+      - name: Build one-click installer
+        shell: pwsh
+        run: |
+          $iscc = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\ISCC.exe"
+          New-Item -ItemType Directory -Force "dist-installer" | Out-Null
+          & $iscc /Qp "installer/JARVIS.iss"
+          if ($LASTEXITCODE -ne 0) { throw "Inno Setup failed." }
+          Get-ChildItem "dist-installer" | Format-Table Name,Length
+
+      - name: Upload JARVIS Setup.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-Assistant-Setup-x64
+          path: dist-installer/JARVIS-Assistant-Setup-*-x64.exe
+          if-no-files-found: error
+          retention-days: 14

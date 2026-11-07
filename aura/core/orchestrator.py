@@ -621,7 +621,7 @@ class Orchestrator(QObject):
 
         prompt = SYSTEM_PROMPT_BASE + f"\nТекущее время: {now}."
 
-        command_context = self.jarvis_commands.llm_context(limit=70)
+        command_context = self.jarvis_commands.llm_context(limit=150)
         if command_context:
             prompt += "\n\n" + command_context
 

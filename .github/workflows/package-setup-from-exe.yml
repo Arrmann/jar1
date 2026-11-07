@@ -6,7 +6,12 @@ on:
       - chatgpt/jarvis-setup-package
     paths:
       - ".github/workflows/package-setup-from-exe.yml"
+      - "installer/JARVIS.iss"
   workflow_dispatch:
+
+concurrency:
+  group: jarvis-setup-package
+  cancel-in-progress: true
 
 permissions:
   actions: read

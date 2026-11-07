@@ -1,0 +1,37 @@
+{
+  "language": "ru",
+  "theme": "dark",
+  "voice": {
+    "hotkey": "<ctrl>+<alt>+<space>",
+    "continuous": false,
+    "wake_enabled": false,
+    "wake_phrase": "аура",
+    "silence_threshold": 0.01,
+    "silence_seconds": 1.2
+  },
+  "stt": {
+    "model": "small",
+    "device": "auto",
+    "language": "auto"
+  },
+  "tts": {
+    "enabled": true,
+    "engine": "edge",
+    "voice": "ru-RU-SvetlanaNeural",
+    "edge_rate": "+0%",
+    "pyttsx3_rate": 185
+  },
+  "llm": {
+    "provider": "openai",
+    "base_url": "",
+    "model": "gpt-4o-mini",
+    "temperature": 0.2
+  },
+  "safety": {
+    "computer_control_enabled": true,
+    "require_confirmation": true
+  },
+  "paths": {
+    "workspace": ""
+  }
+}

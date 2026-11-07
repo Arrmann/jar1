@@ -3,7 +3,9 @@ Set-Location $PSScriptRoot
 
 $Python = ".venv\Scripts\python.exe"
 if (-not (Test-Path $Python)) {
-    throw "Сначала выполни .\install.ps1"
+    $cmd = Get-Command python -ErrorAction SilentlyContinue
+    if (-not $cmd) { throw "Python не найден. Сначала выполни .\install.ps1." }
+    $Python = $cmd.Source
 }
 
 & $Python -m pip install --upgrade pyinstaller

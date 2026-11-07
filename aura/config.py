@@ -10,9 +10,9 @@ DEFAULT_CONFIG = {
     "theme": "dark",
     "voice": {
         "hotkey": "<ctrl>+<alt>+<space>",
-        "continuous": False,
-        "wake_enabled": False,
-        "wake_phrase": "аура",
+        "continuous": True,
+        "wake_enabled": True,
+        "wake_phrase": "джарвис",
         "silence_threshold": 0.01,
         "silence_seconds": 1.2,
     },
@@ -24,7 +24,7 @@ DEFAULT_CONFIG = {
     "tts": {
         "enabled": True,
         "engine": "edge",
-        "voice": "ru-RU-SvetlanaNeural",
+        "voice": "ru-RU-DmitryNeural",
         "edge_rate": "+0%",
         "pyttsx3_rate": 185,
     },

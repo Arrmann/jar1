@@ -62,6 +62,7 @@ URLS = {
     "open_netflix": "https://www.netflix.com",
     "open_vk": "https://vk.com",
     "open_mail_ru": "https://e.mail.ru",
+    "open_telegram_web": "https://web.telegram.org",
 }
 
 APPS = {
@@ -161,6 +162,19 @@ MEDIA_KEYS = {
     "media_stop": 0xB2,
 }
 
+MOUSE_CLICKS = {
+    "mouse_left": ("left", 1),
+    "mouse_right": ("right", 1),
+    "mouse_double": ("left", 2),
+}
+
+MOUSE_MOVES = {
+    "mouse_up": (0, -80),
+    "mouse_down": (0, 80),
+    "mouse_left_move": (-80, 0),
+    "mouse_right_move": (80, 0),
+}
+
 VOLUME_KEYS = {
     "volume_up": 0xAF,
     "volume_down": 0xAE,
@@ -171,8 +185,9 @@ VOLUME_KEYS = {
 READY_IDS = (
     set(URLS) | set(APPS) | set(FOLDERS) | set(SETTINGS_URIS) |
     set(CHORDS) | set(MEDIA_KEYS) | set(VOLUME_KEYS) |
+    set(MOUSE_CLICKS) | set(MOUSE_MOVES) |
     {
-        "browser_open", "close_active", "volume_set", "lock_pc",
+        "browser_open", "chat_start", "chat_stop", "close_active", "volume_set", "lock_pc",
         "screenshot", "screen_record_start", "screen_record_stop",
         "timer_set", "timer_list", "task_add", "task_list",
         "task_speak", "task_clear", "remind", "remind_cancel",
@@ -222,6 +237,7 @@ class JarvisCommandService:
         self.db = db
         self.speaker = speaker
         self.catalog = CommandCatalog()
+        self.chat_session_active = False
         self.active_timers: dict[str, dict[str, Any]] = {}
         self._timers_lock = threading.RLock()
         self.timer_file = app_dir() / "jarvis-timers.json"
@@ -347,6 +363,24 @@ class JarvisCommandService:
             return {"success": True, "message": "Медиа-команда отправлена."}
         except Exception as exc:
             return {"success": False, "message": f"Не удалось отправить медиа-команду: {exc}"}
+
+    @staticmethod
+    def _mouse_action(command_id: str) -> dict[str, Any]:
+        try:
+            from pynput.mouse import Button, Controller
+            mouse = Controller()
+            if command_id in MOUSE_CLICKS:
+                button_name, count = MOUSE_CLICKS[command_id]
+                button = Button.left if button_name == "left" else Button.right
+                mouse.click(button, count=count)
+                return {"success": True, "message": "Клик мыши выполнен."}
+            if command_id in MOUSE_MOVES:
+                dx, dy = MOUSE_MOVES[command_id]
+                mouse.move(dx, dy)
+                return {"success": True, "message": "Курсор перемещён."}
+            return {"success": False, "message": "Неизвестная команда мыши."}
+        except Exception as exc:
+            return {"success": False, "message": f"Не удалось управлять мышью: {exc}"}
 
     @staticmethod
     def _require_browser() -> tuple[bool, str]:
@@ -552,6 +586,8 @@ class JarvisCommandService:
             return self._press(CHORDS[command_id])
         if command_id in MEDIA_KEYS:
             return self._media_key(MEDIA_KEYS[command_id])
+        if command_id in MOUSE_CLICKS or command_id in MOUSE_MOVES:
+            return self._mouse_action(command_id)
         if command_id == "volume_mute":
             return self._set_muted(True)
         if command_id == "volume_unmute":
@@ -623,6 +659,19 @@ class JarvisCommandService:
             if command_id == "task_speak" and result.get("success"):
                 self.speaker.speak(str(result.get("message", "")))
             return result
+
+        if command_id == "chat_start":
+            self.chat_session_active = True
+            return {
+                "success": True,
+                "message": "Режим диалога включён. Теперь можно говорить без слова «Джарвис». Скажите «закончи чат», чтобы вернуться в режим ожидания.",
+            }
+        if command_id == "chat_stop":
+            self.chat_session_active = False
+            return {
+                "success": True,
+                "message": "Режим диалога завершён. Для следующей команды сначала позовите меня: «Джарвис».",
+            }
 
         if command_id == "speak":
             text = (query or utterance).strip()

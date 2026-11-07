@@ -66,7 +66,7 @@ class ChatWidget(QWidget):
         card_layout = QVBoxLayout(card)
 
         self.visual = AuraVisualizer()
-        self.status_label = QLabel("AURA готов")
+        self.status_label = QLabel("JARVIS готов")
         self.status_label.setObjectName("SubtitleLabel")
         self.status_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
 

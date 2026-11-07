@@ -86,11 +86,11 @@ class ChatWidget(QWidget):
 
         quick_row = QHBoxLayout()
         quick_commands = [
-            "Сколько свободной памяти?",
-            "Открой браузер",
-            "Найди файл",
+            "Джарвис, открой YouTube",
+            "Джарвис, громче",
+            "Джарвис, поставь таймер на 5 минут",
+            "Джарвис, сделай скриншот",
             "Расскажи о системе",
-            "Создай папку проекта",
         ]
 
         for cmd in quick_commands:
@@ -332,7 +332,7 @@ class SettingsWidget(QWidget):
 
         self.wake_enabled = QCheckBox()
         self.wake_enabled.setChecked(bool(cfg.get("voice.wake_enabled", False)))
-        self.wake_phrase = QLineEdit(str(cfg.get("voice.wake_phrase", "аура") or ""))
+        self.wake_phrase = QLineEdit(str(cfg.get("voice.wake_phrase", "джарвис") or ""))
 
         self.stt_model = QComboBox()
         self.stt_model.addItems(["tiny", "base", "small", "medium", "large-v3"])
@@ -349,7 +349,7 @@ class SettingsWidget(QWidget):
         self.tts_engine.addItems(["edge", "pyttsx3"])
         self.tts_engine.setCurrentText(str(cfg.get("tts.engine", "edge")))
 
-        self.tts_voice = QLineEdit(str(cfg.get("tts.voice", "ru-RU-SvetlanaNeural") or ""))
+        self.tts_voice = QLineEdit(str(cfg.get("tts.voice", "ru-RU-DmitryNeural") or ""))
         self.tts_edge_rate = QLineEdit(str(cfg.get("tts.edge_rate", "+0%") or "+0%"))
 
         self.computer_control = QCheckBox()

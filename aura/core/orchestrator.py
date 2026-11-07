@@ -728,7 +728,7 @@ class Orchestrator(QObject):
             )
 
             self.voice_state_changed.emit("speaking")
-            self.status_changed.emit("AURA отвечает...")
+            self.status_changed.emit("JARVIS отвечает...")
             self.speaker.speak(final_content)
 
             if not self.speaker.interrupted:

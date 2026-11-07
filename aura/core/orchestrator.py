@@ -124,11 +124,14 @@ class Orchestrator(QObject):
             self.request_stop_voice.emit()
         else:
             self.speaker.stop()
-            wake_mode = (
-                bool(self.cfg.get("voice.continuous", False))
-                and bool(self.cfg.get("voice.wake_enabled", False))
-            )
-            self.request_start_voice.emit("wake" if wake_mode else "command")
+            if self.jarvis_commands.dictation_active:
+                self.request_start_voice.emit("dictation")
+            else:
+                wake_mode = (
+                    bool(self.cfg.get("voice.continuous", False))
+                    and bool(self.cfg.get("voice.wake_enabled", False))
+                )
+                self.request_start_voice.emit("wake" if wake_mode else "command")
 
     # ------------------------- Conversations -------------------------
 
@@ -758,6 +761,7 @@ class Orchestrator(QObject):
             bool(self.cfg.get("voice.continuous", False))
             or mode == "wake"
             or self.jarvis_commands.chat_session_active
+            or self.jarvis_commands.dictation_active
         )
 
         try:
@@ -809,6 +813,34 @@ class Orchestrator(QObject):
                 self._maybe_continue_listening_after_silence()
                 return
 
+            if self.jarvis_commands.dictation_active and mode == "dictation":
+                stop_match = self.jarvis_commands.catalog.match(
+                    text,
+                    enabled_ids={"dictate_stop"},
+                    wake_phrase=str(self.cfg.get("voice.wake_phrase", "джарвис") or "джарвис"),
+                )
+                if stop_match:
+                    result = self.jarvis_commands.execute("dictate_stop", utterance=text)
+                    self.status_changed.emit(str(result.get("message", "Диктовка остановлена.")))
+                    self.speaker.speak(str(result.get("message", "Диктовка остановлена.")))
+                    self._maybe_continue_listening_after_response()
+                    return
+
+                try:
+                    from pynput.keyboard import Controller
+                    Controller().type(text.strip() + " ")
+                    self.status_changed.emit("Диктовка: " + text.strip()[:90])
+                    self.request_start_voice.emit("dictation")
+                except Exception as exc:
+                    self.jarvis_commands.dictation_active = False
+                    self.error.emit(f"Не удалось напечатать текст в активном окне: {exc}")
+                    self.voice_state_changed.emit("idle")
+                return
+
+            if mode == "dictation" and not self.jarvis_commands.dictation_active:
+                self._maybe_continue_listening_after_response()
+                return
+
             if mode == "wake":
                 configured = str(self.cfg.get("voice.wake_phrase", "джарвис") or "").strip().casefold()
                 candidates = [configured, "джарвис", "джервис", "jarvis", "hey jarvis"]
@@ -835,7 +867,9 @@ class Orchestrator(QObject):
             self.voice_state_changed.emit("idle")
 
     def _maybe_continue_listening_after_response(self) -> None:
-        if self.jarvis_commands.chat_session_active:
+        if self.jarvis_commands.dictation_active:
+            self.request_start_voice.emit("dictation")
+        elif self.jarvis_commands.chat_session_active:
             self.request_start_voice.emit("command")
         elif bool(self.cfg.get("voice.continuous", False)):
             mode = "wake" if bool(self.cfg.get("voice.wake_enabled", False)) else "command"
@@ -845,7 +879,9 @@ class Orchestrator(QObject):
             self.status_changed.emit("Готов.")
 
     def _maybe_continue_listening_after_silence(self) -> None:
-        if self.jarvis_commands.chat_session_active:
+        if self.jarvis_commands.dictation_active:
+            self.request_start_voice.emit("dictation")
+        elif self.jarvis_commands.chat_session_active:
             self.request_start_voice.emit("command")
         elif bool(self.cfg.get("voice.continuous", False)):
             mode = "wake" if bool(self.cfg.get("voice.wake_enabled", False)) else "command"

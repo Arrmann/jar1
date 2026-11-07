@@ -87,7 +87,7 @@ jobs:
 
       - name: Verify dependency imports
         run: |
-          python -c "import PySide6, faster_whisper, pygame, PIL, sounddevice, edge_tts; print('Runtime imports: OK')"
+          python -c "import PySide6, faster_whisper, pygame, PIL, sounddevice, edge_tts, keyring, pycaw, comtypes; import keyring.backends.Windows; print('Runtime imports: OK')"
           python -m pip check
 
       - name: Build desktop executable

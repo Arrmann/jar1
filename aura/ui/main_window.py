@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
 
 from ..config import Config
 from ..core.orchestrator import Orchestrator
+from .commands_widget import CommandsWidget
 from .widgets import ActionsWidget, ChatWidget, MemoryWidget, SettingsWidget
 
 
@@ -25,8 +26,9 @@ class MainWindow(QMainWindow):
         self.cfg = cfg
         self.orch = orchestrator
 
-        self.setWindowTitle("AURA AI")
-        self.resize(1360, 860)
+        self.setWindowTitle("JARVIS Assistant")
+        self.resize(1480, 920)
+        self.setMinimumSize(1120, 720)
 
         central = QWidget()
         self.setCentralWidget(central)
@@ -35,42 +37,65 @@ class MainWindow(QMainWindow):
         root.setContentsMargins(0, 0, 0, 0)
         root.setSpacing(0)
 
-        # Sidebar
         sidebar = QWidget()
-        sidebar.setMinimumWidth(220)
+        sidebar.setObjectName("Sidebar")
+        sidebar.setMinimumWidth(224)
+        sidebar.setMaximumWidth(260)
         sidebar_layout = QVBoxLayout(sidebar)
+        sidebar_layout.setContentsMargins(18, 22, 18, 18)
+        sidebar_layout.setSpacing(9)
 
-        title = QLabel("AURA AI")
+        title = QLabel("JARVIS")
         title.setObjectName("TitleLabel")
-        subtitle = QLabel("Персональный голосовой ассистент")
+        subtitle = QLabel("PERSONAL AI SYSTEM")
         subtitle.setObjectName("SubtitleLabel")
         subtitle.setWordWrap(True)
 
-        self.nav_group = QButtonGroup(self)
-        self.chat_btn = QPushButton("Чаты")
-        self.memory_btn = QPushButton("Память")
-        self.actions_btn = QPushButton("Управление и действия")
-        self.settings_btn = QPushButton("Настройки")
+        sidebar_layout.addWidget(title)
+        sidebar_layout.addWidget(subtitle)
+        sidebar_layout.addSpacing(24)
 
-        for index, button in enumerate([self.chat_btn, self.memory_btn, self.actions_btn, self.settings_btn]):
+        self.nav_group = QButtonGroup(self)
+        self.nav_group.setExclusive(True)
+
+        self.chat_btn = QPushButton("◉   Чат")
+        self.commands_btn = QPushButton("⌘   Команды")
+        self.memory_btn = QPushButton("◈   Память")
+        self.actions_btn = QPushButton("▤   Журнал действий")
+        self.settings_btn = QPushButton("⚙   Настройки")
+
+        self.buttons = [
+            self.chat_btn,
+            self.commands_btn,
+            self.memory_btn,
+            self.actions_btn,
+            self.settings_btn,
+        ]
+
+        for index, button in enumerate(self.buttons):
             button.setCheckable(True)
-            button.setMinimumHeight(42)
+            button.setMinimumHeight(46)
+            button.setCursor(Qt.CursorShape.PointingHandCursor)
             self.nav_group.addButton(button, index)
             sidebar_layout.addWidget(button)
 
         self.chat_btn.setChecked(True)
-
         sidebar_layout.addStretch(1)
 
-        # Content
-        self.stack = QStackedWidget()
+        footer = QLabel("JARVIS CORE  ·  LOCAL CONTROL")
+        footer.setObjectName("SidebarFooter")
+        footer.setWordWrap(True)
+        sidebar_layout.addWidget(footer)
 
+        self.stack = QStackedWidget()
         self.chat_page = ChatWidget(orchestrator)
+        self.commands_page = CommandsWidget(orchestrator)
         self.memory_page = MemoryWidget(orchestrator)
         self.actions_page = ActionsWidget(orchestrator)
         self.settings_page = SettingsWidget(orchestrator)
 
         self.stack.addWidget(self.chat_page)
+        self.stack.addWidget(self.commands_page)
         self.stack.addWidget(self.memory_page)
         self.stack.addWidget(self.actions_page)
         self.stack.addWidget(self.settings_page)
@@ -80,30 +105,36 @@ class MainWindow(QMainWindow):
 
         self.nav_group.idClicked.connect(self.stack.setCurrentIndex)
 
-        self.statusBar().showMessage("Готов")
-
+        self.statusBar().showMessage("JARVIS · STANDBY")
         self.orch.status_changed.connect(self.statusBar().showMessage)
         self.orch.error.connect(self._show_error)
         self.orch.confirmation_requested.connect(self._ask_confirmation)
 
     def _show_error(self, message: str) -> None:
-        QMessageBox.warning(self, "AURA AI", str(message))
+        QMessageBox.warning(self, "JARVIS", str(message))
 
     def _ask_confirmation(self, request: dict) -> None:
-        args_text = json.dumps(request.get("args", {}), ensure_ascii=False, indent=2)
+        args_text = json.dumps(
+            request.get("args", {}),
+            ensure_ascii=False,
+            indent=2,
+        )
         text = (
-            f"AURA хочет выполнить действие:\n\n"
-            f"Инструмент: {request.get('tool')}\n\n"
+            f"JARVIS запрашивает подтверждение действия.\n\n"
+            f"Команда: {request.get('tool')}\n\n"
             f"Параметры:\n{args_text}\n\n"
-            f"Разрешить выполнение?"
+            "Разрешить выполнение?"
         )
 
         reply = QMessageBox.question(
             self,
-            "Подтверждение опасного действия",
+            "Подтверждение действия",
             text,
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             QMessageBox.StandardButton.No,
         )
 
-        self.orch.resolve_confirmation(request["id"], reply == QMessageBox.StandardButton.Yes)
+        self.orch.resolve_confirmation(
+            request["id"],
+            reply == QMessageBox.StandardButton.Yes,
+        )

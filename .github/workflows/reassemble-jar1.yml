@@ -1,0 +1,60 @@
+name: Reassemble JARVIS archive
+
+on:
+  push:
+    branches:
+      - chatgpt/reassemble-inspect
+    paths:
+      - "JARVIS.7z.*"
+      - ".github/workflows/reassemble-jar1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Inspect and extract split archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f JARVIS.7z.001
+          mkdir -p extracted
+          7z t JARVIS.7z.001
+          7z x JARVIS.7z.001 -oextracted -y
+          find extracted -maxdepth 4 -type f -printf '%P\t%s bytes\n' | sort > archive-file-list.txt
+          test -s archive-file-list.txt
+          cat archive-file-list.txt
+
+      - name: Package extracted project
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          root = Path("extracted")
+          with zipfile.ZipFile("jar1-extracted-source.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=3) as z:
+              for p in root.rglob("*"):
+                  if p.is_file():
+                      z.write(p, p.relative_to(root))
+          PY
+
+      - name: Upload extracted project and inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jar1-extracted-source
+          path: |
+            jar1-extracted-source.zip
+            archive-file-list.txt
+          if-no-files-found: warn
+          retention-days: 7

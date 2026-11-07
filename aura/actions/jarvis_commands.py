@@ -187,7 +187,7 @@ READY_IDS = (
     set(CHORDS) | set(MEDIA_KEYS) | set(VOLUME_KEYS) |
     set(MOUSE_CLICKS) | set(MOUSE_MOVES) |
     {
-        "browser_open", "chat_start", "chat_stop", "close_active", "volume_set", "lock_pc",
+        "browser_open", "chat_start", "chat_stop", "dictate", "dictate_stop", "close_active", "volume_set", "lock_pc",
         "screenshot", "screen_record_start", "screen_record_stop",
         "timer_set", "timer_list", "task_add", "task_list",
         "task_speak", "task_clear", "remind", "remind_cancel",
@@ -207,7 +207,7 @@ READY_IDS = (
 )
 
 OPTIONAL_IDS = {
-    "ask_screen", "create_photo", "dictate", "dictate_stop",
+    "ask_screen", "create_photo",
     "screen_record_start", "screen_record_stop",
     "led_on", "led_off", "led_color", "led_brightness",
     "plug_on", "plug_off", "plug_status", "plug_timer",
@@ -238,6 +238,7 @@ class JarvisCommandService:
         self.speaker = speaker
         self.catalog = CommandCatalog()
         self.chat_session_active = False
+        self.dictation_active = False
         self.active_timers: dict[str, dict[str, Any]] = {}
         self._timers_lock = threading.RLock()
         self.timer_file = app_dir() / "jarvis-timers.json"
@@ -660,6 +661,20 @@ class JarvisCommandService:
                 self.speaker.speak(str(result.get("message", "")))
             return result
 
+        if command_id == "dictate":
+            self.dictation_active = True
+            return {
+                "success": True,
+                "message": "Диктовка включена. Говорите фразами — я напечатаю их в активном окне. Чтобы закончить, скажите «останови диктовку».",
+            }
+        if command_id == "dictate_stop":
+            was_active = self.dictation_active
+            self.dictation_active = False
+            return {
+                "success": True,
+                "message": "Диктовка остановлена." if was_active else "Диктовка уже выключена.",
+            }
+
         if command_id == "chat_start":
             self.chat_session_active = True
             return {
@@ -676,7 +691,14 @@ class JarvisCommandService:
         if command_id == "speak":
             text = (query or utterance).strip()
             if not text:
-                return {"success": False, "message": "Скажи, какой текст произнести."}
+                try:
+                    from PySide6.QtWidgets import QApplication
+                    app = QApplication.instance()
+                    text = app.clipboard().text().strip() if app else ""
+                except Exception:
+                    text = ""
+            if not text:
+                return {"success": False, "message": "Скопируй текст в буфер обмена, затем скажи «прочитай буфер»."}
             self.speaker.speak(text)
             return {"success": True, "message": "Текст озвучен."}
         if command_id == "speak_stop":

@@ -323,6 +323,22 @@ class JarvisCommandService:
             return {"success": False, "message": f"Не удалось отправить сочетание клавиш: {exc}"}
 
     @staticmethod
+    def _set_muted(muted: bool) -> dict[str, Any]:
+        try:
+            from ctypes import POINTER, cast
+            from comtypes import CLSCTX_ALL
+            from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+
+            devices = AudioUtilities.GetSpeakers()
+            interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+            volume = cast(interface, POINTER(IAudioEndpointVolume))
+            volume.SetMute(1 if muted else 0, None)
+            label = "выключен" if muted else "включен"
+            return {"success": True, "message": f"Звук {label}."}
+        except Exception as exc:
+            return {"success": False, "message": f"Не удалось изменить состояние звука: {exc}"}
+
+    @staticmethod
     def _media_key(vk: int) -> dict[str, Any]:
         try:
             user32 = ctypes.windll.user32
@@ -536,6 +552,10 @@ class JarvisCommandService:
             return self._press(CHORDS[command_id])
         if command_id in MEDIA_KEYS:
             return self._media_key(MEDIA_KEYS[command_id])
+        if command_id == "volume_mute":
+            return self._set_muted(True)
+        if command_id == "volume_unmute":
+            return self._set_muted(False)
         if command_id in VOLUME_KEYS:
             return self._media_key(VOLUME_KEYS[command_id])
 

@@ -65,6 +65,8 @@ jobs:
               ("Джарвис, правый клик", "mouse_right"),
               ("Джарвис, курсор вправо", "mouse_right_move"),
               ("Джарвис, открой телеграм веб", "open_telegram_web"),
+              ("Джарвис, диктуй", "dictate"),
+              ("Джарвис, стоп диктовка", "dictate_stop"),
           ]
           for phrase, expected in cases:
               result = catalog.match(phrase, enabled_ids=all_ids, wake_phrase="джарвис")
@@ -72,7 +74,10 @@ jobs:
 
           assert JarvisCommandService._duration_seconds("5 минут") == 300
           assert JarvisCommandService._duration_seconds("30 секунд") == 30
-          assert {"chat_start", "chat_stop", "mouse_left", "mouse_right", "mouse_double", "mouse_up", "mouse_down", "mouse_left_move", "mouse_right_move", "open_telegram_web"} <= all_ids
+          assert {"chat_start", "chat_stop", "dictate", "dictate_stop", "mouse_left", "mouse_right", "mouse_double", "mouse_up", "mouse_down", "mouse_left_move", "mouse_right_move", "open_telegram_web"} <= all_ids
+          service = JarvisCommandService(None, None)
+          assert service.execute("dictate")["success"] and service.dictation_active
+          assert service.execute("dictate_stop")["success"] and not service.dictation_active
           print("Catalog:", len(catalog.commands))
           print("Groups:", catalog.data.get("categories"))
           print("Voice alias matching:", len(cases), "passed")

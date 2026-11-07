@@ -1,0 +1,163 @@
+cmd 130/130
+
+MISSING:
+
+UNMATCHED:
+Спокойный-2026-10-17-16-01-(smiling,-friendly,-warm)-Слушаю-тебя! (1).mp3	Слушаю тебя (1)
+Спокойный-2026-10-17-16-01-(smiling,-friendly,-warm)-Слушаю-тебя!.mp3	Слушаю тебя
+Спокойный-2026-10-17-16-02-(smiling,-friendly)-Да,-я-тут!.mp3	Да, я тут
+Спокойный-2026-10-17-16-03-(friendly,-warm)-Я-здесь!.mp3	Я здесь
+Спокойный-2026-10-17-16-04-(smiling,-eager,-friendly)-Готова-помочь!.mp3	Готова помочь
+Спокойный-2026-10-17-16-04-(smiling,-friendly,-satisfied)-Готово!.mp3	Готово
+Спокойный-2026-10-17-16-05-(smiling,-friendly)-Сделано!.mp3	Сделано
+Спокойный-2026-10-17-16-06-(smiling,-friendly)-Конечно!.mp3	Конечно
+Спокойный-2026-10-17-16-07-(friendly,-warm)-Не-за-что!.mp3	Не за что
+Спокойный-2026-10-17-16-07-(smiling,-friendly)-Рада-помочь!.mp3	Рада помочь
+Спокойный-2026-10-17-16-07-(smiling,-warm)-Пожалуйста!.mp3	Пожалуйста
+Спокойный-2026-10-17-16-08-(friendly,-warm)-До-связи!.mp3	До связи
+Спокойный-2026-10-17-16-08-(smiling,-warm)-Пока!.mp3	Пока
+Спокойный-2026-10-17-16-09-(friendly,-clear)-Время-вышло!.mp3	Время вышло
+Спокойный-2026-10-17-16-09-(smiling,-friendly,-warm)-Хорошего-дня!.mp3	Хорошего дня
+Спокойный-2026-10-17-16-10-(friendly,-soft-alert)-Таймер-сработал!.mp3	Таймер сработал
+Спокойный-2026-10-17-16-10-(smiling,-friendly,-warm)-Привет!.mp3	Привет
+Спокойный-2026-10-17-16-11-(smiling,-friendly)-Привет,-рада-слышать!.mp3	Привет, рада слышать
+Спокойный-2026-10-17-16-11-(smiling,-friendly,-warm)-Всё-хорошо,-а-у-тебя-к.mp3	Всё хорошо, а у тебя к
+Спокойный-2026-10-17-16-12-(cheerful,-friendly)-Отлично,-слушаю-тебя!.mp3	Отлично, слушаю тебя
+Спокойный-2026-10-17-16-12-(smiling,-eager,-friendly)-Хорошо!-Чем-помочь.mp3	Хорошо Чем помочь
+Спокойный-2026-10-17-16-13-(friendly,-warm)-Добрый-день!.mp3	Добрый день
+Спокойный-2026-10-17-16-13-(smiling,-soft,-warm)-Доброе-утро!.mp3	Доброе утро
+Спокойный-2026-10-17-16-13-(warm,-friendly)-Добрый-вечер!.mp3	Добрый вечер
+Спокойный-2026-10-17-16-14-(soft,-warm,-gentle)-Доброй-ночи!.mp3	Доброй ночи
+Спокойный-2026-10-17-16-59-(smiling,-friendly,-warm)-Открыла-загрузки!.mp3	dup->cmd_open_downloads
+Спокойный-2026-10-17-17-33-(smiling,-friendly,-warm)-Открыла-переводчик!.mp3	dup->cmd_translate
+Спокойный-2026-10-17-17-33-(smiling,-friendly,-warm)-Хорошо,-остановила!.mp3	dup->cmd_speak_stop
+
+MATCHED:
+cmd_speak_stop	Спокойный-2026-10-17-16-06-(warm,-friendly)-Хорошо!.mp3
+cmd_brightness_down	Спокойный-2026-10-17-16-24-(smiling,-friendly,-warm)-Сделала-потемнее!.mp3
+cmd_browser_back	Спокойный-2026-10-17-16-25-(smiling,-friendly,-warm)-Вернула-назад!.mp3
+cmd_brightness_up	Спокойный-2026-10-17-16-25-(smiling,-friendly,-warm)-Сделала-поярче!.mp3
+cmd_browser_close_tab	Спокойный-2026-10-17-16-26-(smiling,-friendly,-warm)-Закрыла-вкладку!.mp3
+cmd_open_downloads	Спокойный-2026-10-17-16-26-(smiling,-friendly,-warm)-Открыла-загрузки!.mp3
+cmd_browser_incognito	Спокойный-2026-10-17-16-26-(smiling,-friendly,-warm)-Открыла-инкогнито!.mp3
+cmd_browser_new_tab	Спокойный-2026-10-17-16-27-(smiling,-friendly,-warm)-Открыла-новую-вкладку!.mp3
+cmd_browser_next_tab	Спокойный-2026-10-17-16-27-(smiling,-friendly,-warm)-Перешла-на-следующую!.mp3
+cmd_browser_prev_tab	Спокойный-2026-10-17-16-28-(smiling,-friendly,-warm)-Вернула-прошлую-вкладк.mp3
+cmd_browser_open	Спокойный-2026-10-17-16-28-(smiling,-friendly,-warm)-Открыла-браузер!.mp3
+cmd_browser_reopen_tab	Спокойный-2026-10-17-16-29-(smiling,-friendly,-warm)-Вернула-вкладку!.mp3
+cmd_browser_refresh	Спокойный-2026-10-17-16-29-(smiling,-friendly,-warm)-Обновила!.mp3
+cmd_clipboard_history	Спокойный-2026-10-17-16-30-(smiling,-friendly,-warm)-Открыла-буфер!.mp3
+cmd_cancel_shutdown	Спокойный-2026-10-17-16-30-(smiling,-friendly,-warm)-Отменила-выключение!.mp3
+cmd_dictate	Спокойный-2026-10-17-16-31-(smiling,-friendly,-warm)-Диктуй,-я-слушаю!.mp3
+cmd_close_active	Спокойный-2026-10-17-16-31-(smiling,-friendly,-warm)-Закрыла!.mp3
+cmd_empty_trash	Спокойный-2026-10-17-16-31-(smiling,-friendly,-warm)-Очистила-корзину!.mp3
+cmd_game_mode	Спокойный-2026-10-17-16-32-(smiling,-friendly,-warm)-Включила-игровой-режим.mp3
+cmd_gestures_on	Спокойный-2026-10-17-16-33-(smiling,-friendly,-warm)-Включила-жесты!.mp3
+cmd_gestures_off	Спокойный-2026-10-17-16-33-(smiling,-friendly,-warm)-Выключила-жесты!.mp3
+cmd_input_cut	Спокойный-2026-10-17-16-34-(smiling,-friendly,-warm)-Вырезала!.mp3
+cmd_input_find	Спокойный-2026-10-17-16-34-(smiling,-friendly,-warm)-Открыла-поиск!.mp3
+cmd_input_copy	Спокойный-2026-10-17-16-34-(smiling,-friendly,-warm)-Скопировала!.mp3
+cmd_input_paste	Спокойный-2026-10-17-16-35-(smiling,-friendly,-warm)-Вставила!.mp3
+cmd_input_print	Спокойный-2026-10-17-16-35-(smiling,-friendly,-warm)-Отправила-на-печать!.mp3
+cmd_input_new_doc	Спокойный-2026-10-17-16-35-(smiling,-friendly,-warm)-Сделала-новый-документ.mp3
+cmd_input_redo	Спокойный-2026-10-17-16-36-(smiling,-friendly,-warm)-Вернула-как-было!.mp3
+cmd_input_save	Спокойный-2026-10-17-16-36-(smiling,-friendly,-warm)-Сохранила!.mp3
+cmd_input_select_all	Спокойный-2026-10-17-16-37-(smiling,-friendly,-warm)-Выделила-всё!.mp3
+cmd_input_switch_lang	Спокойный-2026-10-17-16-37-(smiling,-friendly,-warm)-Переключила-язык!.mp3
+cmd_lock_pc	Спокойный-2026-10-17-16-38-(smiling,-friendly,-warm)-Заблокировала!.mp3
+cmd_input_undo	Спокойный-2026-10-17-16-38-(smiling,-friendly,-warm)-Отменила!.mp3
+cmd_maximize_window	Спокойный-2026-10-17-16-38-(smiling,-friendly,-warm)-Развернула-на-весь-экр.mp3
+cmd_media_next	Спокойный-2026-10-17-16-39-(smiling,-friendly,-warm)-Включила-следующий!.mp3
+cmd_media_prev	Спокойный-2026-10-17-16-40-(smiling,-friendly,-warm)-Вернула-прошлый-трек!.mp3
+cmd_media_stop	Спокойный-2026-10-17-16-40-(smiling,-friendly,-warm)-Остановила!.mp3
+cmd_media_play_pause	Спокойный-2026-10-17-16-40-(smiling,-friendly,-warm)-Поставила-на-паузу!.mp3
+cmd_minimize_all	Спокойный-2026-10-17-16-41-(smiling,-friendly,-warm)-Всё-свернула!.mp3
+cmd_minimize_window	Спокойный-2026-10-17-16-41-(smiling,-friendly,-warm)-Свернула!.mp3
+cmd_open_avito	Спокойный-2026-10-17-16-42-(smiling,-friendly,-warm)-Открыла-Авито!.mp3
+cmd_open_about_pc	Спокойный-2026-10-17-16-42-(smiling,-friendly,-warm)-Открыла-про-компьютер!.mp3
+cmd_open_bluetooth	Спокойный-2026-10-17-16-43-(smiling,-friendly,-warm)-Открыла-блютуз!.mp3
+cmd_open_calculator	Спокойный-2026-10-17-16-43-(smiling,-friendly,-warm)-Открыла-калькулятор!.mp3
+cmd_open_calendar	Спокойный-2026-10-17-16-45-(smiling,-friendly,-warm)-Открыла-календарь!.mp3
+cmd_open_camera	Спокойный-2026-10-17-16-53-(smiling,-friendly,-warm)-Открыла-камеру!.mp3
+cmd_open_chatgpt	Спокойный-2026-10-17-16-55-(smiling,-friendly,-warm)-Открыла-Чат-джипити'!.mp3
+cmd_open_claude	Спокойный-2026-10-17-16-56-(smiling,-friendly,-warm)-Открыла-Клод!.mp3
+cmd_open_cursor	Спокойный-2026-10-17-16-56-(smiling,-friendly,-warm)-Открыла-Курсор!.mp3
+cmd_open_deepseek	Спокойный-2026-10-17-16-57-(smiling,-friendly,-warm)-Открыла-Дипси'к!.mp3
+cmd_open_discord	Спокойный-2026-10-17-16-58-(smiling,-friendly,-warm)-Открыла-Дискорд!.mp3
+cmd_open_desktop_folder	Спокойный-2026-10-17-16-58-(smiling,-friendly,-warm)-Открыла-рабочий-стол!.mp3
+cmd_open_documents	Спокойный-2026-10-17-16-59-(smiling,-friendly,-warm)-Открыла-документы!.mp3
+cmd_open_display_settings	Спокойный-2026-10-17-16-59-(smiling,-friendly,-warm)-Открыла-настройки-экра.mp3
+cmd_open_explorer	Спокойный-2026-10-17-17-00-(smiling,-friendly,-warm)-Открыла-проводник!.mp3
+cmd_open_excel	Спокойный-2026-10-17-17-00-(smiling,-friendly,-warm)-Открыла-Эксель!.mp3
+cmd_open_emoji_panel	Спокойный-2026-10-17-17-00-(smiling,-friendly,-warm)-Открыла-эмодзи!.mp3
+cmd_open_github	Спокойный-2026-10-17-17-01-(smiling,-friendly,-warm)-Открыла-Гитхаб!.mp3
+cmd_open_gemini	Спокойный-2026-10-17-17-01-(smiling,-friendly,-warm)-Открыла-Джемини!.mp3
+cmd_open_gmail	Спокойный-2026-10-17-17-01-(smiling,-friendly,-warm)-Открыла-почту!.mp3
+cmd_open_google_drive	Спокойный-2026-10-17-17-02-(smiling,-friendly,-warm)-Открыла-Гугл-диск!.mp3
+cmd_open_ivi	Спокойный-2026-10-17-17-02-(smiling,-friendly,-warm)-Открыла-Иви!.mp3
+cmd_open_instagram	Спокойный-2026-10-17-17-02-(smiling,-friendly,-warm)-Открыла-Инстаграм!.mp3
+cmd_open_maps	Спокойный-2026-10-17-17-03-(smiling,-friendly,-warm)-Открыла-карты!.mp3
+cmd_open_kinopoisk	Спокойный-2026-10-17-17-03-(smiling,-friendly,-warm)-Открыла-Кинопоиск!.mp3
+cmd_open_meet	Спокойный-2026-10-17-17-04-(smiling,-friendly,-warm)-Открыла-Мит!.mp3
+cmd_open_netflix	Спокойный-2026-10-17-17-04-(smiling,-friendly,-warm)-Открыла-Нетфликс!.mp3
+cmd_open_news	Спокойный-2026-10-17-17-04-(smiling,-friendly,-warm)-Открыла-новости!.mp3
+cmd_open_night_light	Спокойный-2026-10-17-17-05-(smiling,-friendly,-warm)-Включила-ночной-свет!.mp3
+cmd_open_notepad	Спокойный-2026-10-17-17-05-(smiling,-friendly,-warm)-Открыла-блокнот!.mp3
+cmd_open_notion	Спокойный-2026-10-17-17-05-(smiling,-friendly,-warm)-Открыла-Ноушен!.mp3
+cmd_open_obs	Спокойный-2026-10-17-17-05-(smiling,-friendly,-warm)-Открыла-ОБС!.mp3
+cmd_open_ozon	Спокойный-2026-10-17-17-06-(smiling,-friendly,-warm)-Открыла-Озон!.mp3
+cmd_open_paint	Спокойный-2026-10-17-17-06-(smiling,-friendly,-warm)-Открыла-Пейнт!.mp3
+cmd_open_photos	Спокойный-2026-10-17-17-07-(smiling,-friendly,-warm)-Открыла-фото!.mp3
+cmd_open_pinterest	Спокойный-2026-10-17-17-16-(smiling,-friendly,-warm)-Открыла-Пинтерест!.mp3
+cmd_open_powerpoint	Спокойный-2026-10-17-17-17-(smiling,-friendly,-warm)-Открыла-презентацию!.mp3
+cmd_open_recycle_bin	Спокойный-2026-10-17-17-18-(smiling,-friendly,-warm)-Открыла-корзину!.mp3
+cmd_open_rutube	Спокойный-2026-10-17-17-18-(smiling,-friendly,-warm)-Открыла-Рутуб!.mp3
+cmd_open_screenshots_folder	Спокойный-2026-10-17-17-18-(smiling,-friendly,-warm)-Открыла-скриншоты!.mp3
+cmd_open_sound_settings	Спокойный-2026-10-17-17-19-(smiling,-friendly,-warm)-Открыла-звук!.mp3
+cmd_open_snip	Спокойный-2026-10-17-17-19-(smiling,-friendly,-warm)-Открыла-ножницы!.mp3
+cmd_open_settings	Спокойный-2026-10-17-17-19-(smiling,-friendly,-warm)-Открыла-параметры!.mp3
+cmd_open_startup_apps	Спокойный-2026-10-17-17-20-(smiling,-friendly,-warm)-Открыла-автозагрузку!.mp3
+cmd_open_storage	Спокойный-2026-10-17-17-20-(smiling,-friendly,-warm)-Открыла-память!.mp3
+cmd_open_steam	Спокойный-2026-10-17-17-20-(smiling,-friendly,-warm)-Открыла-Стим!.mp3
+cmd_open_task_manager	Спокойный-2026-10-17-17-21-(smiling,-friendly,-warm)-Открыла-диспетчер!.mp3
+cmd_open_teams	Спокойный-2026-10-17-17-21-(smiling,-friendly,-warm)-Открыла-Тимс!.mp3
+cmd_open_telegram	Спокойный-2026-10-17-17-22-(smiling,-friendly,-warm)-Открыла-Телеграм!.mp3
+cmd_open_terminal	Спокойный-2026-10-17-17-22-(smiling,-friendly,-warm)-Открыла-терминал!.mp3
+cmd_open_tiktok	Спокойный-2026-10-17-17-22-(smiling,-friendly,-warm)-Открыла-Тикток!.mp3
+cmd_translate	Спокойный-2026-10-17-17-23-(smiling,-friendly,-warm)-Открыла-переводчик!.mp3
+cmd_open_twitch	Спокойный-2026-10-17-17-23-(smiling,-friendly,-warm)-Открыла-Твич!.mp3
+cmd_open_whatsapp	Спокойный-2026-10-17-17-24-(smiling,-friendly,-warm)-Открыла-Ватсап!.mp3
+cmd_open_vk	Спокойный-2026-10-17-17-24-(smiling,-friendly,-warm)-Открыла-Вконтакте!.mp3
+cmd_open_update	Спокойный-2026-10-17-17-24-(smiling,-friendly,-warm)-Открыла-обновления!.mp3
+cmd_open_weather	Спокойный-2026-10-17-17-24-(smiling,-friendly,-warm)-Открыла-погоду!.mp3
+cmd_open_wildberries	Спокойный-2026-10-17-17-25-(smiling,-friendly,-warm)-Открыла-Вайлдберриз!.mp3
+cmd_open_wifi	Спокойный-2026-10-17-17-25-(smiling,-friendly,-warm)-Открыла-вайфай!.mp3
+cmd_open_word	Спокойный-2026-10-17-17-25-(smiling,-friendly,-warm)-Открыла-Ворд!.mp3
+cmd_open_yandex	Спокойный-2026-10-17-17-26-(smiling,-friendly,-warm)-Открыла-Яндекс!.mp3
+cmd_open_yandex_disk	Спокойный-2026-10-17-17-26-(smiling,-friendly,-warm)-Открыла-Яндекс-диск!.mp3
+cmd_open_yandex_maps	Спокойный-2026-10-17-17-26-(smiling,-friendly,-warm)-Открыла-Яндекс-карты!.mp3
+cmd_open_youtube	Спокойный-2026-10-17-17-27-(smiling,-friendly,-warm)-Открыла-Ютуб!.mp3
+cmd_open_yandex_music	Спокойный-2026-10-17-17-27-(smiling,-friendly,-warm)-Открыла-Яндекс-музыку!.mp3
+cmd_open_zoom	Спокойный-2026-10-17-17-28-(smiling,-friendly,-warm)-Открыла-Зум!.mp3
+cmd_open_youtube_music	Спокойный-2026-10-17-17-28-(smiling,-friendly,-warm)-Открыла-Ютуб-музыку!.mp3
+cmd_reload_explorer	Спокойный-2026-10-17-17-28-(smiling,-friendly,-warm)-Перезапустила-проводни.mp3
+cmd_restart_pc	Спокойный-2026-10-17-17-29-(smiling,-friendly,-warm)-Перезагружаю!.mp3
+cmd_remind_cancel	Спокойный-2026-10-17-17-29-(smiling,-friendly,-warm)-Убрала-напоминание!.mp3
+cmd_remind	Спокойный-2026-10-17-17-29-(smiling,-friendly,-warm)-Хорошо,-напомню!.mp3
+cmd_search_google	Спокойный-2026-10-17-17-30-(smiling,-friendly,-warm)-Ищу-в-Гугле!.mp3
+cmd_search_wiki	Спокойный-2026-10-17-17-30-(smiling,-friendly,-warm)-Открыла-Википедию!.mp3
+cmd_screenshot	Спокойный-2026-10-17-17-30-(smiling,-friendly,-warm)-Сделала-скриншот!.mp3
+cmd_search_yandex	Спокойный-2026-10-17-17-31-(smiling,-friendly,-warm)-Ищу-в-Яндексе!.mp3
+cmd_search_youtube	Спокойный-2026-10-17-17-31-(smiling,-friendly,-warm)-Ищу-на-Ютубе!.mp3
+cmd_show_desktop	Спокойный-2026-10-17-17-31-(smiling,-friendly,-warm)-Показала-рабочий-стол!.mp3
+cmd_shutdown_pc	Спокойный-2026-10-17-17-32-(smiling,-friendly,-warm)-Выключаю!.mp3
+cmd_sleep_pc	Спокойный-2026-10-17-17-32-(smiling,-friendly,-warm)-Усыпляю-компьютер!.mp3
+cmd_speak	Спокойный-2026-10-17-17-32-(smiling,-friendly,-warm)-Читаю!.mp3
+cmd_switch_window	Спокойный-2026-10-17-17-33-(smiling,-friendly,-warm)-Переключила-окно!.mp3
+cmd_timer_set	Спокойный-2026-10-17-17-33-(smiling,-friendly,-warm)-Поставила-таймер!.mp3
+cmd_use_browser_chrome	Спокойный-2026-10-17-17-34-(smiling,-friendly,-warm)-Поставила-Хром!.mp3
+cmd_use_browser_yandex	Спокойный-2026-10-17-17-34-(smiling,-friendly,-warm)-Поставила-Яндекс-брауз.mp3
+cmd_volume_unmute	Спокойный-2026-10-17-17-35-(smiling,-friendly,-warm)-Вернула-звук!.mp3
+cmd_volume_mute	Спокойный-2026-10-17-17-35-(smiling,-friendly,-warm)-Выключила-звук!.mp3
+cmd_volume_down	Спокойный-2026-10-17-17-35-(smiling,-friendly,-warm)-Сделала-потише!.mp3
+cmd_volume_up	Спокойный-2026-10-17-17-36-(smiling,-friendly,-warm)-Сделала-погромче!.mp3

@@ -1,0 +1,29 @@
+# Reference only — the engine (jarvis_gestures.py) does not read this file.
+# Mouse:
+#   index = cursor (knuckle-anchored, One Euro smoothing)
+#   short thumb+index pinch = click, twice = double click
+#   pinch held >= 0.35s = hold/drag
+#   thumb+middle pinch = right click
+#   victory + move up/down from the start point = scroll
+# Window:
+#   palm held ~0.3s — move; size from thumb↔pinky span; fully spread = fullscreen
+#   fist held ~0.55s — minimize (once per fist)
+# Constructor commands: victory(still ~0.9s) / three / horns / shaka / ily / four
+
+[gestures.point]
+action = "cursor"
+
+[gestures.hold]
+action = "hold"
+
+[gestures.click]
+action = "click"
+
+[gestures.scroll]
+action = "scroll"
+
+[gestures.open_palm]
+action = "window_resize"
+
+[gestures.fist]
+action = "minimize"

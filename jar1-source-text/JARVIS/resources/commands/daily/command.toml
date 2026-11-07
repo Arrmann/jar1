@@ -1,0 +1,468 @@
+[[commands]]
+id = "media_pause"
+type = "lua"
+script = "media-pause.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_media_play_pause"]
+phrases.ru = ["пауза", "поставь музыку на паузу", "пауза в яндекс музыке", "пауза в вк"]
+phrases.en = ["pause music"]
+
+[[commands]]
+id = "media_resume"
+type = "lua"
+script = "media-resume.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_media_play_pause"]
+phrases.ru = ["продолжи", "продолжи музыку", "продолжи воспроизведение", "возобнови музыку", "сними с паузы"]
+phrases.en = ["resume music"]
+
+[[commands]]
+id = "media_play_pause"
+type = "lua"
+script = "media-play-pause.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_media_play_pause"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "переключи паузу",
+    "плей",
+    "воспроизведение",
+]
+phrases.en = [
+    "pause",
+    "play",
+    "play pause",
+    "toggle music",
+]
+
+[[commands]]
+id = "media_next"
+type = "lua"
+script = "media-next.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_media_next"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "следующий трек",
+    "следующая песня",
+    "дальше трек",
+    "некст",
+]
+phrases.en = [
+    "next track",
+    "next song",
+    "skip",
+]
+
+[[commands]]
+id = "media_prev"
+type = "lua"
+script = "media-prev.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_media_prev"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "предыдущий трек",
+    "прошлая песня",
+    "назад трек",
+]
+phrases.en = [
+    "previous track",
+    "previous song",
+    "last track",
+]
+
+[[commands]]
+id = "open_spotify"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "try { Start-Process 'spotify:' -ErrorAction Stop } catch { & 'resources/scripts/open-url.ps1' 'https://open.spotify.com' }"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой спотифай",
+    "спотифай",
+]
+phrases.en = [
+    "open spotify",
+    "spotify",
+]
+
+[[commands]]
+id = "open_gmail"
+type = "lua"
+script = "open-gmail.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_gmail"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой почту",
+    "открой gmail",
+    "открой джимейл",
+    "почта",
+]
+phrases.en = [
+    "open mail",
+    "open gmail",
+    "email",
+]
+
+[[commands]]
+id = "open_maps"
+type = "lua"
+script = "open-maps.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_maps"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой карты",
+    "открой google maps",
+    "открой гугл карты",
+    "гугл карты",
+    "карты",
+]
+phrases.en = [
+    "open maps",
+    "google maps",
+    "maps",
+]
+
+[[commands]]
+id = "open_yandex_maps"
+type = "lua"
+script = "open-yandex-maps.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_yandex_maps"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой яндекс карты",
+    "открой яндекс.карты",
+    "открой карты яндекс",
+    "яндекс карты",
+    "яндекс.карты",
+    "покажи яндекс карты",
+    "открой яндекс map",
+    "яндекс map",
+]
+phrases.en = [
+    "open yandex maps",
+    "yandex maps",
+    "open maps yandex",
+]
+
+[[commands]]
+id = "open_whatsapp"
+type = "lua"
+script = "open-whatsapp.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_whatsapp"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой ватсап",
+    "открой whatsapp",
+    "ватсап",
+]
+phrases.en = [
+    "open whatsapp",
+    "whatsapp",
+]
+
+[[commands]]
+id = "open_wifi"
+type = "lua"
+script = "open-wifi.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_wifi"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой вайфай",
+    "открой вай-фай",
+    "настройки вайфай",
+    "сеть вайфай",
+    "параметры вайфай",
+]
+phrases.en = [
+    "open wifi",
+    "wifi settings",
+    "wireless settings",
+    "open wi-fi",
+]
+
+[[commands]]
+id = "open_bluetooth"
+type = "lua"
+script = "open-bluetooth.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_bluetooth"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой блютуз",
+    "открой bluetooth",
+    "настройки блютуз",
+]
+phrases.en = [
+    "open bluetooth",
+    "bluetooth settings",
+]
+
+[[commands]]
+id = "clipboard_history"
+type = "lua"
+script = "clipboard-history.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_clipboard_history"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой буфер обмена",
+    "история буфера",
+    "буфер обмена",
+]
+phrases.en = [
+    "clipboard history",
+    "open clipboard",
+]
+
+[[commands]]
+id = "minimize_window"
+type = "lua"
+script = "minimize-window.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_minimize_window"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сверни",
+    "свернуть",
+    "сверни окно",
+    "свернуть окно",
+    "сверни это окно",
+    "сверни текущее окно",
+    "minimize",
+    "minimize window",
+    "minimize the window",
+]
+phrases.en = [
+    "minimize",
+    "minimize window",
+    "minimize the window",
+]
+
+[[commands]]
+id = "maximize_window"
+type = "lua"
+script = "maximize-window.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_maximize_window"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "разверни окно",
+    "на весь экран",
+    "разверни",
+    "развернуть",
+    "развернуть окно",
+    "полный экран",
+    "открой на весь экран",
+    "максимизируй",
+    "максимизируй окно",
+    "раскрой окно",
+    "раскрой",
+    "увеличь окно",
+]
+phrases.en = [
+    "maximize window",
+    "maximize",
+    "fullscreen window",
+]
+
+[[commands]]
+id = "maximize_video"
+type = "lua"
+script = "maximize-video.lua"
+sandbox = "full"
+timeout = 12000
+sounds.ru = ["cmd_maximize_window"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "разверни ютуб",
+    "разверни youtube",
+    "разверни видео",
+    "разворот ютуб",
+    "разворот видео",
+    "разверни ролик",
+    "полный экран ютуб",
+    "полный экран youtube",
+    "полный экран видео",
+    "ютуб на весь экран",
+    "youtube на весь экран",
+    "развернуть ютуб",
+    "развернуть видео",
+]
+phrases.en = [
+    "fullscreen youtube",
+    "maximize youtube",
+    "fullscreen video",
+    "youtube fullscreen",
+]
+
+[[commands]]
+id = "minimize_video"
+type = "lua"
+script = "minimize-video.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_minimize_window"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сверни ютуб",
+    "сверни youtube",
+    "сверни видео",
+    "свернуть ютуб",
+    "свернуть youtube",
+    "свернуть видео",
+    "выйди из полноэкранного ютуб",
+    "обычный режим ютуб",
+]
+phrases.en = [
+    "minimize youtube",
+    "exit youtube fullscreen",
+    "youtube normal",
+    "collapse youtube",
+]
+
+[[commands]]
+id = "open_screenshots_folder"
+type = "lua"
+script = "open-screenshots-folder.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_screenshots_folder"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "мои скриншоты",
+    "открой папку скриншотов",
+    "открой скриншоты",
+    "папка скриншотов",
+    "покажи скриншоты"
+]
+phrases.en = [
+    "open screenshots",
+    "screenshots folder",
+]
+
+[[commands]]
+id = "open_cursor"
+type = "lua"
+script = "open-cursor.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_cursor"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой курсор",
+    "открой cursor",
+    "открой редактор",
+    "открой vscode",
+]
+phrases.en = [
+    "open cursor",
+    "open vscode",
+    "open editor",
+]
+
+[[commands]]
+id = "open_translate"
+type = "lua"
+script = "open-translate.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_translate"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой переводчик гугл",
+    "открой гугл переводчик",
+    "сайт переводчика",
+]
+phrases.en = [
+    "open translator",
+    "translator",
+    "google translate",
+]
+
+[[commands]]
+id = "set_wallpaper"
+type = "lua"
+script = "set-wallpaper.lua"
+sandbox = "full"
+timeout = 120000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "поставь обои",
+    "смени обои",
+    "поменяй обои",
+    "измени обои",
+    "новые обои",
+    "поставь обои на рабочий стол",
+    "смени обои на рабочем столе",
+]
+phrases.en = [
+    "set wallpaper",
+    "change wallpaper",
+    "new wallpaper",
+    "pick wallpaper",
+]
+
+[[commands]]
+id = "set_wallpaper_screenshot"
+type = "lua"
+script = "set-wallpaper-screenshot.lua"
+sandbox = "full"
+timeout = 15000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "обои из скриншота",
+    "обои со скриншота",
+    "поставь скриншот на обои",
+    "сделай скриншот обоями",
+    "скриншот на рабочий стол",
+]
+phrases.en = [
+    "wallpaper from screenshot",
+    "screenshot wallpaper",
+    "set screenshot as wallpaper",
+]
+
+[[commands]]
+id = "set_wallpaper_random"
+type = "lua"
+script = "set-wallpaper-random.lua"
+sandbox = "full"
+timeout = 15000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "случайные обои",
+    "рандомные обои",
+    "рандом обои",
+    "поставь случайные обои",
+    "смени на случайные обои",
+]
+phrases.en = [
+    "random wallpaper",
+    "shuffle wallpaper",
+    "random desktop background",
+]

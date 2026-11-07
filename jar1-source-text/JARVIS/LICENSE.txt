@@ -1,0 +1,16 @@
+JARVIS — Proprietary Commercial License
+=======================================
+
+Copyright (c) 2026 JARVIS publisher. All rights reserved.
+
+This software is licensed for end-user use under the End User License
+Agreement (EULA.txt) distributed with the product. You may install and use
+JARVIS on computers you own or control subject to that EULA and any valid
+license key requirements.
+
+You may not redistribute, sublicense, or rebrand JARVIS except as expressly
+allowed by the publisher in writing.
+
+Open-source and third-party components bundled with JARVIS remain under their
+own licenses. See THIRD-PARTY-LICENSES.txt. Where an open-source license
+applies to a specific component, that license controls for that component.

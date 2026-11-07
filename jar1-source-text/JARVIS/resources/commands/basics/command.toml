@@ -1,0 +1,284 @@
+[[commands]]
+id = "browser_open"
+type = "lua"
+script = "browser-open.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_browser_open"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой браузер",
+    "запусти браузер",
+    "открой хром",
+    "запусти хром",
+    "включи браузер",
+    "открой интернет",
+    "открой гугл",
+    "открой google",
+]
+phrases.en = [
+    "open browser",
+    "launch browser",
+    "open chrome",
+    "start browser",
+    "open google",
+]
+
+[[commands]]
+id = "browser_close"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "Stop-Process -Name chrome,msedge,firefox,opera,opera_gx,brave,browser -ErrorAction SilentlyContinue"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "закрой браузер",
+    "закрой все браузеры",
+    "выключи браузер",
+    "убери браузер",
+]
+phrases.en = [
+    "close browser",
+    "close all browsers",
+    "exit browser",
+]
+
+[[commands]]
+id = "close_active"
+type = "lua"
+script = "close-active.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_close_active"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "закрой",
+    "закрой окно",
+    "закрой это",
+    "закрой активное окно",
+    "убери окно",
+]
+phrases.en = [
+    "close",
+    "close window",
+    "close this",
+    "close active window",
+]
+
+[[commands]]
+id = "volume_up"
+type = "lua"
+script = "volume-up.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_volume_up"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сделай громче",
+    "громче",
+    "увеличь громкость",
+    "прибавь звук",
+    "звука больше",
+    "сделай погромче",
+    "погромче",
+    "прибавь громкость",
+    "громкость выше",
+]
+phrases.en = [
+    "volume up",
+    "louder",
+    "increase volume",
+]
+
+[[commands]]
+id = "volume_down"
+type = "lua"
+script = "volume-down.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_volume_down"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сделай тише",
+    "тише",
+    "уменьши громкость",
+    "убавь звук",
+    "звука меньше",
+    "сделай потише",
+    "потише",
+    "убавь громкость",
+    "громкость ниже",
+]
+phrases.en = [
+    "volume down",
+    "quieter",
+    "decrease volume",
+]
+
+[[commands]]
+id = "volume_mute"
+type = "lua"
+script = "volume-mute.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_volume_mute"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи звук",
+    "без звука",
+    "мьют",
+    "отключи звук",
+    "заглуши звук",
+    "мьют звук",
+]
+phrases.en = [
+    "mute",
+    "mute sound",
+    "silence",
+]
+
+[[commands]]
+id = "volume_unmute"
+type = "lua"
+script = "volume-unmute.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_volume_unmute"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "включи звук",
+    "верни звук",
+    "сними мьют",
+    "размуть",
+]
+phrases.en = [
+    "unmute",
+    "unmute sound",
+    "turn sound on",
+]
+
+[[commands]]
+id = "lock_pc"
+type = "lua"
+script = "lock-pc.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_lock_pc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "заблокируй компьютер",
+    "заблокируй пк",
+    "блокировка",
+    "заблокируй экран",
+]
+phrases.en = [
+    "lock computer",
+    "lock pc",
+    "lock screen",
+]
+
+[[commands]]
+id = "open_explorer"
+type = "lua"
+script = "open-explorer.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_open_explorer"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой проводник",
+    "открой файлы",
+    "файловый менеджер",
+    "открой файловый проводник",
+]
+phrases.en = [
+    "open explorer",
+    "open files",
+    "file manager",
+]
+
+[[commands]]
+id = "open_calculator"
+type = "lua"
+script = "open-calculator.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_open_calculator"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой калькулятор",
+    "запусти калькулятор",
+    "калькулятор",
+]
+phrases.en = [
+    "open calculator",
+    "calculator",
+    "launch calculator",
+]
+
+[[commands]]
+id = "screenshot"
+type = "lua"
+script = "screenshot.lua"
+sandbox = "full"
+timeout = 10000
+sounds.ru = ["cmd_screenshot"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сделай скриншот",
+    "скриншот",
+    "снимок экрана",
+    "сделай снимок экрана",
+    "сохрани экран",
+]
+phrases.en = [
+    "take screenshot",
+    "screenshot",
+    "capture screen",
+    "save screenshot",
+]
+
+[[commands]]
+id = "screen_record_start"
+type = "lua"
+script = "screen-record-start.lua"
+sandbox = "full"
+timeout = 12000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сделай запись экрана",
+    "запиши экран",
+    "запись экрана",
+    "начни запись экрана",
+    "запусти запись экрана",
+    "начни снимать экран",
+]
+phrases.en = [
+    "record screen",
+    "start screen recording",
+    "start recording screen",
+    "screen record",
+]
+
+[[commands]]
+id = "screen_record_stop"
+type = "lua"
+script = "screen-record-stop.lua"
+sandbox = "full"
+timeout = 10000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "останови запись экрана",
+    "стоп запись экрана",
+    "закончи запись экрана",
+    "выключи запись экрана",
+    "останови запись",
+    "стоп запись",
+]
+phrases.en = [
+    "stop screen recording",
+    "stop recording screen",
+    "end screen recording",
+]

@@ -1,0 +1,130 @@
+(smiling, friendly, warm) Сделала потемнее!
+(smiling, friendly, warm) Сделала поярче!
+(smiling, friendly, warm) Вернула назад!
+(smiling, friendly, warm) Закрыла вкладку!
+(smiling, friendly, warm) Открыла загрузки!
+(smiling, friendly, warm) Открыла инкогнито!
+(smiling, friendly, warm) Открыла новую вкладку!
+(smiling, friendly, warm) Перешла на следующую!
+(smiling, friendly, warm) Открыла браузер!
+(smiling, friendly, warm) Вернула прошлую вкладку!
+(smiling, friendly, warm) Обновила!
+(smiling, friendly, warm) Вернула вкладку!
+(smiling, friendly, warm) Отменила выключение!
+(smiling, friendly, warm) Открыла буфер!
+(smiling, friendly, warm) Закрыла!
+(smiling, friendly, warm) Диктуй, я слушаю!
+(smiling, friendly, warm) Очистила корзину!
+(smiling, friendly, warm) Включила игровой режим!
+(smiling, friendly, warm) Выключила жесты!
+(smiling, friendly, warm) Включила жесты!
+(smiling, friendly, warm) Скопировала!
+(smiling, friendly, warm) Вырезала!
+(smiling, friendly, warm) Открыла поиск!
+(smiling, friendly, warm) Сделала новый документ!
+(smiling, friendly, warm) Вставила!
+(smiling, friendly, warm) Отправила на печать!
+(smiling, friendly, warm) Вернула как было!
+(smiling, friendly, warm) Сохранила!
+(smiling, friendly, warm) Выделила всё!
+(smiling, friendly, warm) Переключила язык!
+(smiling, friendly, warm) Отменила!
+(smiling, friendly, warm) Заблокировала!
+(smiling, friendly, warm) Развернула на весь экран!
+(smiling, friendly, warm) Включила следующий!
+(smiling, friendly, warm) Поставила на паузу!
+(smiling, friendly, warm) Вернула прошлый трек!
+(smiling, friendly, warm) Остановила!
+(smiling, friendly, warm) Всё свернула!
+(smiling, friendly, warm) Свернула!
+(smiling, friendly, warm) Открыла про компьютер!
+(smiling, friendly, warm) Открыла Авито!
+(smiling, friendly, warm) Открыла блютуз!
+(smiling, friendly, warm) Открыла калькулятор!
+(smiling, friendly, warm) Открыла календарь!
+(smiling, friendly, warm) Открыла камеру!
+(smiling, friendly, warm) Открыла Чатджипити!
+(smiling, friendly, warm) Открыла Клода!
+(smiling, friendly, warm) Открыла Курсор!
+(smiling, friendly, warm) Открыла Дипсик!
+(smiling, friendly, warm) Открыла рабочий стол!
+(smiling, friendly, warm) Открыла Дискорд!
+(smiling, friendly, warm) Открыла настройки экрана!
+(smiling, friendly, warm) Открыла документы!
+(smiling, friendly, warm) Открыла загрузки!
+(smiling, friendly, warm) Открыла эмодзи!
+(smiling, friendly, warm) Открыла Эксель!
+(smiling, friendly, warm) Открыла проводник!
+(smiling, friendly, warm) Открыла Джемини!
+(smiling, friendly, warm) Открыла Гитхаб!
+(smiling, friendly, warm) Открыла почту!
+(smiling, friendly, warm) Открыла Гугл диск!
+(smiling, friendly, warm) Открыла Инстаграм!
+(smiling, friendly, warm) Открыла Иви!
+(smiling, friendly, warm) Открыла Кинопоиск!
+(smiling, friendly, warm) Открыла карты!
+(smiling, friendly, warm) Открыла Мит!
+(smiling, friendly, warm) Открыла Нетфликс!
+(smiling, friendly, warm) Открыла новости!
+(smiling, friendly, warm) Включила ночной свет!
+(smiling, friendly, warm) Открыла блокнот!
+(smiling, friendly, warm) Открыла Ноушен!
+(smiling, friendly, warm) Открыла ОБС!
+(smiling, friendly, warm) Открыла Озон!
+(smiling, friendly, warm) Открыла Пейнт!
+(smiling, friendly, warm) Открыла фото!
+(smiling, friendly, warm) Открыла Пинтерест!
+(smiling, friendly, warm) Открыла презентацию!
+(smiling, friendly, warm) Открыла корзину!
+(smiling, friendly, warm) Открыла Рутуб!
+(smiling, friendly, warm) Открыла скриншоты!
+(smiling, friendly, warm) Открыла параметры!
+(smiling, friendly, warm) Открыла ножницы!
+(smiling, friendly, warm) Открыла звук!
+(smiling, friendly, warm) Открыла автозагрузку!
+(smiling, friendly, warm) Открыла Стим!
+(smiling, friendly, warm) Открыла память!
+(smiling, friendly, warm) Открыла диспетчер!
+(smiling, friendly, warm) Открыла Тимс!
+(smiling, friendly, warm) Открыла Телеграм!
+(smiling, friendly, warm) Открыла терминал!
+(smiling, friendly, warm) Открыла Тикток!
+(smiling, friendly, warm) Открыла переводчик!
+(smiling, friendly, warm) Открыла Твич!
+(smiling, friendly, warm) Открыла обновления!
+(smiling, friendly, warm) Открыла Вконтакте!
+(smiling, friendly, warm) Открыла погоду!
+(smiling, friendly, warm) Открыла Ватсап!
+(smiling, friendly, warm) Открыла вайфай!
+(smiling, friendly, warm) Открыла Вайлдберриз!
+(smiling, friendly, warm) Открыла Ворд!
+(smiling, friendly, warm) Открыла Яндекс!
+(smiling, friendly, warm) Открыла Яндекс диск!
+(smiling, friendly, warm) Открыла Яндекс карты!
+(smiling, friendly, warm) Открыла Яндекс музыку!
+(smiling, friendly, warm) Открыла Ютуб!
+(smiling, friendly, warm) Открыла Ютуб музыку!
+(smiling, friendly, warm) Открыла Зум!
+(smiling, friendly, warm) Перезапустила проводник!
+(smiling, friendly, warm) Хорошо, напомню!
+(smiling, friendly, warm) Убрала напоминание!
+(smiling, friendly, warm) Перезагружаю!
+(smiling, friendly, warm) Сделала скриншот!
+(smiling, friendly, warm) Ищу в Гугле!
+(smiling, friendly, warm) Открыла Википедию!
+(smiling, friendly, warm) Ищу в Яндексе!
+(smiling, friendly, warm) Ищу на Ютубе!
+(smiling, friendly, warm) Показала рабочий стол!
+(smiling, friendly, warm) Выключаю!
+(smiling, friendly, warm) Усыпляю компьютер!
+(smiling, friendly, warm) Читаю!
+(smiling, friendly, warm) Хорошо, остановила!
+(smiling, friendly, warm) Переключила окно!
+(smiling, friendly, warm) Поставила таймер!
+(smiling, friendly, warm) Открыла переводчик!
+(smiling, friendly, warm) Поставила Хром!
+(smiling, friendly, warm) Поставила Яндекс браузер!
+(smiling, friendly, warm) Сделала потише!
+(smiling, friendly, warm) Выключила звук!
+(smiling, friendly, warm) Вернула звук!
+(smiling, friendly, warm) Сделала погромче!

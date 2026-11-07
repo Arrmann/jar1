@@ -1,0 +1,4 @@
+channel=release
+version=1.0.5
+built=2026-11-01T02:04:46.5962138+03:00
+optional_stt=gigaam-downloader-only

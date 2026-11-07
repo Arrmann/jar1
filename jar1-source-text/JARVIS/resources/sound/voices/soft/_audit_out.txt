@@ -1,0 +1,162 @@
+=== ENGLISH IN phrases.ru ===
+open_emoji_panel	win точка
+open_emoji_panel	открой emoji
+open_calendar	google календарь
+open_calendar	открой календарь windows
+open_photos	открой фотографии windows
+open_startup_apps	программы при запуске windows
+open_startup_apps	что запускается с windows
+open_storage	открой хранилище windows
+open_storage	хранилище windows
+open_update	обновления windows
+open_update	открой обновления windows
+open_update	проверь обновления windows
+open_update	центр обновления windows
+reload_explorer	перезапуск explorer
+reload_explorer	перезапусти explorer
+open_chatgpt	открой chatgpt
+open_chatgpt	открой чат gpt
+open_chatgpt	чат gpt
+open_chatgpt	chatgpt
+open_deepseek	deep seek
+open_deepseek	открой deepseek
+open_claude	открой claude
+open_claude	открой claude ai
+open_claude	claude
+open_gemini	google gemini
+open_gemini	открой gemini
+open_twitch	открой twitch
+open_tiktok	открой tiktok
+open_ivi	открой ivi
+open_wildberries	wildberries
+open_wildberries	открой wildberries
+open_ozon	открой ozon
+open_avito	открой avito
+open_yandex	открой ya.ru
+open_google_drive	google drive
+open_google_drive	google диск
+open_google_drive	открой drive
+open_google_drive	открой google drive
+open_google_drive	открой google диск
+open_news	открой google новости
+open_steam	открой steam
+open_steam	steam
+open_youtube_music	открой youtube music
+open_youtube_music	запусти youtube music
+open_zoom	открой zoom
+open_teams	teams
+open_teams	открой microsoft teams
+open_teams	открой teams
+open_meet	google meet
+open_meet	открой meet
+open_word	microsoft word
+open_word	открой microsoft word
+open_word	открой word
+open_excel	microsoft excel
+open_excel	открой excel
+open_excel	открой microsoft excel
+open_powerpoint	powerpoint
+open_powerpoint	открой powerpoint
+open_notion	открой notion
+open_github	открой github
+open_github	github
+open_rutube	открой rutube
+open_pinterest	открой pinterest
+=== SHORT single-word <=8 ===
+open_ivi	иви
+open_meet	мит
+open_obs	обс
+open_zoom	зум
+open_claude	клод
+open_magnifier	лупа
+open_ozon	озон
+open_steam	стим
+open_twitch	твич
+open_word	ворд
+browser_back	назад
+open_avito	авито
+open_claude	клауд
+open_focus_assist	фокус
+open_rutube	рутуб
+open_steam	steam
+open_teams	teams
+browser_forward	вперёд
+browser_forward	вперед
+input_print	печать
+open_chatgpt	чатгпт
+open_claude	claude
+open_deepseek	дипсик
+open_emoji_panel	эмодзи
+open_excel	эксель
+open_github	гитхаб
+open_github	github
+open_notion	ноушен
+open_tiktok	тикток
+open_weather	погода
+open_chatgpt	chatgpt
+open_gemini	джемини
+open_news	новости
+open_photos	галерея
+open_snip	ножницы
+open_weather	прогноз
+browser_zoom_in_cmd	приблизь
+browser_zoom_out_cmd	отдались
+open_pinterest	пинтерес
+open_speedtest	спидтест
+=== ALL bare single-word ===
+open_ivi	иви
+open_meet	мит
+open_obs	обс
+open_zoom	зум
+open_claude	клод
+open_magnifier	лупа
+open_ozon	озон
+open_steam	стим
+open_twitch	твич
+open_word	ворд
+browser_back	назад
+open_avito	авито
+open_claude	клауд
+open_focus_assist	фокус
+open_rutube	рутуб
+open_steam	steam
+open_teams	teams
+browser_forward	вперёд
+browser_forward	вперед
+input_print	печать
+open_chatgpt	чатгпт
+open_claude	claude
+open_deepseek	дипсик
+open_emoji_panel	эмодзи
+open_excel	эксель
+open_github	гитхаб
+open_github	github
+open_notion	ноушен
+open_tiktok	тикток
+open_weather	погода
+open_chatgpt	chatgpt
+open_gemini	джемини
+open_news	новости
+open_photos	галерея
+open_snip	ножницы
+open_weather	прогноз
+browser_zoom_in_cmd	приблизь
+browser_zoom_out_cmd	отдались
+open_pinterest	пинтерес
+open_speedtest	спидтест
+browser_incognito	инкогнито
+open_calendar	календарь
+open_clock	будильник
+open_instagram	инстаграм
+open_kinopoisk	кинопоиск
+open_pinterest	пинтерест
+open_storage	хранилище
+input_print	распечатай
+open_powerpoint	powerpoint
+open_wildberries	вайлдбериз
+input_print	распечатать
+open_powerpoint	презентация
+open_wildberries	wildberries
+open_wildberries	вайлдберриз
+open_wildberries	вайлдберрис
+open_yandex_disk	яндекс.диск

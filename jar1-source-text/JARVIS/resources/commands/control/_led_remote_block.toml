@@ -1,0 +1,506 @@
+[[commands]]
+id = "led_on"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "on"]
+sandbox = "full"
+timeout = 15000
+description = "Включить ленту"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["включи ленту", "зажги ленту", "включи подсветку", "зажги подсветку"]
+phrases.en = ["led on"]
+
+[[commands]]
+id = "led_off"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "off"]
+sandbox = "full"
+timeout = 15000
+description = "Выключить ленту"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["выключи ленту", "погаси ленту", "выключи подсветку", "погаси подсветку"]
+phrases.en = ["led off"]
+
+[[commands]]
+id = "led_scan"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "scan"]
+sandbox = "full"
+timeout = 20000
+description = "Найти ленту"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["найди ленту", "подключи ленту", "найди подсветку"]
+phrases.en = ["find led"]
+
+[[commands]]
+id = "led_bright_up"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "up"]
+sandbox = "full"
+timeout = 15000
+description = "Ярче ленту"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента ярче", "сделай ленту ярче", "подсветка ярче", "прибавь яркость ленты"]
+phrases.en = ["led brighter"]
+
+[[commands]]
+id = "led_bright_down"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "down"]
+sandbox = "full"
+timeout = 15000
+description = "Тусклее ленту"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента тусклее", "сделай ленту тусклее", "подсветка тусклее", "убавь яркость ленты", "приглуши ленту"]
+phrases.en = ["led dimmer"]
+
+[[commands]]
+id = "led_red"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "red"]
+sandbox = "full"
+timeout = 15000
+description = "Красный"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента красный", "лента красная", "красный свет", "подсветка красный"]
+phrases.en = ["led red"]
+
+[[commands]]
+id = "led_green"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "green"]
+sandbox = "full"
+timeout = 15000
+description = "Зелёный"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента зеленый", "лента зелёный", "лента зеленая", "зеленый свет", "зелёный свет", "подсветка зеленый"]
+phrases.en = ["led green"]
+
+[[commands]]
+id = "led_blue"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "blue"]
+sandbox = "full"
+timeout = 15000
+description = "Синий"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента синий", "лента синяя", "синий свет", "подсветка синий"]
+phrases.en = ["led blue"]
+
+[[commands]]
+id = "led_white"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "white"]
+sandbox = "full"
+timeout = 15000
+description = "Белый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента белый", "лента белая", "белый свет", "подсветка белый"]
+phrases.en = ["led white"]
+
+[[commands]]
+id = "led_orange"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "orange"]
+sandbox = "full"
+timeout = 15000
+description = "Оранжевый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента оранжевый", "оранжевый свет", "подсветка оранжевый"]
+phrases.en = ["led orange"]
+
+[[commands]]
+id = "led_yellow"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "yellow"]
+sandbox = "full"
+timeout = 15000
+description = "Жёлтый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента желтый", "лента жёлтый", "желтый свет", "жёлтый свет"]
+phrases.en = ["led yellow"]
+
+[[commands]]
+id = "led_lime"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "lime"]
+sandbox = "full"
+timeout = 15000
+description = "Салатовый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента салатовый", "салатовый свет"]
+phrases.en = ["led lime"]
+
+[[commands]]
+id = "led_cyan"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "cyan"]
+sandbox = "full"
+timeout = 15000
+description = "Голубой"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента голубой", "голубой свет", "подсветка голубой"]
+phrases.en = ["led cyan"]
+
+[[commands]]
+id = "led_teal"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "teal"]
+sandbox = "full"
+timeout = 15000
+description = "Бирюзовый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента бирюзовый", "бирюзовый свет"]
+phrases.en = ["led teal"]
+
+[[commands]]
+id = "led_sky"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "sky"]
+sandbox = "full"
+timeout = 15000
+description = "Небесный"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента небесный", "небесный свет"]
+phrases.en = ["led sky"]
+
+[[commands]]
+id = "led_purple"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "purple"]
+sandbox = "full"
+timeout = 15000
+description = "Фиолетовый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента фиолетовый", "фиолетовый свет", "подсветка фиолетовый"]
+phrases.en = ["led purple"]
+
+[[commands]]
+id = "led_magenta"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "magenta"]
+sandbox = "full"
+timeout = 15000
+description = "Малиновый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента малиновый", "малиновый свет"]
+phrases.en = ["led magenta"]
+
+[[commands]]
+id = "led_pink"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "pink"]
+sandbox = "full"
+timeout = 15000
+description = "Розовый"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["лента розовый", "лента розовая", "розовый свет", "подсветка розовый"]
+phrases.en = ["led pink"]
+
+[[commands]]
+id = "led_jump3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "jump3"]
+sandbox = "full"
+timeout = 15000
+description = "JUMP3 — цветные прыжки"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["цветные прыжки", "режим прыжки", "прыжки на ленте", "три цвета"]
+phrases.en = ["led jump three"]
+
+[[commands]]
+id = "led_jump7"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "jump7"]
+sandbox = "full"
+timeout = 15000
+description = "JUMP7 — радуга"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["радуга", "режим радуга", "лента радуга", "радуга на ленте", "сделай радугу", "семь цветов"]
+phrases.en = ["led rainbow"]
+
+[[commands]]
+id = "led_fade3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "fade3"]
+sandbox = "full"
+timeout = 15000
+description = "FADE3 — плавно"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["плавно", "плавный режим", "затухание", "плавная смена", "лента плавно"]
+phrases.en = ["led fade"]
+
+[[commands]]
+id = "led_fade7"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "fade7"]
+sandbox = "full"
+timeout = 15000
+description = "FADE7 — перелив"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["перелив", "переливы", "режим перелив", "плавная радуга", "лента перелив"]
+phrases.en = ["led crossfade"]
+
+[[commands]]
+id = "led_flash"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "flash"]
+sandbox = "full"
+timeout = 15000
+description = "FLASH — мигание"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["мигание", "мигай", "режим мигания", "мигание ленты", "вспышки", "лента мигает"]
+phrases.en = ["led flash"]
+
+[[commands]]
+id = "led_auto"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "auto"]
+sandbox = "full"
+timeout = 15000
+description = "AUTO"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["авторежим", "автоматический режим", "режим авто", "лента автомат", "авто на ленте"]
+phrases.en = ["led auto"]
+
+[[commands]]
+id = "led_quick"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "quick"]
+sandbox = "full"
+timeout = 15000
+description = "QUICK — быстрее"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["ускорь ленту", "быстрее эффект", "быстрый режим ленты", "ускорь эффект", "лента быстро"]
+phrases.en = ["led quick"]
+
+[[commands]]
+id = "led_slow"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "slow"]
+sandbox = "full"
+timeout = 15000
+description = "SLOW — медленнее"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["замедли ленту", "медленнее эффект", "медленный режим ленты", "замедли эффект", "лента медленно"]
+phrases.en = ["led slow"]
+
+[[commands]]
+id = "led_timer_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "1"]
+sandbox = "full"
+timeout = 15000
+description = "1H"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["погаси через час", "выключи ленту через час", "лента на час", "выключи подсветку через час"]
+phrases.en = ["led timer one hour"]
+
+[[commands]]
+id = "led_timer_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "2"]
+sandbox = "full"
+timeout = 15000
+description = "2H"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["погаси через два часа", "выключи ленту через два часа", "лента на два часа"]
+phrases.en = ["led timer two hours"]
+
+[[commands]]
+id = "led_timer_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "3"]
+sandbox = "full"
+timeout = 15000
+description = "3H"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["погаси через три часа", "выключи ленту через три часа", "лента на три часа"]
+phrases.en = ["led timer three hours"]
+
+[[commands]]
+id = "led_timer_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "4"]
+sandbox = "full"
+timeout = 15000
+description = "4H"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["погаси через четыре часа", "выключи ленту через четыре часа", "лента на четыре часа"]
+phrases.en = ["led timer four hours"]
+
+[[commands]]
+id = "led_moon_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "1"]
+sandbox = "full"
+timeout = 15000
+description = "Ночник"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["ночник", "ночной режим ленты", "очень тусклая лента", "лента ночник"]
+phrases.en = ["led night"]
+
+[[commands]]
+id = "led_moon_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "2"]
+sandbox = "full"
+timeout = 15000
+description = "Тускло"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["тусклая лента", "средняя яркость ленты", "лента тускло"]
+phrases.en = ["led dusk"]
+
+[[commands]]
+id = "led_moon_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "3"]
+sandbox = "full"
+timeout = 15000
+description = "Мягкий свет"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["мягкий свет", "мягкая лента", "мягкая подсветка"]
+phrases.en = ["led soft"]
+
+[[commands]]
+id = "led_moon_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "4"]
+sandbox = "full"
+timeout = 15000
+description = "Ярко"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["яркая лента", "полная яркость ленты", "максимум ленты", "лента на полную"]
+phrases.en = ["led full"]
+
+[[commands]]
+id = "led_music_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "1"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 1"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["музыкальный режим", "лента под музыку", "включи музыку ленты", "подсветка под музыку"]
+phrases.en = ["led music"]
+
+[[commands]]
+id = "led_music_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "2"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 2"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["мягкая музыка ленты", "спокойная музыка ленты"]
+phrases.en = ["led soft music"]
+
+[[commands]]
+id = "led_music_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "3"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 3"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["динамичная музыка ленты", "громкая музыка ленты"]
+phrases.en = ["led dynamic music"]
+
+[[commands]]
+id = "led_music_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "4"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 4 — диско"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["диско", "дискотека", "режим диско", "диско на ленте", "лента диско"]
+phrases.en = ["led disco"]
+
+[[commands]]
+id = "led_music_off"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "mic_off"]
+sandbox = "full"
+timeout = 15000
+description = "Выкл музыку"
+sounds.ru = ["ok1", "ok2", "ok3"]
+sounds.en = ["ok1", "ok2", "ok3"]
+phrases.ru = ["выключи музыку ленты", "отключи музыку ленты", "стоп музыка ленты", "без музыки лента"]
+phrases.en = ["led music off"]

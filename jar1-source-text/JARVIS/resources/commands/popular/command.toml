@@ -1,0 +1,997 @@
+# Popular / competitive commands (Luxify & Vibe parity + RU everyday needs)
+
+[[commands]]
+id = "browser_back"
+type = "lua"
+script = "browser-back.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_browser_back"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "страница назад",
+    "вернись назад",
+    "браузер назад",
+]
+phrases.en = ["go back", "browser back", "page back"]
+
+[[commands]]
+id = "browser_forward"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "(New-Object -ComObject WScript.Shell).SendKeys('%{RIGHT}')"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "страница вперёд",
+    "страница вперед",
+    "браузер вперёд",
+]
+phrases.en = ["go forward", "browser forward", "page forward"]
+
+[[commands]]
+id = "browser_new_window"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "(New-Object -ComObject WScript.Shell).SendKeys('^n')"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["новое окно", "открой новое окно"]
+phrases.en = ["new window", "open new window"]
+
+[[commands]]
+id = "browser_incognito"
+type = "lua"
+script = "browser-incognito.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_browser_incognito"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой инкогнито",
+    "приватное окно",
+    "открой приватное окно",
+]
+phrases.en = ["incognito", "private window", "open incognito"]
+
+[[commands]]
+id = "browser_zoom_reset"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "(New-Object -ComObject WScript.Shell).SendKeys('^0')"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["сбрось масштаб", "масштаб сто", "обычный масштаб"]
+phrases.en = ["zoom reset", "reset zoom"]
+
+[[commands]]
+id = "browser_zoom_in_cmd"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/browser-control.ps1", "zoom_in"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "увеличь масштаб",
+    "масштаб больше",
+    "приблизь страницу",
+]
+phrases.en = ["zoom in", "zoom bigger"]
+
+[[commands]]
+id = "browser_zoom_out_cmd"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/browser-control.ps1", "zoom_out"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "уменьши масштаб",
+    "масштаб меньше",
+    "отдались от страницы",
+]
+phrases.en = ["zoom out", "zoom smaller"]
+
+[[commands]]
+id = "scroll_up"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/scroll-control.ps1", "up"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["прокрути вверх", "скролл вверх", "прокрутка вверх"]
+phrases.en = ["scroll up"]
+
+[[commands]]
+id = "scroll_down"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/scroll-control.ps1", "down"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["прокрути вниз", "скролл вниз", "прокрутка вниз"]
+phrases.en = ["scroll down"]
+
+[[commands]]
+id = "scroll_page_up"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/scroll-control.ps1", "page_up"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["страница вверх", "на страницу вверх"]
+phrases.en = ["page up"]
+
+[[commands]]
+id = "scroll_page_down"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/scroll-control.ps1", "page_down"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["страница вниз", "на страницу вниз"]
+phrases.en = ["page down"]
+
+[[commands]]
+id = "scroll_top"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/scroll-control.ps1", "top"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["в начало страницы", "наверх страницы", "в самый верх"]
+phrases.en = ["page top", "go to top"]
+
+[[commands]]
+id = "scroll_bottom"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/scroll-control.ps1", "bottom"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["в конец страницы", "вниз страницы", "в самый низ"]
+phrases.en = ["page bottom", "go to bottom"]
+
+[[commands]]
+id = "input_switch_lang"
+type = "lua"
+script = "input-switch-lang.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_switch_lang"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["смени язык", "переключи язык", "смени раскладку", "язык ввода"]
+phrases.en = ["switch language", "change layout", "keyboard language"]
+
+[[commands]]
+id = "open_run_dialog"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-known-app.ps1", "run"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой выполнить", "окно выполнить", "выполнить команду"]
+phrases.en = ["open run", "run dialog"]
+
+[[commands]]
+id = "open_emoji_panel"
+type = "lua"
+script = "open-emoji-panel.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_emoji_panel"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой эмодзи",
+    "панель эмодзи",
+    "эмодзи панель",
+    "вин точка",
+]
+phrases.en = ["emoji panel", "open emoji"]
+
+[[commands]]
+id = "open_snip"
+type = "lua"
+script = "open-snip.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_open_snip"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой ножницы",
+    "фрагмент экрана",
+    "снимок области",
+]
+phrases.en = ["snipping tool", "screen snip", "capture region"]
+
+[[commands]]
+id = "open_magnifier"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "Start-Process magnify"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой лупу",
+    "увеличительное стекло",
+    "открой увеличительное стекло",
+]
+phrases.en = ["open magnifier", "magnifier"]
+
+[[commands]]
+id = "open_clock"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-uri.ps1", "ms-clock:"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой часы",
+    "открой будильники",
+]
+phrases.en = ["open clock", "alarms", "timer"]
+
+[[commands]]
+id = "open_calendar"
+type = "lua"
+script = "open-calendar.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_calendar"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой календарь",
+    "календарь виндовс",
+    "гугл календарь",
+]
+phrases.en = ["open calendar", "calendar", "open google calendar", "google calendar"]
+
+[[commands]]
+id = "open_photos"
+type = "lua"
+script = "open-photos.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_photos"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой фото",
+    "открой фотографии",
+    "открой галерею",
+    "галерея виндовс",
+]
+phrases.en = ["open photos", "photos app"]
+
+[[commands]]
+id = "open_sound_settings"
+type = "lua"
+script = "open-sound-settings.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_sound_settings"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "настройки звука",
+    "открой звук",
+    "открой настройки звука",
+    "открой параметры звука",
+    "параметры звука"
+]
+phrases.en = ["sound settings", "audio settings"]
+
+[[commands]]
+id = "open_display_settings"
+type = "lua"
+script = "open-display-settings.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_display_settings"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "настройки дисплея",
+    "настройки экрана",
+    "открой настройки экрана",
+    "открой параметры экрана",
+    "параметры дисплея",
+    "разрешение экрана"
+]
+phrases.en = ["display settings", "screen settings"]
+
+[[commands]]
+id = "open_night_light"
+type = "lua"
+script = "open-night-light.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_night_light"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "включи ночной свет",
+    "ночной режим экрана",
+    "ночной свет",
+    "открой ночной свет",
+    "поставь ночной свет",
+    "тёплый свет экрана",
+    "тёплый экран"
+]
+phrases.en = ["night light", "blue light filter"]
+
+[[commands]]
+id = "open_focus_assist"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-uri.ps1", "ms-settings:quiethours"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "режим фокусировки",
+    "не беспокоить",
+    "открой фокус",
+]
+phrases.en = ["focus assist", "do not disturb"]
+
+[[commands]]
+id = "open_apps_features"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-uri.ps1", "ms-settings:appsfeatures"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["установленные приложения", "приложения и возможности", "удалить программы"]
+phrases.en = ["apps and features", "installed apps"]
+
+[[commands]]
+id = "open_startup_apps"
+type = "lua"
+script = "open-startup-apps.lua"
+sandbox = "full"
+timeout = 8000
+description = "Открыть список программ, которые стартуют вместе с Windows"
+sounds.ru = ["cmd_open_startup_apps"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "программы при запуске",
+    "автозагрузка программ",
+    "что запускается с виндовс",
+    "автозагрузка виндовс",
+]
+phrases.en = ["startup apps", "startup programs"]
+
+[[commands]]
+id = "open_storage"
+type = "lua"
+script = "open-storage.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_storage"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой хранилище",
+    "хранилище виндовс",
+    "открой память",
+]
+phrases.en = ["storage settings", "disk storage"]
+
+[[commands]]
+id = "open_update"
+type = "lua"
+script = "open-update.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_update"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой обновления",
+    "обновления виндовс",
+    "проверь обновления",
+    "центр обновления",
+]
+phrases.en = ["windows update", "check updates"]
+
+[[commands]]
+id = "open_about_pc"
+type = "lua"
+script = "open-about-pc.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_about_pc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "информация о компьютере",
+    "информация о системе",
+    "о компьютере",
+    "о системе",
+    "открой о системе",
+    "свойства компьютера",
+    "свойства системы"
+]
+phrases.en = ["about pc", "system info"]
+
+[[commands]]
+id = "reload_explorer"
+type = "lua"
+script = "reload-explorer.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_reload_explorer"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "перезапусти проводник",
+    "перезапуск проводника",
+    "перезапусти эксплорер",
+]
+phrases.en = ["restart explorer", "reload explorer"]
+
+[[commands]]
+id = "open_chatgpt"
+type = "lua"
+script = "open-chatgpt.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_chatgpt"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой чат джипити",
+    "открой чатгпт",
+    "открой чат гпт",
+    "чат джипити",
+    "чатгпт",
+]
+phrases.en = [
+    "open chatgpt",
+    "open chat gpt",
+    "chatgpt",
+    "chat gpt",
+]
+
+[[commands]]
+id = "open_deepseek"
+type = "lua"
+script = "open-deepseek.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_deepseek"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой дипсик",
+    "открой дип сик",
+    "дипсик",
+    "дип сик",
+]
+phrases.en = ["open deepseek", "deepseek"]
+
+[[commands]]
+id = "open_claude"
+type = "lua"
+script = "open-claude.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_claude"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой клод",
+    "открой клауд",
+    "открой клод ии",
+]
+phrases.en = [
+    "open claude",
+    "open claude ai",
+    "claude",
+    "claude ai",
+]
+
+[[commands]]
+id = "open_gemini"
+type = "lua"
+script = "open-gemini.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_gemini"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой джемини",
+    "открой гемини",
+    "джемини",
+    "гугл джемини",
+]
+phrases.en = ["open gemini", "gemini"]
+
+[[commands]]
+id = "open_twitch"
+type = "lua"
+script = "open-twitch.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_twitch"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой твич",
+    "твич",
+]
+phrases.en = ["open twitch", "twitch"]
+
+[[commands]]
+id = "open_tiktok"
+type = "lua"
+script = "open-tiktok.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_tiktok"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой тикток",
+    "тикток",
+]
+phrases.en = ["open tiktok", "tiktok"]
+
+[[commands]]
+id = "open_instagram"
+type = "lua"
+script = "open-instagram.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_instagram"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой инстаграм",
+    "открой инсту",
+    "инстаграм",
+]
+phrases.en = ["open instagram", "instagram"]
+
+[[commands]]
+id = "open_kinopoisk"
+type = "lua"
+script = "open-kinopoisk.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_kinopoisk"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой кинопоиск",
+    "кинопоиск",
+    "кино поиск",
+]
+phrases.en = ["open kinopoisk", "kinopoisk"]
+
+[[commands]]
+id = "open_ivi"
+type = "lua"
+script = "open-ivi.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_ivi"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой иви",
+    "открой и ви",
+]
+phrases.en = ["open ivi"]
+
+[[commands]]
+id = "open_wildberries"
+type = "lua"
+script = "open-wildberries.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_wildberries"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой вайлдберриз",
+    "открой вайлдбериз",
+    "вайлдберриз",
+    "вайлдбериз",
+    "открой вб",
+]
+phrases.en = ["open wildberries"]
+
+[[commands]]
+id = "open_ozon"
+type = "lua"
+script = "open-ozon.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_ozon"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой озон",
+    "открой озон магазин",
+]
+phrases.en = ["open ozon"]
+
+[[commands]]
+id = "open_avito"
+type = "lua"
+script = "open-avito.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_avito"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой авито",
+    "авито",
+]
+phrases.en = ["open avito"]
+
+[[commands]]
+id = "open_yandex"
+type = "lua"
+script = "open-yandex.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_yandex"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой яндекс",
+    "открой я ру",
+    "яндекс",
+]
+phrases.en = ["open yandex", "yandex browser", "open ya.ru"]
+
+[[commands]]
+id = "open_google_drive"
+type = "lua"
+script = "open-google-drive.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_google_drive"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой гугл диск",
+    "гугл диск",
+    "открой гугл драйв",
+    "гугл драйв",
+]
+phrases.en = ["open google drive", "google drive"]
+
+[[commands]]
+id = "open_yandex_disk"
+type = "lua"
+script = "open-yandex-disk.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_yandex_disk"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой яндекс диск",
+    "открой яндекс.диск",
+    "яндекс диск",
+    "яндекс.диск"
+]
+phrases.en = ["open yandex disk"]
+
+[[commands]]
+id = "open_weather"
+type = "lua"
+script = "open-weather.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_weather"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой погоду",
+    "покажи погоду",
+    "прогноз погоды",
+]
+phrases.en = ["weather", "open weather"]
+
+[[commands]]
+id = "open_news"
+type = "lua"
+script = "open-news.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_news"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой новости",
+    "гугл новости",
+    "открой гугл новости",
+]
+phrases.en = ["open news", "news"]
+
+[[commands]]
+id = "open_speedtest"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-url.ps1", "https://www.speedtest.net"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["проверь скорость интернета", "спидтест", "тест скорости"]
+phrases.en = ["speedtest", "internet speed"]
+
+[[commands]]
+id = "open_steam"
+type = "lua"
+script = "open-steam.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_steam"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой стим",
+    "стим",
+]
+phrases.en = ["open steam", "steam", "launch steam"]
+
+[[commands]]
+id = "open_yandex_music"
+type = "lua"
+script = "open-yandex-music.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой яндекс музыку",
+    "яндекс музыка",
+    "запусти яндекс музыку",
+]
+phrases.en = [
+    "open yandex music",
+    "yandex music",
+]
+
+[[commands]]
+id = "open_youtube_music"
+type = "lua"
+script = "open-youtube-music.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой ютуб музыку",
+    "ютуб музыка",
+    "открой ютуб мьюзик",
+]
+phrases.en = [
+    "open youtube music",
+    "youtube music",
+]
+
+[[commands]]
+id = "open_epic"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-known-app.ps1", "epic"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой эпик", "открой эпик геймс", "эпик геймс"]
+phrases.en = ["open epic", "epic games"]
+
+[[commands]]
+id = "open_obs"
+type = "lua"
+script = "open-obs.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_obs"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой обс",
+    "открой обс студио",
+]
+phrases.en = ["open obs", "obs studio"]
+
+[[commands]]
+id = "open_zoom"
+type = "lua"
+script = "open-zoom.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_zoom"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой зум",
+    "открой зум конференцию",
+]
+phrases.en = ["open zoom", "zoom"]
+
+[[commands]]
+id = "open_teams"
+type = "lua"
+script = "open-teams.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_teams"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой тимс",
+    "открой майкрософт тимс",
+    "тимс",
+]
+phrases.en = ["open teams", "microsoft teams"]
+
+[[commands]]
+id = "open_meet"
+type = "lua"
+script = "open-meet.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_meet"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой мит",
+    "открой гугл мит",
+    "гугл мит",
+]
+phrases.en = ["open google meet", "meet"]
+
+[[commands]]
+id = "open_word"
+type = "lua"
+script = "open-word.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_word"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой ворд",
+    "открой майкрософт ворд",
+    "ворд",
+]
+phrases.en = ["open word", "microsoft word"]
+
+[[commands]]
+id = "open_excel"
+type = "lua"
+script = "open-excel.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_excel"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой эксель",
+    "открой майкрософт эксель",
+    "эксель",
+]
+phrases.en = ["open excel", "microsoft excel"]
+
+[[commands]]
+id = "open_powerpoint"
+type = "lua"
+script = "open-powerpoint.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_powerpoint"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой поверпоинт",
+    "открой презентацию",
+    "поверпоинт",
+    "презентация",
+]
+phrases.en = ["open powerpoint", "powerpoint"]
+
+[[commands]]
+id = "open_notion"
+type = "lua"
+script = "open-notion.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_notion"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой ноушен",
+    "открой ноушн",
+    "ноушен",
+    "ноушн",
+]
+phrases.en = ["open notion", "notion"]
+
+[[commands]]
+id = "input_save_as"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-Command", "(New-Object -ComObject WScript.Shell).SendKeys('+^s')"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["сохрани как", "сохранить как"]
+phrases.en = ["save as"]
+
+[[commands]]
+id = "input_find"
+type = "lua"
+script = "input-find.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_find"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["найди на странице", "поиск на странице", "контрол эф", "найди на экране"]
+phrases.en = ["find on page", "page find"]
+
+[[commands]]
+id = "input_print"
+type = "lua"
+script = "input-print.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_input_print"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "отправь на печать",
+    "распечатай",
+    "распечатать документ",
+]
+phrases.en = ["print", "print document"]
+
+[[commands]]
+id = "input_new_doc"
+type = "lua"
+script = "input-new-doc.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_input_new_doc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "новый документ",
+    "новый файл",
+    "создай документ",
+    "создай новый документ",
+    "создаю новый документ"
+]
+phrases.en = ["new document"]
+
+[[commands]]
+id = "media_stop"
+type = "lua"
+script = "media-stop.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_media_stop"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["останови медиа", "стоп медиа", "останови видео", "останови воспроизведение"]
+phrases.en = ["stop media", "stop music"]
+
+[[commands]]
+id = "open_github"
+type = "lua"
+script = "open-github.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_github"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой гитхаб",
+    "открой гит хаб",
+    "гитхаб",
+    "гит хаб",
+    "запусти гитхаб",
+]
+phrases.en = ["open github", "github", "open git hub"]
+
+[[commands]]
+id = "open_rutube"
+type = "lua"
+script = "open-rutube.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_rutube"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой рутуб",
+    "рутуб",
+    "открой рот",
+    "рот убы",
+    "открой рот убы",
+    "ру туб",
+]
+phrases.en = ["open rutube"]
+
+[[commands]]
+id = "open_pinterest"
+type = "lua"
+script = "open-pinterest.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_pinterest"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой пинтерест",
+    "пинтерест",
+    "пинтерес",
+    "пинты рост",
+]
+phrases.en = ["open pinterest"]
+

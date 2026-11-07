@@ -1,0 +1,394 @@
+# Soft — 132 команды для Fish (копируй по одной строке)
+
+Fish Drama 3, скорость 1.05–1.1x. Одна строка = один mp3.
+Имя файла справа в скобках — так сохрани.
+
+1. (smiling, friendly, warm) Сделала потемнее!
+   -> cmd_brightness_down.mp3
+
+2. (smiling, friendly, warm) Сделала поярче!
+   -> cmd_brightness_up.mp3
+
+3. (smiling, friendly, warm) Вернула назад!
+   -> cmd_browser_back.mp3
+
+4. (smiling, friendly, warm) Закрыла вкладку!
+   -> cmd_browser_close_tab.mp3
+
+5. (smiling, friendly, warm) Открыла загрузки!
+   -> cmd_browser_downloads.mp3
+
+6. (smiling, friendly, warm) Открыла инкогнито!
+   -> cmd_browser_incognito.mp3
+
+7. (smiling, friendly, warm) Открыла новую вкладку!
+   -> cmd_browser_new_tab.mp3
+
+8. (smiling, friendly, warm) Перешла на следующую!
+   -> cmd_browser_next_tab.mp3
+
+9. (smiling, friendly, warm) Открыла браузер!
+   -> cmd_browser_open.mp3
+
+10. (smiling, friendly, warm) Вернула прошлую вкладку!
+   -> cmd_browser_prev_tab.mp3
+
+11. (smiling, friendly, warm) Обновила!
+   -> cmd_browser_refresh.mp3
+
+12. (smiling, friendly, warm) Вернула вкладку!
+   -> cmd_browser_reopen_tab.mp3
+
+13. (smiling, friendly, warm) Отменила выключение!
+   -> cmd_cancel_shutdown.mp3
+
+14. (smiling, friendly, warm) Открыла буфер!
+   -> cmd_clipboard_history.mp3
+
+15. (smiling, friendly, warm) Закрыла!
+   -> cmd_close_active.mp3
+
+16. (smiling, friendly, warm) Диктуй, я слушаю!
+   -> cmd_dictate.mp3
+
+17. (smiling, friendly, warm) Очистила корзину!
+   -> cmd_empty_trash.mp3
+
+18. (smiling, friendly, warm) Включила игровой режим!
+   -> cmd_game_mode.mp3
+
+19. (smiling, friendly, warm) Выключила жесты!
+   -> cmd_gestures_off.mp3
+
+20. (smiling, friendly, warm) Включила жесты!
+   -> cmd_gestures_on.mp3
+
+21. (smiling, friendly, warm) Скопировала!
+   -> cmd_input_copy.mp3
+
+22. (smiling, friendly, warm) Вырезала!
+   -> cmd_input_cut.mp3
+
+23. (smiling, friendly, warm) Открыла поиск!
+   -> cmd_input_find.mp3
+
+24. (smiling, friendly, warm) Сделала новый документ!
+   -> cmd_input_new_doc.mp3
+
+25. (smiling, friendly, warm) Вставила!
+   -> cmd_input_paste.mp3
+
+26. (smiling, friendly, warm) Отправила на печать!
+   -> cmd_input_print.mp3
+
+27. (smiling, friendly, warm) Вернула как было!
+   -> cmd_input_redo.mp3
+
+28. (smiling, friendly, warm) Сохранила!
+   -> cmd_input_save.mp3
+
+29. (smiling, friendly, warm) Выделила всё!
+   -> cmd_input_select_all.mp3
+
+30. (smiling, friendly, warm) Переключила язык!
+   -> cmd_input_switch_lang.mp3
+
+31. (smiling, friendly, warm) Отменила!
+   -> cmd_input_undo.mp3
+
+32. (smiling, friendly, warm) Заблокировала!
+   -> cmd_lock_pc.mp3
+
+33. (smiling, friendly, warm) Развернула на весь экран!
+   -> cmd_maximize_window.mp3
+
+34. (smiling, friendly, warm) Включила следующий!
+   -> cmd_media_next.mp3
+
+35. (smiling, friendly, warm) Поставила на паузу!
+   -> cmd_media_play_pause.mp3
+
+36. (smiling, friendly, warm) Вернула прошлый трек!
+   -> cmd_media_prev.mp3
+
+37. (smiling, friendly, warm) Остановила!
+   -> cmd_media_stop.mp3
+
+38. (smiling, friendly, warm) Всё свернула!
+   -> cmd_minimize_all.mp3
+
+39. (smiling, friendly, warm) Свернула!
+   -> cmd_minimize_window.mp3
+
+40. (smiling, friendly, warm) Открыла про компьютер!
+   -> cmd_open_about_pc.mp3
+
+41. (smiling, friendly, warm) Открыла Авито!
+   -> cmd_open_avito.mp3
+
+42. (smiling, friendly, warm) Открыла блютуз!
+   -> cmd_open_bluetooth.mp3
+
+43. (smiling, friendly, warm) Открыла калькулятор!
+   -> cmd_open_calculator.mp3
+
+44. (smiling, friendly, warm) Открыла календарь!
+   -> cmd_open_calendar.mp3
+
+45. (smiling, friendly, warm) Открыла камеру!
+   -> cmd_open_camera.mp3
+
+46. (smiling, friendly, warm) Открыла Чатджипити!
+   -> cmd_open_chatgpt.mp3
+
+47. (smiling, friendly, warm) Открыла Клода!
+   -> cmd_open_claude.mp3
+
+48. (smiling, friendly, warm) Открыла Курсор!
+   -> cmd_open_cursor.mp3
+
+49. (smiling, friendly, warm) Открыла Дипсик!
+   -> cmd_open_deepseek.mp3
+
+50. (smiling, friendly, warm) Открыла рабочий стол!
+   -> cmd_open_desktop_folder.mp3
+
+51. (smiling, friendly, warm) Открыла Дискорд!
+   -> cmd_open_discord.mp3
+
+52. (smiling, friendly, warm) Открыла настройки экрана!
+   -> cmd_open_display_settings.mp3
+
+53. (smiling, friendly, warm) Открыла документы!
+   -> cmd_open_documents.mp3
+
+54. (smiling, friendly, warm) Открыла загрузки!
+   -> cmd_open_downloads.mp3
+
+55. (smiling, friendly, warm) Открыла эмодзи!
+   -> cmd_open_emoji_panel.mp3
+
+56. (smiling, friendly, warm) Открыла Эксель!
+   -> cmd_open_excel.mp3
+
+57. (smiling, friendly, warm) Открыла проводник!
+   -> cmd_open_explorer.mp3
+
+58. (smiling, friendly, warm) Открыла Джемини!
+   -> cmd_open_gemini.mp3
+
+59. (smiling, friendly, warm) Открыла Гитхаб!
+   -> cmd_open_github.mp3
+
+60. (smiling, friendly, warm) Открыла почту!
+   -> cmd_open_gmail.mp3
+
+61. (smiling, friendly, warm) Открыла Гугл диск!
+   -> cmd_open_google_drive.mp3
+
+62. (smiling, friendly, warm) Открыла Инстаграм!
+   -> cmd_open_instagram.mp3
+
+63. (smiling, friendly, warm) Открыла Иви!
+   -> cmd_open_ivi.mp3
+
+64. (smiling, friendly, warm) Открыла Кинопоиск!
+   -> cmd_open_kinopoisk.mp3
+
+65. (smiling, friendly, warm) Открыла карты!
+   -> cmd_open_maps.mp3
+
+66. (smiling, friendly, warm) Открыла Мит!
+   -> cmd_open_meet.mp3
+
+67. (smiling, friendly, warm) Открыла Нетфликс!
+   -> cmd_open_netflix.mp3
+
+68. (smiling, friendly, warm) Открыла новости!
+   -> cmd_open_news.mp3
+
+69. (smiling, friendly, warm) Включила ночной свет!
+   -> cmd_open_night_light.mp3
+
+70. (smiling, friendly, warm) Открыла блокнот!
+   -> cmd_open_notepad.mp3
+
+71. (smiling, friendly, warm) Открыла Ноушен!
+   -> cmd_open_notion.mp3
+
+72. (smiling, friendly, warm) Открыла ОБС!
+   -> cmd_open_obs.mp3
+
+73. (smiling, friendly, warm) Открыла Озон!
+   -> cmd_open_ozon.mp3
+
+74. (smiling, friendly, warm) Открыла Пейнт!
+   -> cmd_open_paint.mp3
+
+75. (smiling, friendly, warm) Открыла фото!
+   -> cmd_open_photos.mp3
+
+76. (smiling, friendly, warm) Открыла Пинтерест!
+   -> cmd_open_pinterest.mp3
+
+77. (smiling, friendly, warm) Открыла презентацию!
+   -> cmd_open_powerpoint.mp3
+
+78. (smiling, friendly, warm) Открыла корзину!
+   -> cmd_open_recycle_bin.mp3
+
+79. (smiling, friendly, warm) Открыла Рутуб!
+   -> cmd_open_rutube.mp3
+
+80. (smiling, friendly, warm) Открыла скриншоты!
+   -> cmd_open_screenshots_folder.mp3
+
+81. (smiling, friendly, warm) Открыла параметры!
+   -> cmd_open_settings.mp3
+
+82. (smiling, friendly, warm) Открыла ножницы!
+   -> cmd_open_snip.mp3
+
+83. (smiling, friendly, warm) Открыла звук!
+   -> cmd_open_sound_settings.mp3
+
+84. (smiling, friendly, warm) Открыла автозагрузку!
+   -> cmd_open_startup_apps.mp3
+
+85. (smiling, friendly, warm) Открыла Стим!
+   -> cmd_open_steam.mp3
+
+86. (smiling, friendly, warm) Открыла память!
+   -> cmd_open_storage.mp3
+
+87. (smiling, friendly, warm) Открыла диспетчер!
+   -> cmd_open_task_manager.mp3
+
+88. (smiling, friendly, warm) Открыла Тимс!
+   -> cmd_open_teams.mp3
+
+89. (smiling, friendly, warm) Открыла Телеграм!
+   -> cmd_open_telegram.mp3
+
+90. (smiling, friendly, warm) Открыла терминал!
+   -> cmd_open_terminal.mp3
+
+91. (smiling, friendly, warm) Открыла Тикток!
+   -> cmd_open_tiktok.mp3
+
+92. (smiling, friendly, warm) Открыла переводчик!
+   -> cmd_open_translate.mp3
+
+93. (smiling, friendly, warm) Открыла Твич!
+   -> cmd_open_twitch.mp3
+
+94. (smiling, friendly, warm) Открыла обновления!
+   -> cmd_open_update.mp3
+
+95. (smiling, friendly, warm) Открыла Вконтакте!
+   -> cmd_open_vk.mp3
+
+96. (smiling, friendly, warm) Открыла погоду!
+   -> cmd_open_weather.mp3
+
+97. (smiling, friendly, warm) Открыла Ватсап!
+   -> cmd_open_whatsapp.mp3
+
+98. (smiling, friendly, warm) Открыла вайфай!
+   -> cmd_open_wifi.mp3
+
+99. (smiling, friendly, warm) Открыла Вайлдберриз!
+   -> cmd_open_wildberries.mp3
+
+100. (smiling, friendly, warm) Открыла Ворд!
+   -> cmd_open_word.mp3
+
+101. (smiling, friendly, warm) Открыла Яндекс!
+   -> cmd_open_yandex.mp3
+
+102. (smiling, friendly, warm) Открыла Яндекс диск!
+   -> cmd_open_yandex_disk.mp3
+
+103. (smiling, friendly, warm) Открыла Яндекс карты!
+   -> cmd_open_yandex_maps.mp3
+
+104. (smiling, friendly, warm) Открыла Яндекс музыку!
+   -> cmd_open_yandex_music.mp3
+
+105. (smiling, friendly, warm) Открыла Ютуб!
+   -> cmd_open_youtube.mp3
+
+106. (smiling, friendly, warm) Открыла Ютуб музыку!
+   -> cmd_open_youtube_music.mp3
+
+107. (smiling, friendly, warm) Открыла Зум!
+   -> cmd_open_zoom.mp3
+
+108. (smiling, friendly, warm) Перезапустила проводник!
+   -> cmd_reload_explorer.mp3
+
+109. (smiling, friendly, warm) Хорошо, напомню!
+   -> cmd_remind.mp3
+
+110. (smiling, friendly, warm) Убрала напоминание!
+   -> cmd_remind_cancel.mp3
+
+111. (smiling, friendly, warm) Перезагружаю!
+   -> cmd_restart_pc.mp3
+
+112. (smiling, friendly, warm) Сделала скриншот!
+   -> cmd_screenshot.mp3
+
+113. (smiling, friendly, warm) Ищу в Гугле!
+   -> cmd_search_google.mp3
+
+114. (smiling, friendly, warm) Открыла Википедию!
+   -> cmd_search_wiki.mp3
+
+115. (smiling, friendly, warm) Ищу в Яндексе!
+   -> cmd_search_yandex.mp3
+
+116. (smiling, friendly, warm) Ищу на Ютубе!
+   -> cmd_search_youtube.mp3
+
+117. (smiling, friendly, warm) Показала рабочий стол!
+   -> cmd_show_desktop.mp3
+
+118. (smiling, friendly, warm) Выключаю!
+   -> cmd_shutdown_pc.mp3
+
+119. (smiling, friendly, warm) Усыпляю компьютер!
+   -> cmd_sleep_pc.mp3
+
+120. (smiling, friendly, warm) Читаю!
+   -> cmd_speak.mp3
+
+121. (smiling, friendly, warm) Хорошо, остановила!
+   -> cmd_speak_stop.mp3
+
+122. (smiling, friendly, warm) Переключила окно!
+   -> cmd_switch_window.mp3
+
+123. (smiling, friendly, warm) Поставила таймер!
+   -> cmd_timer_set.mp3
+
+124. (smiling, friendly, warm) Открыла переводчик!
+   -> cmd_translate.mp3
+
+125. (smiling, friendly, warm) Поставила Хром!
+   -> cmd_use_browser_chrome.mp3
+
+126. (smiling, friendly, warm) Поставила Яндекс браузер!
+   -> cmd_use_browser_yandex.mp3
+
+127. (smiling, friendly, warm) Сделала потише!
+   -> cmd_volume_down.mp3
+
+128. (smiling, friendly, warm) Выключила звук!
+   -> cmd_volume_mute.mp3
+
+129. (smiling, friendly, warm) Вернула звук!
+   -> cmd_volume_unmute.mp3
+
+130. (smiling, friendly, warm) Сделала погромче!
+   -> cmd_volume_up.mp3

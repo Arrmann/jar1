@@ -1,0 +1,6 @@
+mediapipe==0.10.31
+opencv-python==4.10.0.84
+numpy==1.26.4
+websocket-client==1.8.0
+pywin32==308
+psutil==6.1.1

@@ -1,0 +1,84 @@
+# Obsidian voice inbox — paid feature (not in demo whitelist)
+
+[[commands]]
+id = "obsidian_write"
+type = "lua"
+script = "obsidian-write.lua"
+sandbox = "full"
+timeout = 8000
+description = "Write a new note into the Obsidian vault Inbox"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "запиши в заметки",
+    "запиши в заметку",
+    "запиши заметки",
+    "запиши заметку",
+    "записать в заметки",
+    "добавь в заметки",
+    "добавь заметки",
+    "новая заметка",
+]
+phrases.en = [
+    "write note",
+    "write to notes",
+    "add note",
+]
+
+[[commands]]
+id = "obsidian_daily"
+type = "lua"
+script = "obsidian-daily.lua"
+sandbox = "full"
+timeout = 8000
+description = "Append to today's Obsidian daily note"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "добавь в ежедневную",
+    "добавь в ежедневную заметку",
+    "в дневник",
+    "запиши в дневник",
+]
+phrases.en = [
+    "daily note",
+    "add to daily",
+]
+
+[[commands]]
+id = "obsidian_search"
+type = "lua"
+script = "obsidian-search.lua"
+sandbox = "full"
+timeout = 10000
+description = "Search notes in the Obsidian vault"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "найди в заметках",
+    "найди в заметке",
+    "найди заметку",
+    "поиск в заметках",
+]
+phrases.en = [
+    "find note",
+    "search notes",
+    "find in notes",
+]
+
+[[commands]]
+id = "obsidian_open"
+type = "lua"
+script = "obsidian-open.lua"
+sandbox = "full"
+timeout = 8000
+description = "Open a note in Obsidian"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой заметку",
+    "открыть заметку",
+]
+phrases.en = [
+    "open note",
+]

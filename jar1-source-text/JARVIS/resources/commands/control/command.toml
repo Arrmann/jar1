@@ -1,0 +1,2533 @@
+# Competitive control pack: browser / input / mouse / search / dictation / volume
+
+[[commands]]
+id = "dictate"
+type = "lua"
+script = "dictate.lua"
+sandbox = "full"
+timeout = 8000
+description = "Диктовка: «запиши» — печатает речь до Esc или «останови»"
+sounds.ru = ["cmd_dictate"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "запиши",
+    "записывай",
+    "записывать",
+    "запись",
+    "начни запись",
+    "начинаю записывать",
+    "диктуй",
+    "диктовать",
+    "напечатай",
+    "напечатать",
+    "печатай",
+    "печатать",
+    "напиши",
+    "набери",
+    "введи текст",
+    "режим диктовки",
+    "режим печати",
+    "начинаю печатать",
+]
+phrases.en = ["type", "dictate", "write", "start typing", "voice type", "start dictation"]
+
+[[commands]]
+id = "dictate_stop"
+type = "lua"
+script = "dictate-stop.lua"
+sandbox = "full"
+timeout = 4000
+description = "Остановить диктовку"
+sounds.ru = ["cmd_speak_stop"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "останови печать",
+    "стоп печать",
+    "останови диктовку",
+    "стоп диктовка",
+    "хватит печатать",
+    "закончи печать",
+    "отключи печать",
+    "закончи диктовку",
+    "хватит диктовку",
+]
+phrases.en = ["stop typing", "stop dictation", "end dictation"]
+
+[[commands]]
+id = "translate"
+type = "lua"
+script = "translate.lua"
+sandbox = "full"
+timeout = 6000
+description = "Перевести выделенный текст или буфер — появится окошко"
+sounds.ru = ["cmd_translate"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "переведи на русский",
+    "переведи на английский",
+    "переведи на русском",
+    "переведи на английском",
+    "переведи это на русский",
+    "переведи это на английский",
+    "переведи",
+    "переведи это",
+    "переведи выделенное",
+    "переведи слово",
+    "переведи текст",
+    "перевод",
+]
+phrases.en = [
+    "translate to russian",
+    "translate to english",
+    "translate this to russian",
+    "translate this to english",
+    "translate",
+    "translate this",
+    "translate selection",
+]
+
+[[commands]]
+id = "speak"
+type = "lua"
+script = "speak.lua"
+sandbox = "full"
+timeout = 25000
+description = "Прочитать вслух выделенный текст или буфер обмена"
+# No pre-recorded ack — overlaps local TTS ("озвучиваю" + Silero).
+sounds.ru = []
+sounds.en = []
+phrases.ru = [
+    "прочитай это",
+    "прочитай текст",
+    "прочитай выделенное",
+    "прочитай буфер",
+    "прочитай вслух",
+    "прочитай",
+    "озвучь это",
+    "озвучь текст",
+    "озвучь выделенное",
+    "озвучь буфер",
+    "озвучь",
+    "озвуч это",
+    "озвуч",
+    "прочти это",
+    "прочти",
+    "читай это",
+    "читай",
+]
+phrases.en = [
+    "read this",
+    "read selection",
+    "read aloud",
+    "read",
+    "speak this",
+    "speak",
+]
+
+[[commands]]
+id = "speak_stop"
+type = "lua"
+script = "speak-stop.lua"
+sandbox = "full"
+timeout = 4000
+description = "Stop Silero TTS playback"
+sounds.ru = ["cmd_speak_stop"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "стоп чтение",
+    "останови чтение",
+    "останови озвучку",
+    "останови озвучивание",
+    "хватит читать",
+    "хватит озвучку",
+    "хватит озвучивать",
+    "перестань читать",
+    "замолчи",
+    "стоп озвучка",
+]
+phrases.en = [
+    "stop reading",
+    "stop speaking",
+    "stop speech",
+    "be quiet",
+]
+
+[[commands]]
+id = "chat_start"
+type = "lua"
+script = "chat-start.lua"
+sandbox = "full"
+timeout = 5000
+description = "Режим разговора с нейронкой (чат)"
+sounds.ru = []
+sounds.en = []
+phrases.ru = [
+    "чат",
+    "открой чат",
+    "открой нейрочат",
+    "открой нейронку",
+    "открой чат с джарвисом",
+    "открой чат джарвиса",
+    "режим чата",
+    "начни чат",
+    "начать чат",
+    "давай чат",
+    "давай поговорим",
+    "поговорим",
+]
+phrases.en = [
+    "chat",
+    "start chat",
+    "open chat",
+    "open neurochat",
+    "chat mode",
+]
+
+[[commands]]
+id = "chat_stop"
+type = "lua"
+script = "chat-stop.lua"
+sandbox = "full"
+timeout = 5000
+description = "Закончить разговор с нейронкой"
+sounds.ru = []
+sounds.en = []
+phrases.ru = [
+    "закончи чат",
+    "закончить чат",
+    "закрой чат",
+    "закрыть чат",
+    "хватит чат",
+    "стоп чат",
+    "закончи разговор",
+]
+phrases.en = [
+    "end chat",
+    "stop chat",
+    "close chat",
+    "exit chat",
+]
+
+[[commands]]
+id = "ask_ai"
+type = "lua"
+script = "ask-ai.lua"
+sandbox = "full"
+timeout = 90000
+description = "Спросить нейросеть: «джарвис скажи …» (OpenRouter / OpenAI-compatible API)"
+sounds.ru = []
+sounds.en = []
+phrases.ru = [
+    "скажи",
+    "скажи мне",
+    "ответь на вопрос",
+    "ответь мне",
+    "ответь",
+    "ответ",
+    "отвечай",
+    "ответит",
+    "ответить",
+    "спроси у нейросети",
+    "спроси нейросеть",
+    "спроси нейронку",
+    "спроси у ии",
+    "спроси ии",
+    "спроси джипити",
+    "спроси чатгпт",
+    "спроси",
+]
+phrases.en = [
+    "say",
+    "tell me",
+    "answer me",
+    "answer",
+    "ask the ai",
+    "ask ai",
+    "ask gpt",
+    "ask chatgpt",
+    "ask",
+]
+
+[[commands]]
+id = "ask_screen"
+type = "lua"
+script = "ask-screen.lua"
+sandbox = "full"
+timeout = 90000
+description = "Вопрос по экрану: снимок рабочего стола + vision LLM (DeepSeek flash / Gemini)"
+sounds.ru = []
+sounds.en = []
+phrases.ru = [
+    "что на экране",
+    "что у меня на экране",
+    "что там на экране",
+    "что сейчас на экране",
+    "опиши экран",
+    "опиши что на экране",
+    "посмотри на экран",
+    "посмотри экран",
+    "посмотри что на экране",
+    "глянь на экран",
+    "глянь экран",
+    "вопрос по экрану",
+    "скажи по экрану",
+    "ответь по экрану",
+    "по экрану",
+]
+phrases.en = [
+    "what's on my screen",
+    "whats on my screen",
+    "what is on my screen",
+    "look at the screen",
+    "look at my screen",
+    "describe the screen",
+    "describe my screen",
+    "about the screen",
+]
+
+[[commands]]
+id = "create_photo"
+type = "lua"
+script = "create-photo.lua"
+sandbox = "full"
+timeout = 120000
+description = "Сгенерировать фото через OpenRouter (голос: создай фото …)"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сгенерируй картинку",
+    "сгенерируй изображение",
+    "сгенерируй фото",
+    "создай картинку",
+    "создай изображение",
+    "создай фото",
+    "сделай картинку",
+    "сделай изображение",
+    "сделай фото",
+    "створи картинку",
+    "створи зображення",
+    "створи фото",
+    "зроби картинку",
+    "зроби зображення",
+    "зроби фото",
+    "нарисуй картинку",
+    "нарисуй изображение",
+    "нарисуй фото",
+    "нарисуй",
+]
+phrases.en = [
+    "generate an image",
+    "generate image",
+    "create an image",
+    "create image",
+    "create a photo",
+    "create photo",
+    "draw an image",
+    "draw image",
+]
+
+[[commands]]
+id = "tts_mode"
+type = "lua"
+script = "tts-mode.lua"
+sandbox = "full"
+timeout = 8000
+description = "Переключить режим озвучки Silero (фоновый / по запросу)"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "режим озвучки",
+    "настройки озвучки",
+    "режим озвучки фоновый",
+    "фоновый режим озвучки",
+    "быстрая озвучка",
+    "озвучка фоновый режим",
+    "режим озвучки только во время",
+    "экономный режим озвучки",
+    "озвучка без нагрузки",
+]
+phrases.en = [
+    "speech mode",
+    "tts mode",
+    "background speech mode",
+    "fast speech mode",
+    "on demand speech mode",
+]
+
+[[commands]]
+id = "timer_set"
+type = "lua"
+script = "timer.lua"
+sandbox = "full"
+timeout = 15000
+description = "Countdown timer (seconds/minutes/hours/days)"
+sounds.ru = ["cmd_timer_set"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "таймер на",
+    "таймер",
+    "поставь таймер",
+    "поставь таймер на",
+    "запусти таймер",
+    "запусти таймер на",
+]
+phrases.en = ["timer", "timer for", "set timer"]
+
+[[commands]]
+id = "timer_list"
+type = "lua"
+script = "timer-list.lua"
+sandbox = "full"
+timeout = 8000
+description = "Show pending timers/reminders and cancel individually"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "мои таймеры",
+    "моей таймера",
+    "моей таймеры",
+    "мои таймера",
+    "мой таймеры",
+    "мой таймер",
+    "открой мои таймеры",
+    "открой моей таймера",
+    "открой мой таймер",
+    "покажи мои таймеры",
+    "покажи моей таймера",
+    "покажи таймеры",
+    "покажи таймера",
+    "список таймеров",
+    "список таймера",
+    "какие таймеры",
+    "какие таймера",
+    "открой таймеры",
+    "открой таймера",
+    "покажи список таймеров",
+    "мои напоминания",
+    "открой мои напоминания",
+    "покажи напоминания",
+    "список напоминаний",
+]
+phrases.en = [
+    "my timers",
+    "open my timers",
+    "show my timers",
+    "show timers",
+    "list timers",
+    "my reminders",
+    "show reminders",
+]
+
+[[commands]]
+id = "task_list"
+type = "lua"
+script = "task-list.lua"
+sandbox = "full"
+timeout = 8000
+description = "Open the tasks HUD"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой задачи",
+    "открой задача",
+    "открой мои задачи",
+    "покажи задачи",
+    "покажи задача",
+    "покажи мои задачи",
+    "мои задачи",
+    "моей задачи",
+    "мой задачи",
+    "список задач",
+    "список задачи",
+    "какие задачи",
+    "какие задача",
+]
+phrases.en = [
+    "open tasks",
+    "open my tasks",
+    "show tasks",
+    "show my tasks",
+    "my tasks",
+    "list tasks",
+]
+
+[[commands]]
+id = "task_speak"
+type = "lua"
+script = "task-speak.lua"
+sandbox = "full"
+timeout = 8000
+description = "Speak the task list"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "озвучь задачи",
+    "озвуч задачи",
+    "озвучи задачи",
+    "прочитай задачи",
+    "прочти задачи",
+    "озвучь мои задачи",
+    "прочитай мои задачи",
+]
+phrases.en = [
+    "speak tasks",
+    "read tasks",
+    "read my tasks",
+    "speak my tasks",
+]
+
+[[commands]]
+id = "task_add"
+type = "lua"
+script = "task-add.lua"
+sandbox = "full"
+timeout = 8000
+description = "Add a task from voice"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "добавь задачу",
+    "добавить задачу",
+    "запиши задачу",
+    "новая задача",
+    "добавь в задачи",
+]
+phrases.en = [
+    "add task",
+    "add a task",
+]
+
+[[commands]]
+id = "task_clear"
+type = "lua"
+script = "task-clear.lua"
+sandbox = "full"
+timeout = 8000
+description = "Clear all tasks"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "стереть все задачи",
+    "очисти задачи",
+    "очистить задачи",
+    "удали все задачи",
+    "удалить все задачи",
+]
+phrases.en = [
+    "clear tasks",
+    "clear all tasks",
+    "delete all tasks",
+]
+
+[[commands]]
+id = "remind"
+type = "lua"
+script = "remind.lua"
+sandbox = "full"
+timeout = 15000
+description = "Natural-language reminder (relative or absolute time)"
+sounds.ru = ["cmd_remind"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "напомни мне",
+    "напомни",
+    "поставь напоминание",
+    "напоминание",
+]
+phrases.en = ["remind me", "remind", "set reminder"]
+
+[[commands]]
+id = "remind_cancel"
+type = "lua"
+script = "remind-cancel.lua"
+sandbox = "full"
+timeout = 6000
+description = "Cancel all pending reminders and timers"
+sounds.ru = ["cmd_remind_cancel"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "отмени напоминания",
+    "отмени все напоминания",
+    "отмени таймеры",
+    "отмени таймер",
+    "удали напоминания",
+]
+phrases.en = ["cancel reminders", "cancel timers", "clear reminders"]
+
+[[commands]]
+id = "volume_set"
+type = "lua"
+script = "volume-set.lua"
+sandbox = "full"
+timeout = 8000
+description = "Set absolute system volume"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["установи громкость", "звук на", "переключи звук на", "переключи громкость на", "поставь звук на", "поставь громкость на", "сделай громкость", "установи звук", "поставь громкость"]
+phrases.en = ["volume", "set volume", "volume to", "switch volume to", "change volume to"]
+
+[[commands]]
+id = "brightness_set"
+type = "lua"
+script = "brightness-set.lua"
+sandbox = "full"
+timeout = 8000
+description = "Яркость экрана (ноутбук и многие мониторы)"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана", "яркость экрана на", "установи яркость экрана", "поставь яркость экрана", "сделай яркость экрана", "яркость на", "поставь яркость"]
+phrases.en = ["screen brightness", "set screen brightness", "screen brightness to"]
+
+[[commands]]
+id = "search_google"
+type = "lua"
+script = "search.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_search_google"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+# Bare «найди / найти / поиск» = Google. Longer «найди в яндексе/ютубе/…» win via longer prefix.
+phrases.ru = [
+    "найди",
+    "найти",
+    "поиск",
+    "загугли",
+    "погугли",
+    "загугли мне",
+    "найди в гугле",
+    "поиск в гугле",
+    "найди в гугл",
+]
+phrases.en = ["search", "google", "find", "google search"]
+
+[[commands]]
+id = "search_yandex"
+type = "lua"
+script = "search.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_search_yandex"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+# Keep engine word mandatory so IntentClassifier does not steal plain "найди …"
+phrases.ru = ["найди в яндексе", "поиск в яндексе", "яндекс найди", "поиск яндекс", "загугли в яндексе"]
+phrases.en = ["yandex search", "search yandex", "find on yandex"]
+
+[[commands]]
+id = "use_browser_yandex"
+type = "lua"
+script = "use-browser-yandex.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_use_browser_yandex"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "браузер яндекс",
+    "используй яндекс",
+    "открой в яндексе",
+    "переключи на яндекс",
+    "переключи на яндекс браузер",
+    "поставь яндекс браузер",
+    "сделай браузером яндекс"
+]
+phrases.en = ["use yandex browser", "switch to yandex", "preferred browser yandex"]
+
+[[commands]]
+id = "use_browser_chrome"
+type = "lua"
+script = "use-browser-chrome.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_use_browser_chrome"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "браузер хром",
+    "браузер гугл",
+    "браузер гугл хром",
+    "используй гугл хром",
+    "используй хром",
+    "переключи на гугл",
+    "переключи на хром",
+    "поставь хром",
+    "сделай браузером хром",
+    "сделай хром",
+]
+phrases.en = ["use chrome", "switch to chrome", "preferred browser chrome"]
+
+[[commands]]
+id = "use_browser_edge"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/set-preferred-browser.ps1", "edge"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "переключи на эдж",
+    "браузер эдж",
+    "используй эдж",
+    "сделай браузером эдж",
+]
+phrases.en = ["use edge", "switch to edge", "preferred browser edge"]
+
+[[commands]]
+id = "use_browser_opera"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/set-preferred-browser.ps1", "opera"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "переключи на оперу",
+    "браузер опера",
+    "используй оперу",
+    "открывай в опере",
+    "сделай браузером оперу",
+    "выбери опера браузер",
+]
+phrases.en = ["use opera", "switch to opera", "preferred browser opera"]
+
+[[commands]]
+id = "search_youtube"
+type = "lua"
+script = "search.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_search_youtube"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["найди на ютубе", "поиск на ютубе", "на ютубе"]
+phrases.en = ["youtube search", "search youtube", "find on youtube"]
+
+[[commands]]
+id = "search_wiki"
+type = "lua"
+script = "search.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_search_wiki"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "википедия",
+    "ищи в википедии",
+    "найди в википедии",
+    "поиск в википедии",
+    "открой википедию"
+]
+phrases.en = ["wikipedia", "wiki search", "search wikipedia"]
+
+[[commands]]
+id = "browser_new_tab"
+type = "lua"
+script = "browser-new-tab.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_browser_new_tab"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["новая вкладка", "открой вкладку", "создай вкладку", "открой новую вкладку"]
+phrases.en = ["new tab", "open tab"]
+
+[[commands]]
+id = "browser_close_tab"
+type = "lua"
+script = "browser-close-tab.lua"
+sandbox = "full"
+timeout = 12000
+sounds.ru = ["cmd_browser_close_tab"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "закрой вкладку",
+    "закрыть вкладку",
+    "закрой таб",
+    "закрыть таб",
+    "закрой эту вкладку",
+    "закрывай вкладку",
+    "закроешь вкладку",
+    "закрой вкладка",
+    "закрой вкладки",
+    "закрывая вкладку",
+]
+phrases.en = ["close tab", "close this tab"]
+
+[[commands]]
+id = "browser_reopen_tab"
+type = "lua"
+script = "browser-reopen-tab.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_browser_reopen_tab"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "верни вкладку",
+    "верни закрытую вкладку",
+    "вернула вкладку",
+    "открой закрытую вкладку",
+    "открой последнюю вкладку"
+]
+phrases.en = ["reopen tab", "restore tab"]
+
+[[commands]]
+id = "browser_next_tab"
+type = "lua"
+script = "browser-next-tab.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_browser_next_tab"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "следующая вкладка",
+    "вкладка вправо",
+    "вкладка дальше",
+    "открой следующую вкладку",
+    "следующую вкладку"
+]
+phrases.en = ["next tab"]
+
+[[commands]]
+id = "browser_prev_tab"
+type = "lua"
+script = "browser-prev-tab.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_browser_prev_tab"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "вкладка влево",
+    "вкладка назад",
+    "открой предыдущую вкладку",
+    "предыдущая вкладка",
+    "предыдущую вкладку"
+]
+phrases.en = ["previous tab", "last tab"]
+
+[[commands]]
+id = "browser_refresh"
+type = "lua"
+script = "browser-refresh.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_browser_refresh"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["обнови страницу", "перезагрузи страницу", "обнови вкладку"]
+phrases.en = ["refresh", "reload page"]
+
+[[commands]]
+id = "browser_downloads"
+type = "lua"
+script = "browser-downloads.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_browser_downloads"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой загрузки браузера", "загрузки браузера"]
+phrases.en = ["browser downloads"]
+
+[[commands]]
+id = "browser_history"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/browser-control.ps1", "history"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой историю", "история браузера"]
+phrases.en = ["browser history", "open history"]
+
+[[commands]]
+id = "browser_bookmark"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/browser-control.ps1", "bookmark"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["добавь в закладки", "в закладки"]
+phrases.en = ["bookmark", "add bookmark"]
+
+[[commands]]
+id = "browser_address"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/browser-control.ps1", "focus_address"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["адресная строка", "строка адреса"]
+phrases.en = ["address bar", "focus address"]
+
+[[commands]]
+id = "browser_escape"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-WindowStyle", "Hidden", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/browser-control.ps1", "escape"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "закрой окно адресной строки",
+    "закрой адресную строку",
+    "убери адресную строку",
+    "отмени адресную строку",
+    "закрой строку адреса",
+    "убери строку адреса",
+]
+phrases.en = [
+    "close address bar",
+    "dismiss address bar",
+    "escape address bar",
+]
+
+[[commands]]
+id = "input_copy"
+type = "lua"
+script = "input-copy.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_copy"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["скопируй", "копировать", "копируй"]
+phrases.en = ["copy", "copy that"]
+
+[[commands]]
+id = "input_paste"
+type = "lua"
+script = "input-paste.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_paste"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["вставь", "вставить", "вставь текст"]
+phrases.en = ["paste", "paste that"]
+
+[[commands]]
+id = "input_cut"
+type = "lua"
+script = "input-cut.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_cut"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["вырежи", "вырезать"]
+phrases.en = ["cut"]
+
+[[commands]]
+id = "input_select_all"
+type = "lua"
+script = "input-select-all.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_select_all"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["выдели всё", "выделить всё", "выдели все"]
+phrases.en = ["select all"]
+
+[[commands]]
+id = "input_undo"
+type = "lua"
+script = "input-undo.lua"
+sandbox = "full"
+timeout = 4000
+description = "Отменить последнее действие (как Ctrl+Z)"
+sounds.ru = ["cmd_input_undo"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["верни назад", "отмени действие", "отменить действие", "назад действие", "отмени ввод"]
+phrases.en = ["undo"]
+
+[[commands]]
+id = "input_redo"
+type = "lua"
+script = "input-redo.lua"
+sandbox = "full"
+timeout = 4000
+description = "Повторить отменённое (как Ctrl+Y)"
+sounds.ru = ["cmd_input_redo"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["верни отменённое", "вернуть отменённое", "повтори действие"]
+phrases.en = ["redo"]
+
+[[commands]]
+id = "input_delete_word"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/input-control.ps1", "delete_word"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["удали слово", "убери слово"]
+phrases.en = ["delete word"]
+
+[[commands]]
+id = "input_save"
+type = "lua"
+script = "input-save.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_input_save"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["сохрани", "сохранить", "сохрани документ"]
+phrases.en = ["save", "save file"]
+
+[[commands]]
+id = "input_enter"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/input-control.ps1", "enter"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["нажми энтер", "нажми ввод", "клавиша энтер"]
+phrases.en = ["enter", "press enter"]
+
+[[commands]]
+id = "input_escape"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/input-control.ps1", "escape"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["эскейп", "отмена окна", "закрой диалог"]
+phrases.en = ["escape", "press escape"]
+
+[[commands]]
+id = "mouse_left"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "click_left"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["левой кнопкой", "нажми левую", "клик мыши"]
+phrases.en = ["click", "left click"]
+
+[[commands]]
+id = "mouse_right"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "click_right"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["правый клик", "правой кнопкой", "контекстное меню"]
+phrases.en = ["right click", "context menu"]
+
+[[commands]]
+id = "mouse_double"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "dblclick"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["двойной клик", "даблклик"]
+phrases.en = ["double click"]
+
+[[commands]]
+id = "mouse_up"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "move:0,-80"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["курсор вверх", "мышь вверх"]
+phrases.en = ["mouse up", "cursor up"]
+
+[[commands]]
+id = "mouse_down"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "move:0,80"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["курсор вниз", "мышь вниз"]
+phrases.en = ["mouse down", "cursor down"]
+
+[[commands]]
+id = "mouse_left_move"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "move:-80,0"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["курсор влево", "мышь влево"]
+phrases.en = ["mouse left", "cursor left"]
+
+[[commands]]
+id = "mouse_right_move"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-target.ps1", "mouse", "move:80,0"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["курсор вправо", "мышь вправо"]
+phrases.en = ["mouse right", "cursor right"]
+
+[[commands]]
+id = "volume_0"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость ноль", "звук ноль", "тишина полностью"]
+phrases.en = ["volume zero", "volume 0"]
+
+[[commands]]
+id = "volume_10"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость десять", "громкость 10", "звук 10", "звук десять", "звук на 10", "звук на десять", "переключи звук на 10", "переключи громкость на 10", "минимальная громкость"]
+phrases.en = ["volume 10", "volume to 10", "volume min"]
+
+[[commands]]
+id = "volume_20"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость двадцать", "громкость 20", "звук 20", "звук двадцать", "звук на 20", "звук на двадцать", "переключи звук на 20", "переключи громкость на 20"]
+phrases.en = ["volume 20", "volume to 20"]
+
+[[commands]]
+id = "volume_30"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость тридцать", "громкость 30", "звук 30", "звук тридцать", "звук на 30", "звук на тридцать", "переключи звук на 30", "переключи громкость на 30"]
+phrases.en = ["volume 30", "volume to 30"]
+
+[[commands]]
+id = "volume_40"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость сорок", "громкость 40", "звук 40", "звук сорок"]
+phrases.en = ["volume 40"]
+
+[[commands]]
+id = "volume_50"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость пятьдесят", "громкость 50", "звук 50", "громкость половину"]
+phrases.en = ["volume 50", "volume half"]
+
+[[commands]]
+id = "volume_60"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость шестьдесят", "громкость 60", "звук 60", "звук шестьдесят"]
+phrases.en = ["volume 60"]
+
+[[commands]]
+id = "volume_70"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость семьдесят", "громкость 70", "звук 70", "звук семьдесят"]
+phrases.en = ["volume 70"]
+
+[[commands]]
+id = "volume_80"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость восемьдесят", "громкость 80", "звук 80", "звук восемьдесят"]
+phrases.en = ["volume 80"]
+
+[[commands]]
+id = "volume_90"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость девяносто", "громкость 90", "звук 90", "звук девяносто"]
+phrases.en = ["volume 90"]
+
+[[commands]]
+id = "volume_100"
+type = "lua"
+script = "volume-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["громкость сто", "громкость 100", "звук 100", "максимальная громкость"]
+phrases.en = ["volume 100", "volume max"]
+
+[[commands]]
+id = "brightness_10"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана десять", "яркость экрана 10", "минимальная яркость экрана", "яркость 10", "яркость на 10", "яркость десять"]
+phrases.en = ["screen brightness 10", "screen brightness min"]
+
+[[commands]]
+id = "brightness_20"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана двадцать", "яркость экрана 20", "яркость 20", "яркость на 20", "яркость двадцать"]
+phrases.en = ["screen brightness 20"]
+
+[[commands]]
+id = "brightness_30"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана тридцать", "яркость экрана 30", "яркость 30", "яркость на 30", "яркость тридцать"]
+phrases.en = ["screen brightness 30"]
+
+[[commands]]
+id = "brightness_40"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана сорок", "яркость экрана 40", "яркость 40", "яркость на 40", "яркость сорок"]
+phrases.en = ["screen brightness 40"]
+
+[[commands]]
+id = "brightness_50"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана пятьдесят", "яркость экрана 50", "яркость экрана половину", "яркость 50", "яркость на 50", "яркость пятьдесят", "яркость половину"]
+phrases.en = ["screen brightness 50", "screen brightness half"]
+
+[[commands]]
+id = "brightness_60"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана шестьдесят", "яркость экрана 60", "яркость 60", "яркость на 60", "яркость шестьдесят"]
+phrases.en = ["screen brightness 60"]
+
+[[commands]]
+id = "brightness_70"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана семьдесят", "яркость экрана 70", "яркость 70", "яркость на 70", "яркость семьдесят"]
+phrases.en = ["screen brightness 70"]
+
+[[commands]]
+id = "brightness_80"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана восемьдесят", "яркость экрана 80", "яркость 80", "яркость на 80", "яркость восемьдесят"]
+phrases.en = ["screen brightness 80"]
+
+[[commands]]
+id = "brightness_90"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана девяносто", "яркость экрана 90", "яркость 90", "яркость на 90", "яркость девяносто"]
+phrases.en = ["screen brightness 90"]
+
+[[commands]]
+id = "brightness_100"
+type = "lua"
+script = "brightness-level.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость экрана сто", "яркость экрана 100", "максимальная яркость экрана", "яркость 100", "яркость на 100", "яркость сто", "максимальная яркость"]
+phrases.en = ["screen brightness 100", "screen brightness max"]
+
+[[commands]]
+id = "open_netflix"
+type = "lua"
+script = "open-netflix.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_netflix"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой нетфликс", "нетфликс"]
+phrases.en = ["open netflix", "netflix"]
+
+[[commands]]
+id = "open_vk"
+type = "lua"
+script = "open-vk.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_vk"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой вконтакте", "открой вк", "вконтакте"]
+phrases.en = ["open vk", "vkontakte"]
+
+[[commands]]
+id = "open_mail_ru"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/open-url.ps1", "https://mail.ru"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["открой мейл", "открой майл ру", "майл ру"]
+phrases.en = ["open mail.ru"]
+
+[[commands]]
+id = "switch_window"
+type = "lua"
+script = "switch-window.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_switch_window"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["переключи окно", "другое окно", "альт таб"]
+phrases.en = ["switch window", "alt tab"]
+
+[[commands]]
+id = "brightness_up"
+type = "lua"
+script = "brightness-up.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_brightness_up"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["экран ярче", "увеличь яркость экрана", "сделай экран ярче"]
+phrases.en = ["brighter", "brightness up"]
+
+[[commands]]
+id = "brightness_down"
+type = "lua"
+script = "brightness-down.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_brightness_down"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["экран темнее", "уменьши яркость экрана", "сделай экран темнее"]
+phrases.en = ["dimmer", "brightness down"]
+
+[[commands]]
+id = "gestures_on"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/gestures-control.ps1", "-Action", "on"]
+sounds.ru = ["cmd_gestures_on"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "управление жестами",
+    "включи управление жестами",
+    "включи жесты",
+    "жестовое управление",
+    "контроль жестами",
+    "включи камеру жестов",
+    "активируй режим управления компьютером с помощью рук",
+    "управление компьютером с помощью рук",
+]
+phrases.en = [
+    "gesture control",
+    "enable gestures",
+    "turn on gestures",
+    "start gesture control",
+    "control with gestures",
+]
+
+[[commands]]
+id = "gestures_off"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/gestures-control.ps1", "-Action", "off"]
+sounds.ru = ["cmd_gestures_off"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи жесты",
+    "выключи управление жестами",
+    "закрой управление жестами",
+    "останови жесты",
+    "выключи камеру жестов",
+    "отключи жесты",
+    "отключи управление жестами",
+    "стоп жесты",
+    "выруби жесты",
+    "закрой жесты",
+    "выключи режим управления компьютером с помощью рук",
+    "выключаю режим управления компьютером",
+]
+phrases.en = [
+    "disable gestures",
+    "turn off gestures",
+    "stop gesture control",
+    "close gesture control",
+    "gestures off",
+    "stop gestures",
+]
+
+[[commands]]
+id = "gestures_toggle"
+type = "cli"
+cli_cmd = "powershell"
+cli_args = ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "resources/scripts/gestures-control.ps1", "-Action", "toggle"]
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["переключи жесты", "переключи управление жестами"]
+phrases.en = ["toggle gestures", "toggle gesture control"]
+
+[[commands]]
+id = "led_on"
+type = "lua"
+script = "led-on.lua"
+sandbox = "full"
+timeout = 15000
+description = "Включить ленту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи ленту", "зажги ленту", "включи подсветку", "зажги подсветку"]
+phrases.en = ["led on"]
+
+[[commands]]
+id = "led_off"
+type = "lua"
+script = "led-off.lua"
+sandbox = "full"
+timeout = 15000
+description = "Выключить ленту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["выключи ленту", "погаси ленту", "выключи подсветку", "погаси подсветку"]
+phrases.en = ["led off"]
+
+[[commands]]
+id = "led_scan"
+type = "lua"
+script = "led-scan.lua"
+sandbox = "full"
+timeout = 35000
+description = "Найти ленту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["найди ленту", "найди лента", "найди ленты", "найди мою ленту", "найти ленту", "подключи ленту", "найди подсветку"]
+phrases.en = ["find led", "find the led strip"]
+
+[[commands]]
+id = "led_bright_up"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "up"]
+sandbox = "full"
+timeout = 15000
+description = "Ярче ленту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента ярче", "сделай ленту ярче", "подсветка ярче", "прибавь яркость ленты"]
+phrases.en = ["led brighter"]
+
+[[commands]]
+id = "led_bright_down"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "down"]
+sandbox = "full"
+timeout = 15000
+description = "Тусклее ленту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента тусклее", "сделай ленту тусклее", "подсветка тусклее", "убавь яркость ленты", "приглуши ленту"]
+phrases.en = ["led dimmer"]
+
+[[commands]]
+id = "led_bright_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "L1"]
+sandbox = "full"
+timeout = 15000
+description = "Яркость ленты 1"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость ленты один", "яркость ленты 1", "лента яркость один", "лента уровень один", "лента один", "подсветка один"]
+phrases.en = ["led brightness one"]
+
+[[commands]]
+id = "led_bright_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "L2"]
+sandbox = "full"
+timeout = 15000
+description = "Яркость ленты 2"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость ленты два", "яркость ленты 2", "лента яркость два", "лента уровень два", "лента два", "подсветка два"]
+phrases.en = ["led brightness two"]
+
+[[commands]]
+id = "led_bright_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "L3"]
+sandbox = "full"
+timeout = 15000
+description = "Яркость ленты 3"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость ленты три", "яркость ленты 3", "лента яркость три", "лента уровень три", "лента три", "подсветка три"]
+phrases.en = ["led brightness three"]
+
+[[commands]]
+id = "led_bright_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "L4"]
+sandbox = "full"
+timeout = 15000
+description = "Яркость ленты 4"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость ленты четыре", "яркость ленты 4", "лента яркость четыре", "лента уровень четыре", "лента четыре", "подсветка четыре"]
+phrases.en = ["led brightness four"]
+
+[[commands]]
+id = "led_bright_5"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "L5"]
+sandbox = "full"
+timeout = 15000
+description = "Яркость ленты 5"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркость ленты пять", "яркость ленты 5", "лента яркость пять", "лента уровень пять", "лента пять", "подсветка пять"]
+phrases.en = ["led brightness five"]
+
+[[commands]]
+id = "led_bright_min"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "min"]
+sandbox = "full"
+timeout = 15000
+description = "Мин. яркость ленты"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["минимальная яркость ленты", "минимум яркости ленты", "лента минимум", "самая тусклая лента"]
+phrases.en = ["led brightness min"]
+
+[[commands]]
+id = "led_bright_max"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "brightness", "max"]
+sandbox = "full"
+timeout = 15000
+description = "Макс. яркость ленты"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["максимальная яркость ленты", "максимум яркости ленты", "лента максимум", "самая яркая лента"]
+phrases.en = ["led brightness max"]
+
+[[commands]]
+id = "led_red"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "red"]
+sandbox = "full"
+timeout = 15000
+description = "Красный"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента красный", "лента красная", "красный свет", "подсветка красный"]
+phrases.en = ["led red"]
+
+[[commands]]
+id = "led_green"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "green"]
+sandbox = "full"
+timeout = 15000
+description = "Зелёный"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента зеленый", "лента зелёный", "лента зеленая", "зеленый свет", "зелёный свет", "подсветка зеленый"]
+phrases.en = ["led green"]
+
+[[commands]]
+id = "led_blue"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "blue"]
+sandbox = "full"
+timeout = 15000
+description = "Синий"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента синий", "лента синяя", "синий свет", "подсветка синий"]
+phrases.en = ["led blue"]
+
+[[commands]]
+id = "led_white"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "white"]
+sandbox = "full"
+timeout = 15000
+description = "Белый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента белый", "лента белая", "белый свет", "подсветка белый"]
+phrases.en = ["led white"]
+
+[[commands]]
+id = "led_orange"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "orange"]
+sandbox = "full"
+timeout = 15000
+description = "Оранжевый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента оранжевый", "оранжевый свет", "подсветка оранжевый"]
+phrases.en = ["led orange"]
+
+[[commands]]
+id = "led_yellow"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "yellow"]
+sandbox = "full"
+timeout = 15000
+description = "Жёлтый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента желтый", "лента жёлтый", "желтый свет", "жёлтый свет"]
+phrases.en = ["led yellow"]
+
+[[commands]]
+id = "led_lime"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "lime"]
+sandbox = "full"
+timeout = 15000
+description = "Салатовый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента салатовый", "салатовый свет"]
+phrases.en = ["led lime"]
+
+[[commands]]
+id = "led_cyan"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "cyan"]
+sandbox = "full"
+timeout = 15000
+description = "Голубой"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента голубой", "голубой свет", "подсветка голубой"]
+phrases.en = ["led cyan"]
+
+[[commands]]
+id = "led_teal"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "teal"]
+sandbox = "full"
+timeout = 15000
+description = "Бирюзовый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента бирюзовый", "бирюзовый свет"]
+phrases.en = ["led teal"]
+
+[[commands]]
+id = "led_sky"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "sky"]
+sandbox = "full"
+timeout = 15000
+description = "Небесный"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента небесный", "небесный свет"]
+phrases.en = ["led sky"]
+
+[[commands]]
+id = "led_purple"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "purple"]
+sandbox = "full"
+timeout = 15000
+description = "Фиолетовый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента фиолетовый", "фиолетовый свет", "подсветка фиолетовый"]
+phrases.en = ["led purple"]
+
+[[commands]]
+id = "led_magenta"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "magenta"]
+sandbox = "full"
+timeout = 15000
+description = "Малиновый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента малиновый", "малиновый свет"]
+phrases.en = ["led magenta"]
+
+[[commands]]
+id = "led_pink"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "color", "pink"]
+sandbox = "full"
+timeout = 15000
+description = "Розовый"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["лента розовый", "лента розовая", "розовый свет", "подсветка розовый"]
+phrases.en = ["led pink"]
+
+[[commands]]
+id = "led_jump3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "jump3"]
+sandbox = "full"
+timeout = 15000
+description = "JUMP3 — цветные прыжки"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["цветные прыжки", "режим прыжки", "прыжки на ленте", "три цвета"]
+phrases.en = ["led jump three"]
+
+[[commands]]
+id = "led_jump7"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "jump7"]
+sandbox = "full"
+timeout = 15000
+description = "JUMP7 — радуга"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["радуга", "режим радуга", "лента радуга", "радуга на ленте", "сделай радугу", "семь цветов"]
+phrases.en = ["led rainbow"]
+
+[[commands]]
+id = "led_fade3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "fade3"]
+sandbox = "full"
+timeout = 15000
+description = "FADE3 — плавно"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["плавно", "плавный режим", "затухание", "плавная смена", "лента плавно"]
+phrases.en = ["led fade"]
+
+[[commands]]
+id = "led_fade7"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "fade7"]
+sandbox = "full"
+timeout = 15000
+description = "FADE7 — перелив"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["перелив", "переливы", "режим перелив", "плавная радуга", "лента перелив"]
+phrases.en = ["led crossfade"]
+
+[[commands]]
+id = "led_flash"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "effect", "flash"]
+sandbox = "full"
+timeout = 15000
+description = "FLASH — мигание"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["мигание", "мигай", "режим мигания", "мигание ленты", "вспышки", "лента мигает"]
+phrases.en = ["led flash"]
+
+[[commands]]
+id = "led_auto"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "auto"]
+sandbox = "full"
+timeout = 15000
+description = "AUTO"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["авторежим", "автоматический режим", "режим авто", "лента автомат", "авто на ленте"]
+phrases.en = ["led auto"]
+
+[[commands]]
+id = "led_quick"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "quick"]
+sandbox = "full"
+timeout = 15000
+description = "QUICK — быстрее"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["ускорь ленту", "быстрее эффект", "быстрый режим ленты", "ускорь эффект", "лента быстро"]
+phrases.en = ["led quick"]
+
+[[commands]]
+id = "led_slow"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "slow"]
+sandbox = "full"
+timeout = 15000
+description = "SLOW — медленнее"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["замедли ленту", "медленнее эффект", "медленный режим ленты", "замедли эффект", "лента медленно"]
+phrases.en = ["led slow"]
+
+[[commands]]
+id = "led_timer_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "1"]
+sandbox = "full"
+timeout = 15000
+description = "1H"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через час", "выключи ленту через час", "лента на час", "выключи подсветку через час"]
+phrases.en = ["led timer one hour"]
+
+[[commands]]
+id = "led_timer_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "2"]
+sandbox = "full"
+timeout = 15000
+description = "2H"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через два часа", "выключи ленту через два часа", "лента на два часа"]
+phrases.en = ["led timer two hours"]
+
+[[commands]]
+id = "led_timer_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "3"]
+sandbox = "full"
+timeout = 15000
+description = "3H"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через три часа", "выключи ленту через три часа", "лента на три часа"]
+phrases.en = ["led timer three hours"]
+
+[[commands]]
+id = "led_timer_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "4"]
+sandbox = "full"
+timeout = 15000
+description = "4H"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через четыре часа", "выключи ленту через четыре часа", "лента на четыре часа"]
+phrases.en = ["led timer four hours"]
+
+[[commands]]
+id = "led_timer_10s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "10s"]
+sandbox = "full"
+timeout = 15000
+description = "LED off in 10 seconds"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через десять секунд", "выключи ленту через десять секунд", "лента на десять секунд"]
+phrases.en = ["led timer ten seconds"]
+
+[[commands]]
+id = "led_timer_on_10s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer_on", "10s"]
+sandbox = "full"
+timeout = 15000
+description = "LED on in 10 seconds"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи ленту через десять секунд", "зажги ленту через десять секунд"]
+phrases.en = ["led on in ten seconds"]
+
+[[commands]]
+id = "led_timer_on_1m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer_on", "1m"]
+sandbox = "full"
+timeout = 15000
+description = "LED on in 1 minute"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи ленту через минуту", "зажги ленту через минуту"]
+phrases.en = ["led on in one minute"]
+
+[[commands]]
+id = "led_timer_on_5m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer_on", "5m"]
+sandbox = "full"
+timeout = 15000
+description = "LED on in 5 minutes"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи ленту через пять минут", "зажги ленту через пять минут"]
+phrases.en = ["led on in five minutes"]
+
+[[commands]]
+id = "led_timer_on_10m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer_on", "10m"]
+sandbox = "full"
+timeout = 15000
+description = "LED on in 10 minutes"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи ленту через десять минут", "зажги ленту через десять минут"]
+phrases.en = ["led on in ten minutes"]
+
+[[commands]]
+id = "led_timer_on_1h"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer_on", "1"]
+sandbox = "full"
+timeout = 15000
+description = "LED on in 1 hour"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи ленту через час", "зажги ленту через час"]
+phrases.en = ["led on in one hour"]
+
+[[commands]]
+id = "led_timer_30s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "30s"]
+sandbox = "full"
+timeout = 15000
+description = "LED off in 30 seconds"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через тридцать секунд", "выключи ленту через тридцать секунд", "лента на тридцать секунд"]
+phrases.en = ["led timer thirty seconds"]
+
+[[commands]]
+id = "led_timer_1m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "1m"]
+sandbox = "full"
+timeout = 15000
+description = "LED off in 1 minute"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через минуту", "выключи ленту через минуту", "лента на минуту"]
+phrases.en = ["led timer one minute"]
+
+[[commands]]
+id = "led_timer_5m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "5m"]
+sandbox = "full"
+timeout = 15000
+description = "LED off in 5 minutes"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через пять минут", "выключи ленту через пять минут", "лента на пять минут"]
+phrases.en = ["led timer five minutes"]
+
+[[commands]]
+id = "led_timer_10m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "10m"]
+sandbox = "full"
+timeout = 15000
+description = "LED off in 10 minutes"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через десять минут", "выключи ленту через десять минут", "лента на десять минут"]
+phrases.en = ["led timer ten minutes"]
+
+[[commands]]
+id = "led_timer_30m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer", "30m"]
+sandbox = "full"
+timeout = 15000
+description = "LED off in 30 minutes"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["погаси через тридцать минут", "выключи ленту через тридцать минут", "лента на тридцать минут"]
+phrases.en = ["led timer thirty minutes"]
+
+[[commands]]
+id = "led_timer_cancel"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "timer_cancel"]
+sandbox = "full"
+timeout = 8000
+description = "Cancel LED off timer"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["отмени таймер ленты", "отмени погашение ленты", "не гаси ленту"]
+phrases.en = ["cancel led timer"]
+
+[[commands]]
+id = "led_moon_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "1"]
+sandbox = "full"
+timeout = 15000
+description = "Ночник"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["ночник", "ночной режим ленты", "очень тусклая лента", "лента ночник"]
+phrases.en = ["led night"]
+
+[[commands]]
+id = "led_moon_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "2"]
+sandbox = "full"
+timeout = 15000
+description = "Тускло"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["тусклая лента", "средняя яркость ленты", "лента тускло"]
+phrases.en = ["led dusk"]
+
+[[commands]]
+id = "led_moon_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "3"]
+sandbox = "full"
+timeout = 15000
+description = "Мягкий свет"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["мягкий свет", "мягкая лента", "мягкая подсветка"]
+phrases.en = ["led soft"]
+
+[[commands]]
+id = "led_moon_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "moon", "4"]
+sandbox = "full"
+timeout = 15000
+description = "Ярко"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["яркая лента", "полная яркость ленты", "максимум ленты", "лента на полную"]
+phrases.en = ["led full"]
+
+[[commands]]
+id = "led_music_1"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "1"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 1"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["музыкальный режим", "лента под музыку", "включи музыку ленты", "подсветка под музыку"]
+phrases.en = ["led music"]
+
+[[commands]]
+id = "led_music_2"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "2"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 2"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["мягкая музыка ленты", "спокойная музыка ленты"]
+phrases.en = ["led soft music"]
+
+[[commands]]
+id = "led_music_3"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "3"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 3"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["динамичная музыка ленты", "громкая музыка ленты"]
+phrases.en = ["led dynamic music"]
+
+[[commands]]
+id = "led_music_4"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "music", "4"]
+sandbox = "full"
+timeout = 15000
+description = "Музыка 4 — диско"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["диско", "дискотека", "режим диско", "диско на ленте", "лента диско"]
+phrases.en = ["led disco"]
+
+[[commands]]
+id = "led_music_off"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\led-strip-fast.cmd", "mic_off"]
+sandbox = "full"
+timeout = 15000
+description = "Выкл музыку"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["выключи музыку ленты", "отключи музыку ленты", "стоп музыка ленты", "без музыки лента"]
+phrases.en = ["led music off"]
+
+[[commands]]
+id = "chitchat_hello"
+type = "voice"
+description = "Приветствие (один ответ, без цепочки — иначе слышит сам себя)"
+sounds.ru = ["hello1", "hello2", "hello3"]
+sounds.en = ["hello1", "hello2", "hello3"]
+phrases.ru = [
+    "привет",
+    "привет джарвис",
+    "привет мита",
+    "здравствуй",
+    "здравствуйте",
+    "хай",
+    "здорово",
+    "добрый день джарвис",
+]
+phrases.en = ["hello", "hi jarvis", "hey there"]
+
+[[commands]]
+id = "chitchat_howare"
+type = "voice"
+description = "Ответ на «как дела» (один ответ, без цепочки)"
+sounds.ru = ["howare1", "howare2", "howare3"]
+sounds.en = ["howare1", "howare2", "howare3"]
+phrases.ru = [
+    "как дела",
+    "как ты",
+    "как жизнь",
+    "как настроение",
+    "что как",
+    "как сам",
+]
+phrases.en = ["how are you", "how's it going", "how do you do"]
+
+# --- Tuya / Smart Life Wi-Fi plug ---
+
+[[commands]]
+id = "plug_on"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "on"]
+sandbox = "full"
+timeout = 15000
+description = "Включить умную розетку"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "включи розетку",
+    "вруби розетку",
+    "открой розетку",
+    "питание на",
+    "включи умную розетку",
+]
+phrases.en = ["plug on", "turn on outlet", "outlet on"]
+
+[[commands]]
+id = "plug_off"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "off"]
+sandbox = "full"
+timeout = 15000
+description = "Выключить умную розетку"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку",
+    "отключи розетку",
+    "погаси розетку",
+    "питание выкл",
+    "выключи умную розетку",
+]
+phrases.en = ["plug off", "turn off outlet", "outlet off"]
+
+[[commands]]
+id = "plug_toggle"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "toggle"]
+sandbox = "full"
+timeout = 15000
+description = "Переключить розетку"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["переключи розетку", "тоггл розетку"]
+phrases.en = ["toggle outlet", "toggle plug"]
+
+[[commands]]
+id = "plug_status"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "status"]
+sandbox = "full"
+timeout = 15000
+description = "Статус розетки"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["статус розетки", "розетка включена", "проверь розетку"]
+phrases.en = ["outlet status", "plug status"]
+
+[[commands]]
+id = "plug_setup"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "setup"]
+sandbox = "full"
+timeout = 10000
+description = "Подсказка по настройке розетки"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["настрой розетку", "подключи розетку", "как настроить розетку"]
+phrases.en = ["setup outlet", "configure plug"]
+
+[[commands]]
+id = "plug_timer_10s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "10s"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 10 секунд"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через десять секунд",
+    "розетка на десять секунд",
+    "отключи розетку через десять секунд",
+]
+phrases.en = ["outlet off in ten seconds"]
+
+[[commands]]
+id = "plug_timer_30s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "30s"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 30 секунд"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через тридцать секунд",
+    "розетка на тридцать секунд",
+    "отключи розетку через тридцать секунд",
+]
+phrases.en = ["outlet off in thirty seconds"]
+
+[[commands]]
+id = "plug_timer_1m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "1m"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 1 минуту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через минуту",
+    "розетка на минуту",
+    "отключи розетку через минуту",
+]
+phrases.en = ["outlet off in one minute"]
+
+[[commands]]
+id = "plug_timer_5m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "5m"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 5 минут"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через пять минут",
+    "розетка на пять минут",
+    "отключи розетку через пять минут",
+]
+phrases.en = ["outlet off in five minutes"]
+
+[[commands]]
+id = "plug_timer_10m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "10m"]
+sandbox = "full"
+timeout = 10000
+description = "Выключи розетку через 10 минут"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через десять минут",
+    "розетка на десять минут",
+    "отключи розетку через десять минут",
+]
+phrases.en = ["outlet off in ten minutes"]
+
+[[commands]]
+id = "plug_timer_30m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "30m"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 30 минут"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через тридцать минут",
+    "розетка на тридцать минут",
+    "отключи розетку через тридцать минут",
+]
+phrases.en = ["outlet off in thirty minutes"]
+
+[[commands]]
+id = "plug_timer_1h"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "1"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 1 час"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через час",
+    "розетка на час",
+    "отключи розетку через час",
+]
+phrases.en = ["outlet off in one hour"]
+
+[[commands]]
+id = "plug_timer_2h"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer", "2"]
+sandbox = "full"
+timeout = 10000
+description = "Выключить розетку через 2 часа"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи розетку через два часа",
+    "розетка на два часа",
+    "отключи розетку через два часа",
+]
+phrases.en = ["outlet off in two hours"]
+
+[[commands]]
+id = "plug_timer_on_10s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "10s"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 10 секунд"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через десять секунд", "вруби розетку через десять секунд"]
+phrases.en = ["outlet on in ten seconds"]
+
+[[commands]]
+id = "plug_timer_on_30s"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "30s"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 30 секунд"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через тридцать секунд"]
+phrases.en = ["outlet on in thirty seconds"]
+
+[[commands]]
+id = "plug_timer_on_1m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "1m"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 1 минуту"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через минуту", "вруби розетку через минуту"]
+phrases.en = ["outlet on in one minute"]
+
+[[commands]]
+id = "plug_timer_on_5m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "5m"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 5 минут"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через пять минут"]
+phrases.en = ["outlet on in five minutes"]
+
+[[commands]]
+id = "plug_timer_on_10m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "10m"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 10 минут"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через десять минут"]
+phrases.en = ["outlet on in ten minutes"]
+
+[[commands]]
+id = "plug_timer_on_30m"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "30m"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 30 минут"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через тридцать минут"]
+phrases.en = ["outlet on in thirty minutes"]
+
+[[commands]]
+id = "plug_timer_on_1h"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "1"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 1 час"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через час", "вруби розетку через час"]
+phrases.en = ["outlet on in one hour"]
+
+[[commands]]
+id = "plug_timer_on_2h"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_on", "2"]
+sandbox = "full"
+timeout = 10000
+description = "Включить розетку через 2 часа"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = ["включи розетку через два часа"]
+phrases.en = ["outlet on in two hours"]
+
+[[commands]]
+id = "plug_timer_cancel"
+type = "cli"
+cli_cmd = "cmd"
+cli_args = ["/c", "resources\\scripts\\tuya-plug.cmd", "timer_cancel"]
+sandbox = "full"
+timeout = 8000
+description = "Отменить таймер розетки"
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "отмени таймер розетки",
+    "отмени розетку",
+    "не выключай розетку",
+    "отмени включение розетки",
+]
+phrases.en = ["cancel outlet timer", "cancel plug timer"]

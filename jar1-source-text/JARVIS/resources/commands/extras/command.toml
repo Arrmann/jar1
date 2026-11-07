@@ -1,0 +1,559 @@
+[[commands]]
+id = "sleep_pc"
+type = "lua"
+script = "sleep-pc.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_sleep_pc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "спящий режим",
+    "отправь компьютер в сон",
+    "отправь пк в сон",
+    "отправь комп в сон",
+    "усыпи компьютер",
+    "сон компьютера",
+    "переведи компьютер в сон",
+    "переведи пк в сон",
+]
+phrases.en = [
+    "sleep computer",
+    "go to sleep",
+    "suspend pc",
+]
+
+[[commands]]
+id = "shutdown_pc"
+type = "lua"
+script = "shutdown-pc.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_shutdown_pc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи компьютер",
+    "выключи пк",
+    "заверши работу",
+    "выключение",
+]
+phrases.en = [
+    "shutdown computer",
+    "turn off pc",
+    "power off",
+]
+
+[[commands]]
+id = "shutdown_delayed"
+type = "lua"
+script = "shutdown-delayed.lua"
+sandbox = "full"
+timeout = 12000
+description = "Выключить ПК через секунды / минуты / часы"
+sounds.ru = ["cmd_shutdown_pc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "выключи через",
+    "выключи компьютер через",
+    "выключи пк через",
+    "выключи комп через",
+    "выключи ноут через",
+    "выключи ноутбук через",
+    "погаси компьютер через",
+    "погаси пк через",
+    "погаси комп через",
+    "заверши работу через",
+    "таймер выключения",
+    "таймер выключения на",
+    "отложи выключение",
+    "отложи выключение на",
+    "выключи через десять минут",
+    "выключи через пять минут",
+    "выключи через тридцать минут",
+    "выключи через час",
+    "выключи через два часа",
+    "выключи через тридцать секунд",
+    "выключи через минуту",
+]
+phrases.en = [
+    "shutdown in",
+    "power off in",
+    "turn off pc in",
+]
+
+[[commands]]
+id = "restart_pc"
+type = "lua"
+script = "restart-pc.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_restart_pc"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "перезагрузи компьютер",
+    "перезагрузи пк",
+    "рестарт",
+    "перезагрузка",
+]
+phrases.en = [
+    "restart computer",
+    "reboot pc",
+    "restart",
+]
+
+[[commands]]
+id = "cancel_shutdown"
+type = "lua"
+script = "cancel-shutdown.lua"
+sandbox = "full"
+timeout = 6000
+description = "Отменить выключение, перезагрузку, таймеры и озвучку"
+sounds.ru = ["cmd_cancel_shutdown"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "отмени выключение",
+    "отмени перезагрузку",
+    "отмена выключения",
+    "не выключай",
+    "отмена",
+    "отмени всё",
+    "отмена всего",
+    "не надо выключать",
+    "останови выключение",
+]
+phrases.en = [
+    "cancel shutdown",
+    "abort shutdown",
+    "cancel restart",
+]
+
+[[commands]]
+id = "empty_trash"
+type = "lua"
+script = "empty-trash.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_empty_trash"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "очисти корзину",
+    "очистить корзину",
+    "удали корзину",
+]
+phrases.en = [
+    "empty recycle bin",
+    "empty trash",
+    "clear recycle bin",
+]
+
+[[commands]]
+id = "open_youtube"
+type = "lua"
+script = "open-youtube.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_youtube"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой ютуб",
+    "открой youtube",
+    "запусти ютуб",
+    "ютуб",
+]
+phrases.en = [
+    "open youtube",
+    "youtube",
+    "launch youtube",
+]
+
+[[commands]]
+id = "open_pubg"
+type = "lua"
+script = "open-pubg.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой пабг",
+    "запусти пабг",
+    "открой pubg",
+    "запусти pubg",
+    "пабг",
+    "пабджи",
+    "pubg",
+]
+phrases.en = [
+    "open pubg",
+    "launch pubg",
+    "pubg",
+    "play pubg",
+]
+
+[[commands]]
+id = "open_notepad"
+type = "lua"
+script = "open-notepad.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_open_notepad"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой блокнот",
+    "запусти блокнот",
+    "блокнот",
+]
+phrases.en = [
+    "open notepad",
+    "notepad",
+    "launch notepad",
+]
+
+[[commands]]
+id = "open_task_manager"
+type = "lua"
+script = "open-task-manager.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_open_task_manager"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой диспетчер задач",
+    "диспетчер задач",
+    "открой процессы",
+]
+phrases.en = [
+    "open task manager",
+    "task manager",
+]
+
+[[commands]]
+id = "open_downloads"
+type = "lua"
+script = "open-downloads.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_open_downloads"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой загрузки",
+    "открой папку загрузок",
+    "папка загрузок",
+]
+phrases.en = [
+    "open downloads",
+    "downloads folder",
+]
+
+[[commands]]
+id = "open_documents"
+type = "lua"
+script = "open-documents.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_documents"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой документы",
+    "открой мои документы",
+    "открой папку документов",
+    "папка документы",
+    "открой папку мои документы",
+]
+phrases.en = [
+    "open documents",
+    "documents folder",
+]
+
+[[commands]]
+id = "open_desktop_folder"
+type = "lua"
+script = "open-desktop-folder.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_desktop_folder"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой десктоп",
+    "открой папку рабочего стола",
+    "открой рабочий стол",
+    "папка рабочего стола",
+    "папка рабочий стол"
+]
+phrases.en = [
+    "open desktop folder",
+    "desktop folder",
+]
+
+[[commands]]
+id = "open_settings"
+type = "lua"
+script = "open-settings.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_open_settings"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой параметры",
+    "открой настройки windows",
+    "настройки системы",
+    "параметры windows",
+]
+phrases.en = [
+    "open settings",
+    "windows settings",
+    "system settings",
+]
+
+[[commands]]
+id = "open_paint"
+type = "lua"
+script = "open-paint.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_paint"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой пейнт",
+    "запусти пейнт",
+    "открой paint",
+    "открой рисунок",
+    "пейнт",
+]
+phrases.en = [
+    "open paint",
+    "paint",
+    "launch paint",
+]
+
+[[commands]]
+id = "open_terminal"
+type = "lua"
+script = "open-terminal.lua"
+sandbox = "full"
+timeout = 5000
+sounds.ru = ["cmd_open_terminal"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой терминал",
+    "открой консоль",
+    "открой командную строку",
+    "терминал",
+]
+phrases.en = [
+    "open terminal",
+    "open console",
+    "command prompt",
+]
+
+[[commands]]
+id = "minimize_all"
+type = "lua"
+script = "minimize-all.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_minimize_all"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "сверни все",
+    "сверни всё",
+    "сверни все окна",
+    "свернуть всё",
+    "свернуть все",
+    "свернуть все окна",
+]
+phrases.en = [
+    "minimize all",
+    "minimize all windows",
+    "minimize everything",
+]
+
+[[commands]]
+id = "show_desktop"
+type = "lua"
+script = "show-desktop.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_show_desktop"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "покажи рабочий стол",
+    "рабочий стол",
+]
+phrases.en = [
+    "show desktop",
+    "desktop",
+]
+
+[[commands]]
+id = "open_recycle_bin"
+type = "lua"
+script = "open-recycle-bin.lua"
+sandbox = "full"
+timeout = 4000
+sounds.ru = ["cmd_open_recycle_bin"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой корзину",
+    "покажи корзину",
+    "корзина",
+]
+phrases.en = [
+    "open recycle bin",
+    "recycle bin",
+    "trash",
+]
+
+[[commands]]
+id = "open_telegram"
+type = "lua"
+script = "open-telegram.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_telegram"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой телеграм",
+    "открой telegram",
+    "открой телегу",
+    "запусти телеграм",
+    "запусти telegram",
+    "телеграм",
+    "телега",
+]
+phrases.en = [
+    "open telegram",
+    "telegram",
+    "launch telegram",
+]
+
+[[commands]]
+id = "open_telegram_web"
+type = "lua"
+script = "open-telegram-web.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой телеграм веб",
+    "открой веб телеграм",
+    "телеграм веб",
+    "веб телеграм",
+    "открой telegram web",
+    "telegram web",
+    "открой телеграм в браузере",
+]
+phrases.en = [
+    "open telegram web",
+    "telegram web",
+    "open web telegram",
+]
+
+[[commands]]
+id = "open_discord"
+type = "lua"
+script = "open-discord.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_discord"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "открой дискорд",
+    "открой discord",
+    "запусти дискорд",
+    "запусти discord",
+    "дискорд",
+    "discord",
+    "диск орд",
+    "открой диск орд",
+]
+phrases.en = [
+    "open discord",
+    "discord",
+    "launch discord",
+]
+
+[[commands]]
+id = "open_camera"
+type = "lua"
+script = "open-camera.lua"
+sandbox = "full"
+timeout = 8000
+sounds.ru = ["cmd_open_camera"]
+sounds.en = ["ok1", "ok2", "ok3", "ok4", "ok5"]
+phrases.ru = [
+    "запусти камеру",
+    "запусти камеру windows",
+    "камера",
+    "открой камеру",
+    "открой камеру windows"
+]
+phrases.en = [
+    "open camera",
+    "camera",
+    "launch camera",
+]
+
+
+[[commands]]
+id = "companion_show"
+type = "lua"
+script = "companion-show.lua"
+sandbox = "full"
+timeout = 3000
+phrases.ru = ["появись", "появились"]
+phrases.en = ["appear"]
+
+[[commands]]
+id = "companion_hide"
+type = "lua"
+script = "companion-hide.lua"
+sandbox = "full"
+timeout = 3000
+phrases.ru = ["исчезни"]
+phrases.en = ["disappear"]
+
+[[commands]]
+id = "companion_dance"
+type = "lua"
+script = "companion-dance.lua"
+sandbox = "full"
+timeout = 3000
+phrases.ru = ["танцуй", "потанцуй", "станцуй"]
+phrases.en = ["dance"]
+
+[[commands]]
+id = "companion_dance_stop"
+type = "lua"
+script = "companion-dance-stop.lua"
+sandbox = "full"
+timeout = 3000
+phrases.ru = ["хватит танцевать", "останови танец", "перестань танцевать"]
+phrases.en = ["stop dancing"]
+
+[[commands]]
+id = "companion_sleep"
+type = "lua"
+script = "companion-sleep.lua"
+sandbox = "full"
+timeout = 3000
+phrases.ru = ["спать", "ложись спать", "иди спать", "луна спать"]
+phrases.en = ["go to sleep"]
+
+[[commands]]
+id = "companion_wake"
+type = "lua"
+script = "companion-wake.lua"
+sandbox = "full"
+timeout = 3000
+phrases.ru = ["проснись", "вставай", "луна проснись"]
+phrases.en = ["wake up"]
+
+[[commands]]
+id = "close_all_windows"
+type = "lua"
+script = "close-all-windows.lua"
+sandbox = "full"
+timeout = 4000
+phrases.ru = ["закрой все окна"]
+phrases.en = ["close all windows"]

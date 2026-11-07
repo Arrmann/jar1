@@ -1,0 +1,3 @@
+files_total=12523
+text_files_exported=9062
+large_text_files_skipped=1

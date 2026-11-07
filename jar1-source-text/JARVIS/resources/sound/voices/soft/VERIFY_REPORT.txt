@@ -1,0 +1,26 @@
+CONFIRM cmds: 130
+installed cmd_*.mp3: 130
+MISSING: 0
+EXTRA: 0
+TINY(<5k): 0
+reactions expected: 0 missing: 0
+popular EN-in-ru: 0
+popular bad-bare: 0
+control EN-in-ru: 0
+control bad-bare: 0
+open_rutube phrases:
+  открой рутуб
+  рутуб
+  открой рот
+  рот убы
+  открой рот убы
+  ру туб
+rutube need ok: True
+KEY FILES:
+  cmd_open_rutube	OK	24309
+  cmd_browser_downloads	OK	24727
+  cmd_open_translate	OK	27235
+  cmd_open_downloads	OK	26399
+  cmd_translate	OK	35176
+  cmd_brightness_down	OK	29325
+  cmd_volume_up	OK	30161

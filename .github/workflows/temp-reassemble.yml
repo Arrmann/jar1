@@ -1,0 +1,47 @@
+name: Temporary JARVIS source archive reassembly
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  reassemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout uploaded archive parts
+        uses: actions/checkout@v4
+        with:
+          ref: chatgpt/reassemble-inspect
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Reassemble and validate multipart archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          parts=(JARVIS.7z.[0-9][0-9][0-9])
+          test "${#parts[@]}" -eq 27
+          cat "${parts[@]}" > JARVIS.7z
+          7z t JARVIS.7z
+
+      - name: Extract archive
+        run: 7z x JARVIS.7z -osource -y
+
+      - name: Upload unpacked project
+        uses: actions/upload-artifact@v4
+        with:
+          name: jarvis-source-tree
+          path: source/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 1

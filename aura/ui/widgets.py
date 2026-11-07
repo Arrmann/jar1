@@ -165,7 +165,7 @@ class ChatWidget(QWidget):
             name = "Вы"
         elif role == "assistant":
             color = "#c4b5fd"
-            name = "AURA"
+            name = "JARVIS"
         else:
             color = "#94a3b8"
             name = role
@@ -396,7 +396,7 @@ class SettingsWidget(QWidget):
         layout.addStretch(1)
 
         self.save_btn.clicked.connect(self.save)
-        self.test_tts_btn.clicked.connect(lambda: self.orch.speaker.speak("Проверка голоса AURA."))
+        self.test_tts_btn.clicked.connect(lambda: self.orch.speaker.speak("Проверка голоса JARVIS."))
         self.provider.currentTextChanged.connect(self._update_key_placeholder)
 
         self._update_key_placeholder()

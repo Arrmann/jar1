@@ -42,7 +42,7 @@ jobs:
           out.mkdir(exist_ok=True)
 
           allowed = {
-              ".py", ".pyw", ".pyi", ".js", ".jsx", ".ts", ".tsx",
+              ".py", ".pyw", ".pyi", ".lua", ".js", ".jsx", ".ts", ".tsx",
               ".html", ".htm", ".css", ".scss", ".json", ".jsonc",
               ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf",
               ".txt", ".md", ".rst", ".ps1", ".bat", ".cmd", ".sh",
@@ -92,14 +92,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          mkdir -p /tmp/jar1-source-export
+          cp -a source_dump /tmp/jar1-source-export/jar1-source-text
+          cp source-inventory.txt source-export-summary.txt /tmp/jar1-source-export/
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout --orphan jar1-source-text-export
           git rm -rf . >/dev/null 2>&1 || true
-          mkdir -p jar1-source-text
-          cp -a source_dump/. jar1-source-text/
-          cp source-inventory.txt source-export-summary.txt .
+          git clean -fdx
+          cp -a /tmp/jar1-source-export/. .
           git add -A
           git commit -m "Export readable JARVIS source files for inspection"
           git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:refs/heads/chatgpt/jar1-source-text --force
-

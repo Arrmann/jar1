@@ -1,0 +1,111 @@
+name: Export JARVIS source from completed artifact
+
+on:
+  push:
+    branches:
+      - chatgpt/reassemble-inspect
+    paths:
+      - ".github/workflows/export-from-artifact.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download completed source-review artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p review extracted publish
+          curl --fail --location --retry 3 \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/Arrmann/jar1/actions/artifacts/13593322463/zip" \
+            -o review.zip
+          unzip -oq review.zip -d review
+          ls -lh review
+          test -f review/jarvis-source-code.tar.gz
+          tar -xzf review/jarvis-source-code.tar.gz -C extracted
+
+      - name: Build compact source tree
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+
+          roots = list(Path("extracted").rglob("JARVIS"))
+          root = roots[0] if roots else Path("extracted")
+          out = Path("publish/jar1-source-text")
+          out.mkdir(parents=True, exist_ok=True)
+
+          allowed = {
+              ".py", ".pyw", ".pyi", ".lua", ".js", ".jsx", ".ts", ".tsx",
+              ".html", ".htm", ".css", ".scss", ".json", ".jsonc",
+              ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf",
+              ".txt", ".md", ".rst", ".ps1", ".bat", ".cmd", ".sh",
+              ".xml", ".xaml", ".cs", ".cpp", ".h", ".hpp", ".java",
+              ".kt", ".go", ".rs", ".sql", ".vue", ".svelte", ".env"
+          }
+          special = {
+              "Dockerfile", "Makefile", "Pipfile", "Procfile",
+              ".gitignore", ".gitattributes", ".editorconfig"
+          }
+          ignored = {
+              "site-packages", "node_modules", ".venv", "venv",
+              "__pycache__", ".git", ".cache", "cache", "dist", "build"
+          }
+          inventory = []
+          copied = 0
+
+          for p in sorted(root.rglob("*")):
+              if not p.is_file():
+                  continue
+              rel = p.relative_to(root)
+              size = p.stat().st_size
+              inventory.append(f"{size:>12} bytes  {rel.as_posix()}")
+              if any(part in ignored for part in rel.parts):
+                  continue
+              if p.suffix.lower() not in allowed and p.name not in special:
+                  continue
+              if size > 2 * 1024 * 1024:
+                  continue
+              target = out / rel
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(p, target)
+              copied += 1
+
+          Path("publish/source-inventory.txt").write_text(
+              "\n".join(inventory) + "\n", encoding="utf-8"
+          )
+          Path("publish/source-export-summary.txt").write_text(
+              f"source_root={root}\nfiles_in_bundle={len(inventory)}\n"
+              f"readable_source_files_exported={copied}\n",
+              encoding="utf-8"
+          )
+          review = Path("review")
+          for name in ("source-summary.txt", "source-manifest.tsv"):
+              p = review / name
+              if p.exists():
+                  shutil.copy2(p, Path("publish") / name)
+          print(Path("publish/source-export-summary.txt").read_text())
+          PY
+
+      - name: Publish source text to review branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git -C publish init
+          git -C publish config user.name "github-actions[bot]"
+          git -C publish config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C publish add -A
+          git -C publish commit -m "Export readable JARVIS source files for inspection"
+          git -C publish push --force \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            HEAD:refs/heads/chatgpt/jar1-source-text

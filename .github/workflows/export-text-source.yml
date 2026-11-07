@@ -1,0 +1,105 @@
+name: Export JARVIS source text for review
+
+on:
+  push:
+    branches:
+      - chatgpt/reassemble-inspect
+    paths:
+      - ".github/workflows/export-text-source.yml"
+      - "JARVIS.7z.*"
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout archive parts
+        uses: actions/checkout@v4
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Extract original archive
+        run: |
+          set -euo pipefail
+          mkdir -p extracted
+          7z t JARVIS.7z.001
+          7z x JARVIS.7z.001 -oextracted -y
+
+      - name: Copy source and configuration files
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+
+          root = Path("extracted")
+          out = Path("source_dump")
+          out.mkdir(exist_ok=True)
+
+          allowed = {
+              ".py", ".pyw", ".pyi", ".js", ".jsx", ".ts", ".tsx",
+              ".html", ".htm", ".css", ".scss", ".json", ".jsonc",
+              ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf",
+              ".txt", ".md", ".rst", ".ps1", ".bat", ".cmd", ".sh",
+              ".xml", ".xaml", ".cs", ".cpp", ".h", ".hpp", ".java",
+              ".kt", ".go", ".rs", ".sql", ".vue", ".svelte", ".env"
+          }
+          special = {
+              "Dockerfile", "Makefile", "Pipfile", "Procfile",
+              ".gitignore", ".gitattributes", ".editorconfig"
+          }
+
+          inventory = []
+          copied = 0
+          skipped_large = 0
+
+          for p in sorted(root.rglob("*")):
+              if not p.is_file():
+                  continue
+              rel = p.relative_to(root)
+              size = p.stat().st_size
+              inventory.append(f"{size:>12} bytes  {rel.as_posix()}")
+              if p.suffix.lower() not in allowed and p.name not in special:
+                  continue
+              if size > 2 * 1024 * 1024:
+                  skipped_large += 1
+                  continue
+              target = out / rel
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(p, target)
+              copied += 1
+
+          Path("source-inventory.txt").write_text(
+              "\n".join(inventory) + "\n", encoding="utf-8"
+          )
+          Path("source-export-summary.txt").write_text(
+              f"files_total={len(inventory)}\n"
+              f"text_files_exported={copied}\n"
+              f"large_text_files_skipped={skipped_large}\n",
+              encoding="utf-8"
+          )
+          print(Path("source-export-summary.txt").read_text())
+          print("\n".join(inventory[:300]))
+          PY
+
+      - name: Publish text source tree to review branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan jar1-source-text-export
+          git rm -rf . >/dev/null 2>&1 || true
+          mkdir -p jar1-source-text
+          cp -a source_dump/. jar1-source-text/
+          cp source-inventory.txt source-export-summary.txt .
+          git add -A
+          git commit -m "Export readable JARVIS source files for inspection"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:refs/heads/chatgpt/jar1-source-text --force
+

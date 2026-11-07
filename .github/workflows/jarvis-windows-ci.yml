@@ -6,6 +6,10 @@ on:
       - chatgpt/aura-jarvis-integration
   workflow_dispatch:
 
+concurrency:
+  group: jarvis-windows-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -81,7 +85,32 @@ jobs:
           if (-not (Test-Path "dist/JARVIS.exe")) { throw "PyInstaller did not produce dist/JARVIS.exe" }
           Get-Item "dist/JARVIS.exe" | Format-List Name,Length,LastWriteTime
 
-      - name: Upload Windows executable
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          $iscc = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\\ISCC.exe"
+          if (-not (Test-Path $iscc)) { throw "Inno Setup compiler not found: $iscc" }
+          Write-Host "Inno Setup compiler: $iscc"
+
+      - name: Build one-click installer
+        shell: pwsh
+        run: |
+          $iscc = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\\ISCC.exe"
+          New-Item -ItemType Directory -Force "dist-installer" | Out-Null
+          & $iscc /Qp "installer/JARVIS.iss"
+          if ($LASTEXITCODE -ne 0) { throw "Inno Setup failed." }
+          Get-ChildItem "dist-installer" | Format-Table Name,Length
+
+      - name: Upload one-click Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-Windows-x64-Setup
+          path: dist-installer/JARVIS-Assistant-Setup-*-x64.exe
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload standalone Windows executable
         uses: actions/upload-artifact@v4
         with:
           name: JARVIS-Windows-x64-EXE

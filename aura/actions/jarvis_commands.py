@@ -725,6 +725,25 @@ class JarvisCommandService:
         return {"success": False, "message": f"Обработчик команды {command_id} ещё не добавлен."}
 
     @staticmethod
+    def _get_brightness() -> int | None:
+        script = (
+            "$b=Get-CimInstance -Namespace root/WMI -ClassName WmiMonitorBrightness -ErrorAction Stop | "
+            "Select-Object -First 1 -ExpandProperty CurrentBrightness; "
+            "if($null -eq $b){exit 2}; [Console]::Write([int]$b)"
+        )
+        try:
+            result = subprocess.run(
+                ["powershell", "-NoProfile", "-NonInteractive", "-Command", script],
+                capture_output=True, text=True, timeout=10,
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+            )
+            if result.returncode != 0:
+                return None
+            return max(0, min(100, int(result.stdout.strip())))
+        except (OSError, ValueError, subprocess.TimeoutExpired):
+            return None
+
+    @staticmethod
     def _set_brightness(percent: int) -> dict[str, Any]:
         percent = max(0, min(100, int(percent)))
         script = (

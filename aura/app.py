@@ -11,7 +11,7 @@ from .ui.main_window import MainWindow
 
 def run() -> int:
     app = QApplication(sys.argv)
-    app.setApplicationName("AURA AI")
+    app.setApplicationName("JARVIS Assistant")
     app.setOrganizationName("AURA_AI")
 
     setup_logging()
@@ -32,5 +32,5 @@ def run() -> int:
         return app.exec()
 
     except Exception as exc:
-        QMessageBox.critical(None, "AURA AI", f"Критическая ошибка запуска:\n{exc}")
+        QMessageBox.critical(None, "JARVIS Assistant", f"Критическая ошибка запуска:\n{exc}")
         raise

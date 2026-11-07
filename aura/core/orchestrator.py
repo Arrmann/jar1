@@ -806,7 +806,7 @@ class Orchestrator(QObject):
                 return
 
             if mode == "wake":
-                wake_phrase = str(self.cfg.get("voice.wake_phrase", "аура") or "").strip().lower()
+                wake_phrase = str(self.cfg.get("voice.wake_phrase", "джарвис") or "").strip().lower()
                 if wake_phrase and wake_phrase in text.lower():
                     self.status_changed.emit("Активация по фразе.")
                     self.request_start_voice.emit("command")

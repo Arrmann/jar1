@@ -1,0 +1,6088 @@
+{
+  "schema_version": 1,
+  "source_repository": "Arrmann/jar1",
+  "source_branch": "chatgpt/jar1-source-text",
+  "source_commit": "b42391ad25450fdd8f91fe79cbe3eacf8b8d338a",
+  "generated_at": "2026-11-08",
+  "note": "Command metadata imported for the AURA JARVIS integration branch. Runtime handlers are not implied by metadata alone; device/API-dependent commands remain optional.",
+  "total_commands": 308,
+  "categories": {
+    "basics": 13,
+    "control": 169,
+    "daily": 23,
+    "extras": 30,
+    "notes": 4,
+    "popular": 69
+  },
+  "duplicate_ids": [],
+  "commands": [
+    {
+      "id": "browser_open",
+      "group": "basics",
+      "type": "lua",
+      "script": "browser-open.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой браузер",
+        "запусти браузер",
+        "открой хром",
+        "запусти хром",
+        "включи браузер",
+        "открой интернет",
+        "открой гугл",
+        "открой google"
+      ],
+      "phrases_en": [
+        "open browser",
+        "launch browser",
+        "open chrome",
+        "start browser",
+        "open google"
+      ]
+    },
+    {
+      "id": "browser_close",
+      "group": "basics",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "закрой браузер",
+        "закрой все браузеры",
+        "выключи браузер",
+        "убери браузер"
+      ],
+      "phrases_en": [
+        "close browser",
+        "close all browsers",
+        "exit browser"
+      ]
+    },
+    {
+      "id": "close_active",
+      "group": "basics",
+      "type": "lua",
+      "script": "close-active.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "закрой",
+        "закрой окно",
+        "закрой это",
+        "закрой активное окно",
+        "убери окно"
+      ],
+      "phrases_en": [
+        "close",
+        "close window",
+        "close this",
+        "close active window"
+      ]
+    },
+    {
+      "id": "volume_up",
+      "group": "basics",
+      "type": "lua",
+      "script": "volume-up.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "сделай громче",
+        "громче",
+        "увеличь громкость",
+        "прибавь звук",
+        "звука больше",
+        "сделай погромче",
+        "погромче",
+        "прибавь громкость",
+        "громкость выше"
+      ],
+      "phrases_en": [
+        "volume up",
+        "louder",
+        "increase volume"
+      ]
+    },
+    {
+      "id": "volume_down",
+      "group": "basics",
+      "type": "lua",
+      "script": "volume-down.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "сделай тише",
+        "тише",
+        "уменьши громкость",
+        "убавь звук",
+        "звука меньше",
+        "сделай потише",
+        "потише",
+        "убавь громкость",
+        "громкость ниже"
+      ],
+      "phrases_en": [
+        "volume down",
+        "quieter",
+        "decrease volume"
+      ]
+    },
+    {
+      "id": "volume_mute",
+      "group": "basics",
+      "type": "lua",
+      "script": "volume-mute.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "выключи звук",
+        "без звука",
+        "мьют",
+        "отключи звук",
+        "заглуши звук",
+        "мьют звук"
+      ],
+      "phrases_en": [
+        "mute",
+        "mute sound",
+        "silence"
+      ]
+    },
+    {
+      "id": "volume_unmute",
+      "group": "basics",
+      "type": "lua",
+      "script": "volume-unmute.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "включи звук",
+        "верни звук",
+        "сними мьют",
+        "размуть"
+      ],
+      "phrases_en": [
+        "unmute",
+        "unmute sound",
+        "turn sound on"
+      ]
+    },
+    {
+      "id": "lock_pc",
+      "group": "basics",
+      "type": "lua",
+      "script": "lock-pc.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "заблокируй компьютер",
+        "заблокируй пк",
+        "блокировка",
+        "заблокируй экран"
+      ],
+      "phrases_en": [
+        "lock computer",
+        "lock pc",
+        "lock screen"
+      ]
+    },
+    {
+      "id": "open_explorer",
+      "group": "basics",
+      "type": "lua",
+      "script": "open-explorer.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой проводник",
+        "открой файлы",
+        "файловый менеджер",
+        "открой файловый проводник"
+      ],
+      "phrases_en": [
+        "open explorer",
+        "open files",
+        "file manager"
+      ]
+    },
+    {
+      "id": "open_calculator",
+      "group": "basics",
+      "type": "lua",
+      "script": "open-calculator.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "открой калькулятор",
+        "запусти калькулятор",
+        "калькулятор"
+      ],
+      "phrases_en": [
+        "open calculator",
+        "calculator",
+        "launch calculator"
+      ]
+    },
+    {
+      "id": "screenshot",
+      "group": "basics",
+      "type": "lua",
+      "script": "screenshot.lua",
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "",
+      "phrases_ru": [
+        "сделай скриншот",
+        "скриншот",
+        "снимок экрана",
+        "сделай снимок экрана",
+        "сохрани экран"
+      ],
+      "phrases_en": [
+        "take screenshot",
+        "screenshot",
+        "capture screen",
+        "save screenshot"
+      ]
+    },
+    {
+      "id": "screen_record_start",
+      "group": "basics",
+      "type": "lua",
+      "script": "screen-record-start.lua",
+      "sandbox": "full",
+      "timeout_ms": 12000,
+      "description": "",
+      "phrases_ru": [
+        "сделай запись экрана",
+        "запиши экран",
+        "запись экрана",
+        "начни запись экрана",
+        "запусти запись экрана",
+        "начни снимать экран"
+      ],
+      "phrases_en": [
+        "record screen",
+        "start screen recording",
+        "start recording screen",
+        "screen record"
+      ]
+    },
+    {
+      "id": "screen_record_stop",
+      "group": "basics",
+      "type": "lua",
+      "script": "screen-record-stop.lua",
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "",
+      "phrases_ru": [
+        "останови запись экрана",
+        "стоп запись экрана",
+        "закончи запись экрана",
+        "выключи запись экрана",
+        "останови запись",
+        "стоп запись"
+      ],
+      "phrases_en": [
+        "stop screen recording",
+        "stop recording screen",
+        "end screen recording"
+      ]
+    },
+    {
+      "id": "dictate",
+      "group": "control",
+      "type": "lua",
+      "script": "dictate.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Диктовка: «запиши» — печатает речь до Esc или «останови»",
+      "phrases_ru": [
+        "запиши",
+        "записывай",
+        "записывать",
+        "запись",
+        "начни запись",
+        "начинаю записывать",
+        "диктуй",
+        "диктовать",
+        "напечатай",
+        "напечатать",
+        "печатай",
+        "печатать",
+        "напиши",
+        "набери",
+        "введи текст",
+        "режим диктовки",
+        "режим печати",
+        "начинаю печатать"
+      ],
+      "phrases_en": [
+        "type",
+        "dictate",
+        "write",
+        "start typing",
+        "voice type",
+        "start dictation"
+      ]
+    },
+    {
+      "id": "dictate_stop",
+      "group": "control",
+      "type": "lua",
+      "script": "dictate-stop.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "Остановить диктовку",
+      "phrases_ru": [
+        "останови печать",
+        "стоп печать",
+        "останови диктовку",
+        "стоп диктовка",
+        "хватит печатать",
+        "закончи печать",
+        "отключи печать",
+        "закончи диктовку",
+        "хватит диктовку"
+      ],
+      "phrases_en": [
+        "stop typing",
+        "stop dictation",
+        "end dictation"
+      ]
+    },
+    {
+      "id": "translate",
+      "group": "control",
+      "type": "lua",
+      "script": "translate.lua",
+      "sandbox": "full",
+      "timeout_ms": 6000,
+      "description": "Перевести выделенный текст или буфер — появится окошко",
+      "phrases_ru": [
+        "переведи на русский",
+        "переведи на английский",
+        "переведи на русском",
+        "переведи на английском",
+        "переведи это на русский",
+        "переведи это на английский",
+        "переведи",
+        "переведи это",
+        "переведи выделенное",
+        "переведи слово",
+        "переведи текст",
+        "перевод"
+      ],
+      "phrases_en": [
+        "translate to russian",
+        "translate to english",
+        "translate this to russian",
+        "translate this to english",
+        "translate",
+        "translate this",
+        "translate selection"
+      ]
+    },
+    {
+      "id": "speak",
+      "group": "control",
+      "type": "lua",
+      "script": "speak.lua",
+      "sandbox": "full",
+      "timeout_ms": 25000,
+      "description": "Прочитать вслух выделенный текст или буфер обмена",
+      "phrases_ru": [
+        "прочитай это",
+        "прочитай текст",
+        "прочитай выделенное",
+        "прочитай буфер",
+        "прочитай вслух",
+        "прочитай",
+        "озвучь это",
+        "озвучь текст",
+        "озвучь выделенное",
+        "озвучь буфер",
+        "озвучь",
+        "озвуч это",
+        "озвуч",
+        "прочти это",
+        "прочти",
+        "читай это",
+        "читай"
+      ],
+      "phrases_en": [
+        "read this",
+        "read selection",
+        "read aloud",
+        "read",
+        "speak this",
+        "speak"
+      ]
+    },
+    {
+      "id": "speak_stop",
+      "group": "control",
+      "type": "lua",
+      "script": "speak-stop.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "Stop Silero TTS playback",
+      "phrases_ru": [
+        "стоп чтение",
+        "останови чтение",
+        "останови озвучку",
+        "останови озвучивание",
+        "хватит читать",
+        "хватит озвучку",
+        "хватит озвучивать",
+        "перестань читать",
+        "замолчи",
+        "стоп озвучка"
+      ],
+      "phrases_en": [
+        "stop reading",
+        "stop speaking",
+        "stop speech",
+        "be quiet"
+      ]
+    },
+    {
+      "id": "chat_start",
+      "group": "control",
+      "type": "lua",
+      "script": "chat-start.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "Режим разговора с нейронкой (чат)",
+      "phrases_ru": [
+        "чат",
+        "открой чат",
+        "открой нейрочат",
+        "открой нейронку",
+        "открой чат с джарвисом",
+        "открой чат джарвиса",
+        "режим чата",
+        "начни чат",
+        "начать чат",
+        "давай чат",
+        "давай поговорим",
+        "поговорим"
+      ],
+      "phrases_en": [
+        "chat",
+        "start chat",
+        "open chat",
+        "open neurochat",
+        "chat mode"
+      ]
+    },
+    {
+      "id": "chat_stop",
+      "group": "control",
+      "type": "lua",
+      "script": "chat-stop.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "Закончить разговор с нейронкой",
+      "phrases_ru": [
+        "закончи чат",
+        "закончить чат",
+        "закрой чат",
+        "закрыть чат",
+        "хватит чат",
+        "стоп чат",
+        "закончи разговор"
+      ],
+      "phrases_en": [
+        "end chat",
+        "stop chat",
+        "close chat",
+        "exit chat"
+      ]
+    },
+    {
+      "id": "ask_ai",
+      "group": "control",
+      "type": "lua",
+      "script": "ask-ai.lua",
+      "sandbox": "full",
+      "timeout_ms": 90000,
+      "description": "Спросить нейросеть: «джарвис скажи …» (OpenRouter / OpenAI-compatible API)",
+      "phrases_ru": [
+        "скажи",
+        "скажи мне",
+        "ответь на вопрос",
+        "ответь мне",
+        "ответь",
+        "ответ",
+        "отвечай",
+        "ответит",
+        "ответить",
+        "спроси у нейросети",
+        "спроси нейросеть",
+        "спроси нейронку",
+        "спроси у ии",
+        "спроси ии",
+        "спроси джипити",
+        "спроси чатгпт",
+        "спроси"
+      ],
+      "phrases_en": [
+        "say",
+        "tell me",
+        "answer me",
+        "answer",
+        "ask the ai",
+        "ask ai",
+        "ask gpt",
+        "ask chatgpt",
+        "ask"
+      ]
+    },
+    {
+      "id": "ask_screen",
+      "group": "control",
+      "type": "lua",
+      "script": "ask-screen.lua",
+      "sandbox": "full",
+      "timeout_ms": 90000,
+      "description": "Вопрос по экрану: снимок рабочего стола + vision LLM (DeepSeek flash / Gemini)",
+      "phrases_ru": [
+        "что на экране",
+        "что у меня на экране",
+        "что там на экране",
+        "что сейчас на экране",
+        "опиши экран",
+        "опиши что на экране",
+        "посмотри на экран",
+        "посмотри экран",
+        "посмотри что на экране",
+        "глянь на экран",
+        "глянь экран",
+        "вопрос по экрану",
+        "скажи по экрану",
+        "ответь по экрану",
+        "по экрану"
+      ],
+      "phrases_en": [
+        "what's on my screen",
+        "whats on my screen",
+        "what is on my screen",
+        "look at the screen",
+        "look at my screen",
+        "describe the screen",
+        "describe my screen",
+        "about the screen"
+      ]
+    },
+    {
+      "id": "create_photo",
+      "group": "control",
+      "type": "lua",
+      "script": "create-photo.lua",
+      "sandbox": "full",
+      "timeout_ms": 120000,
+      "description": "Сгенерировать фото через OpenRouter (голос: создай фото …)",
+      "phrases_ru": [
+        "сгенерируй картинку",
+        "сгенерируй изображение",
+        "сгенерируй фото",
+        "создай картинку",
+        "создай изображение",
+        "создай фото",
+        "сделай картинку",
+        "сделай изображение",
+        "сделай фото",
+        "створи картинку",
+        "створи зображення",
+        "створи фото",
+        "зроби картинку",
+        "зроби зображення",
+        "зроби фото",
+        "нарисуй картинку",
+        "нарисуй изображение",
+        "нарисуй фото",
+        "нарисуй"
+      ],
+      "phrases_en": [
+        "generate an image",
+        "generate image",
+        "create an image",
+        "create image",
+        "create a photo",
+        "create photo",
+        "draw an image",
+        "draw image"
+      ]
+    },
+    {
+      "id": "tts_mode",
+      "group": "control",
+      "type": "lua",
+      "script": "tts-mode.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Переключить режим озвучки Silero (фоновый / по запросу)",
+      "phrases_ru": [
+        "режим озвучки",
+        "настройки озвучки",
+        "режим озвучки фоновый",
+        "фоновый режим озвучки",
+        "быстрая озвучка",
+        "озвучка фоновый режим",
+        "режим озвучки только во время",
+        "экономный режим озвучки",
+        "озвучка без нагрузки"
+      ],
+      "phrases_en": [
+        "speech mode",
+        "tts mode",
+        "background speech mode",
+        "fast speech mode",
+        "on demand speech mode"
+      ]
+    },
+    {
+      "id": "timer_set",
+      "group": "control",
+      "type": "lua",
+      "script": "timer.lua",
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Countdown timer (seconds/minutes/hours/days)",
+      "phrases_ru": [
+        "таймер на",
+        "таймер",
+        "поставь таймер",
+        "поставь таймер на",
+        "запусти таймер",
+        "запусти таймер на"
+      ],
+      "phrases_en": [
+        "timer",
+        "timer for",
+        "set timer"
+      ]
+    },
+    {
+      "id": "timer_list",
+      "group": "control",
+      "type": "lua",
+      "script": "timer-list.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Show pending timers/reminders and cancel individually",
+      "phrases_ru": [
+        "мои таймеры",
+        "моей таймера",
+        "моей таймеры",
+        "мои таймера",
+        "мой таймеры",
+        "мой таймер",
+        "открой мои таймеры",
+        "открой моей таймера",
+        "открой мой таймер",
+        "покажи мои таймеры",
+        "покажи моей таймера",
+        "покажи таймеры",
+        "покажи таймера",
+        "список таймеров",
+        "список таймера",
+        "какие таймеры",
+        "какие таймера",
+        "открой таймеры",
+        "открой таймера",
+        "покажи список таймеров",
+        "мои напоминания",
+        "открой мои напоминания",
+        "покажи напоминания",
+        "список напоминаний"
+      ],
+      "phrases_en": [
+        "my timers",
+        "open my timers",
+        "show my timers",
+        "show timers",
+        "list timers",
+        "my reminders",
+        "show reminders"
+      ]
+    },
+    {
+      "id": "task_list",
+      "group": "control",
+      "type": "lua",
+      "script": "task-list.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Open the tasks HUD",
+      "phrases_ru": [
+        "открой задачи",
+        "открой задача",
+        "открой мои задачи",
+        "покажи задачи",
+        "покажи задача",
+        "покажи мои задачи",
+        "мои задачи",
+        "моей задачи",
+        "мой задачи",
+        "список задач",
+        "список задачи",
+        "какие задачи",
+        "какие задача"
+      ],
+      "phrases_en": [
+        "open tasks",
+        "open my tasks",
+        "show tasks",
+        "show my tasks",
+        "my tasks",
+        "list tasks"
+      ]
+    },
+    {
+      "id": "task_speak",
+      "group": "control",
+      "type": "lua",
+      "script": "task-speak.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Speak the task list",
+      "phrases_ru": [
+        "озвучь задачи",
+        "озвуч задачи",
+        "озвучи задачи",
+        "прочитай задачи",
+        "прочти задачи",
+        "озвучь мои задачи",
+        "прочитай мои задачи"
+      ],
+      "phrases_en": [
+        "speak tasks",
+        "read tasks",
+        "read my tasks",
+        "speak my tasks"
+      ]
+    },
+    {
+      "id": "task_add",
+      "group": "control",
+      "type": "lua",
+      "script": "task-add.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Add a task from voice",
+      "phrases_ru": [
+        "добавь задачу",
+        "добавить задачу",
+        "запиши задачу",
+        "новая задача",
+        "добавь в задачи"
+      ],
+      "phrases_en": [
+        "add task",
+        "add a task"
+      ]
+    },
+    {
+      "id": "task_clear",
+      "group": "control",
+      "type": "lua",
+      "script": "task-clear.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Clear all tasks",
+      "phrases_ru": [
+        "стереть все задачи",
+        "очисти задачи",
+        "очистить задачи",
+        "удали все задачи",
+        "удалить все задачи"
+      ],
+      "phrases_en": [
+        "clear tasks",
+        "clear all tasks",
+        "delete all tasks"
+      ]
+    },
+    {
+      "id": "remind",
+      "group": "control",
+      "type": "lua",
+      "script": "remind.lua",
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Natural-language reminder (relative or absolute time)",
+      "phrases_ru": [
+        "напомни мне",
+        "напомни",
+        "поставь напоминание",
+        "напоминание"
+      ],
+      "phrases_en": [
+        "remind me",
+        "remind",
+        "set reminder"
+      ]
+    },
+    {
+      "id": "remind_cancel",
+      "group": "control",
+      "type": "lua",
+      "script": "remind-cancel.lua",
+      "sandbox": "full",
+      "timeout_ms": 6000,
+      "description": "Cancel all pending reminders and timers",
+      "phrases_ru": [
+        "отмени напоминания",
+        "отмени все напоминания",
+        "отмени таймеры",
+        "отмени таймер",
+        "удали напоминания"
+      ],
+      "phrases_en": [
+        "cancel reminders",
+        "cancel timers",
+        "clear reminders"
+      ]
+    },
+    {
+      "id": "volume_set",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-set.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Set absolute system volume",
+      "phrases_ru": [
+        "установи громкость",
+        "звук на",
+        "переключи звук на",
+        "переключи громкость на",
+        "поставь звук на",
+        "поставь громкость на",
+        "сделай громкость",
+        "установи звук",
+        "поставь громкость"
+      ],
+      "phrases_en": [
+        "volume",
+        "set volume",
+        "volume to",
+        "switch volume to",
+        "change volume to"
+      ]
+    },
+    {
+      "id": "brightness_set",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-set.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Яркость экрана (ноутбук и многие мониторы)",
+      "phrases_ru": [
+        "яркость экрана",
+        "яркость экрана на",
+        "установи яркость экрана",
+        "поставь яркость экрана",
+        "сделай яркость экрана",
+        "яркость на",
+        "поставь яркость"
+      ],
+      "phrases_en": [
+        "screen brightness",
+        "set screen brightness",
+        "screen brightness to"
+      ]
+    },
+    {
+      "id": "search_google",
+      "group": "control",
+      "type": "lua",
+      "script": "search.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "найди",
+        "найти",
+        "поиск",
+        "загугли",
+        "погугли",
+        "загугли мне",
+        "найди в гугле",
+        "поиск в гугле",
+        "найди в гугл"
+      ],
+      "phrases_en": [
+        "search",
+        "google",
+        "find",
+        "google search"
+      ]
+    },
+    {
+      "id": "search_yandex",
+      "group": "control",
+      "type": "lua",
+      "script": "search.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "найди в яндексе",
+        "поиск в яндексе",
+        "яндекс найди",
+        "поиск яндекс",
+        "загугли в яндексе"
+      ],
+      "phrases_en": [
+        "yandex search",
+        "search yandex",
+        "find on yandex"
+      ]
+    },
+    {
+      "id": "use_browser_yandex",
+      "group": "control",
+      "type": "lua",
+      "script": "use-browser-yandex.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "браузер яндекс",
+        "используй яндекс",
+        "открой в яндексе",
+        "переключи на яндекс",
+        "переключи на яндекс браузер",
+        "поставь яндекс браузер",
+        "сделай браузером яндекс"
+      ],
+      "phrases_en": [
+        "use yandex browser",
+        "switch to yandex",
+        "preferred browser yandex"
+      ]
+    },
+    {
+      "id": "use_browser_chrome",
+      "group": "control",
+      "type": "lua",
+      "script": "use-browser-chrome.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "браузер хром",
+        "браузер гугл",
+        "браузер гугл хром",
+        "используй гугл хром",
+        "используй хром",
+        "переключи на гугл",
+        "переключи на хром",
+        "поставь хром",
+        "сделай браузером хром",
+        "сделай хром"
+      ],
+      "phrases_en": [
+        "use chrome",
+        "switch to chrome",
+        "preferred browser chrome"
+      ]
+    },
+    {
+      "id": "use_browser_edge",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "переключи на эдж",
+        "браузер эдж",
+        "используй эдж",
+        "сделай браузером эдж"
+      ],
+      "phrases_en": [
+        "use edge",
+        "switch to edge",
+        "preferred browser edge"
+      ]
+    },
+    {
+      "id": "use_browser_opera",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "переключи на оперу",
+        "браузер опера",
+        "используй оперу",
+        "открывай в опере",
+        "сделай браузером оперу",
+        "выбери опера браузер"
+      ],
+      "phrases_en": [
+        "use opera",
+        "switch to opera",
+        "preferred browser opera"
+      ]
+    },
+    {
+      "id": "search_youtube",
+      "group": "control",
+      "type": "lua",
+      "script": "search.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "найди на ютубе",
+        "поиск на ютубе",
+        "на ютубе"
+      ],
+      "phrases_en": [
+        "youtube search",
+        "search youtube",
+        "find on youtube"
+      ]
+    },
+    {
+      "id": "search_wiki",
+      "group": "control",
+      "type": "lua",
+      "script": "search.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "википедия",
+        "ищи в википедии",
+        "найди в википедии",
+        "поиск в википедии",
+        "открой википедию"
+      ],
+      "phrases_en": [
+        "wikipedia",
+        "wiki search",
+        "search wikipedia"
+      ]
+    },
+    {
+      "id": "browser_new_tab",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-new-tab.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "новая вкладка",
+        "открой вкладку",
+        "создай вкладку",
+        "открой новую вкладку"
+      ],
+      "phrases_en": [
+        "new tab",
+        "open tab"
+      ]
+    },
+    {
+      "id": "browser_close_tab",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-close-tab.lua",
+      "sandbox": "full",
+      "timeout_ms": 12000,
+      "description": "",
+      "phrases_ru": [
+        "закрой вкладку",
+        "закрыть вкладку",
+        "закрой таб",
+        "закрыть таб",
+        "закрой эту вкладку",
+        "закрывай вкладку",
+        "закроешь вкладку",
+        "закрой вкладка",
+        "закрой вкладки",
+        "закрывая вкладку"
+      ],
+      "phrases_en": [
+        "close tab",
+        "close this tab"
+      ]
+    },
+    {
+      "id": "browser_reopen_tab",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-reopen-tab.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "верни вкладку",
+        "верни закрытую вкладку",
+        "вернула вкладку",
+        "открой закрытую вкладку",
+        "открой последнюю вкладку"
+      ],
+      "phrases_en": [
+        "reopen tab",
+        "restore tab"
+      ]
+    },
+    {
+      "id": "browser_next_tab",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-next-tab.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "следующая вкладка",
+        "вкладка вправо",
+        "вкладка дальше",
+        "открой следующую вкладку",
+        "следующую вкладку"
+      ],
+      "phrases_en": [
+        "next tab"
+      ]
+    },
+    {
+      "id": "browser_prev_tab",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-prev-tab.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "вкладка влево",
+        "вкладка назад",
+        "открой предыдущую вкладку",
+        "предыдущая вкладка",
+        "предыдущую вкладку"
+      ],
+      "phrases_en": [
+        "previous tab",
+        "last tab"
+      ]
+    },
+    {
+      "id": "browser_refresh",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-refresh.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "обнови страницу",
+        "перезагрузи страницу",
+        "обнови вкладку"
+      ],
+      "phrases_en": [
+        "refresh",
+        "reload page"
+      ]
+    },
+    {
+      "id": "browser_downloads",
+      "group": "control",
+      "type": "lua",
+      "script": "browser-downloads.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой загрузки браузера",
+        "загрузки браузера"
+      ],
+      "phrases_en": [
+        "browser downloads"
+      ]
+    },
+    {
+      "id": "browser_history",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой историю",
+        "история браузера"
+      ],
+      "phrases_en": [
+        "browser history",
+        "open history"
+      ]
+    },
+    {
+      "id": "browser_bookmark",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "добавь в закладки",
+        "в закладки"
+      ],
+      "phrases_en": [
+        "bookmark",
+        "add bookmark"
+      ]
+    },
+    {
+      "id": "browser_address",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "адресная строка",
+        "строка адреса"
+      ],
+      "phrases_en": [
+        "address bar",
+        "focus address"
+      ]
+    },
+    {
+      "id": "browser_escape",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "закрой окно адресной строки",
+        "закрой адресную строку",
+        "убери адресную строку",
+        "отмени адресную строку",
+        "закрой строку адреса",
+        "убери строку адреса"
+      ],
+      "phrases_en": [
+        "close address bar",
+        "dismiss address bar",
+        "escape address bar"
+      ]
+    },
+    {
+      "id": "input_copy",
+      "group": "control",
+      "type": "lua",
+      "script": "input-copy.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "скопируй",
+        "копировать",
+        "копируй"
+      ],
+      "phrases_en": [
+        "copy",
+        "copy that"
+      ]
+    },
+    {
+      "id": "input_paste",
+      "group": "control",
+      "type": "lua",
+      "script": "input-paste.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "вставь",
+        "вставить",
+        "вставь текст"
+      ],
+      "phrases_en": [
+        "paste",
+        "paste that"
+      ]
+    },
+    {
+      "id": "input_cut",
+      "group": "control",
+      "type": "lua",
+      "script": "input-cut.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "вырежи",
+        "вырезать"
+      ],
+      "phrases_en": [
+        "cut"
+      ]
+    },
+    {
+      "id": "input_select_all",
+      "group": "control",
+      "type": "lua",
+      "script": "input-select-all.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "выдели всё",
+        "выделить всё",
+        "выдели все"
+      ],
+      "phrases_en": [
+        "select all"
+      ]
+    },
+    {
+      "id": "input_undo",
+      "group": "control",
+      "type": "lua",
+      "script": "input-undo.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "Отменить последнее действие (как Ctrl+Z)",
+      "phrases_ru": [
+        "верни назад",
+        "отмени действие",
+        "отменить действие",
+        "назад действие",
+        "отмени ввод"
+      ],
+      "phrases_en": [
+        "undo"
+      ]
+    },
+    {
+      "id": "input_redo",
+      "group": "control",
+      "type": "lua",
+      "script": "input-redo.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "Повторить отменённое (как Ctrl+Y)",
+      "phrases_ru": [
+        "верни отменённое",
+        "вернуть отменённое",
+        "повтори действие"
+      ],
+      "phrases_en": [
+        "redo"
+      ]
+    },
+    {
+      "id": "input_delete_word",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "удали слово",
+        "убери слово"
+      ],
+      "phrases_en": [
+        "delete word"
+      ]
+    },
+    {
+      "id": "input_save",
+      "group": "control",
+      "type": "lua",
+      "script": "input-save.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "сохрани",
+        "сохранить",
+        "сохрани документ"
+      ],
+      "phrases_en": [
+        "save",
+        "save file"
+      ]
+    },
+    {
+      "id": "input_enter",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "нажми энтер",
+        "нажми ввод",
+        "клавиша энтер"
+      ],
+      "phrases_en": [
+        "enter",
+        "press enter"
+      ]
+    },
+    {
+      "id": "input_escape",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "эскейп",
+        "отмена окна",
+        "закрой диалог"
+      ],
+      "phrases_en": [
+        "escape",
+        "press escape"
+      ]
+    },
+    {
+      "id": "mouse_left",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "левой кнопкой",
+        "нажми левую",
+        "клик мыши"
+      ],
+      "phrases_en": [
+        "click",
+        "left click"
+      ]
+    },
+    {
+      "id": "mouse_right",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "правый клик",
+        "правой кнопкой",
+        "контекстное меню"
+      ],
+      "phrases_en": [
+        "right click",
+        "context menu"
+      ]
+    },
+    {
+      "id": "mouse_double",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "двойной клик",
+        "даблклик"
+      ],
+      "phrases_en": [
+        "double click"
+      ]
+    },
+    {
+      "id": "mouse_up",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "курсор вверх",
+        "мышь вверх"
+      ],
+      "phrases_en": [
+        "mouse up",
+        "cursor up"
+      ]
+    },
+    {
+      "id": "mouse_down",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "курсор вниз",
+        "мышь вниз"
+      ],
+      "phrases_en": [
+        "mouse down",
+        "cursor down"
+      ]
+    },
+    {
+      "id": "mouse_left_move",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "курсор влево",
+        "мышь влево"
+      ],
+      "phrases_en": [
+        "mouse left",
+        "cursor left"
+      ]
+    },
+    {
+      "id": "mouse_right_move",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "курсор вправо",
+        "мышь вправо"
+      ],
+      "phrases_en": [
+        "mouse right",
+        "cursor right"
+      ]
+    },
+    {
+      "id": "volume_0",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость ноль",
+        "звук ноль",
+        "тишина полностью"
+      ],
+      "phrases_en": [
+        "volume zero",
+        "volume 0"
+      ]
+    },
+    {
+      "id": "volume_10",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость десять",
+        "громкость 10",
+        "звук 10",
+        "звук десять",
+        "звук на 10",
+        "звук на десять",
+        "переключи звук на 10",
+        "переключи громкость на 10",
+        "минимальная громкость"
+      ],
+      "phrases_en": [
+        "volume 10",
+        "volume to 10",
+        "volume min"
+      ]
+    },
+    {
+      "id": "volume_20",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость двадцать",
+        "громкость 20",
+        "звук 20",
+        "звук двадцать",
+        "звук на 20",
+        "звук на двадцать",
+        "переключи звук на 20",
+        "переключи громкость на 20"
+      ],
+      "phrases_en": [
+        "volume 20",
+        "volume to 20"
+      ]
+    },
+    {
+      "id": "volume_30",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость тридцать",
+        "громкость 30",
+        "звук 30",
+        "звук тридцать",
+        "звук на 30",
+        "звук на тридцать",
+        "переключи звук на 30",
+        "переключи громкость на 30"
+      ],
+      "phrases_en": [
+        "volume 30",
+        "volume to 30"
+      ]
+    },
+    {
+      "id": "volume_40",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость сорок",
+        "громкость 40",
+        "звук 40",
+        "звук сорок"
+      ],
+      "phrases_en": [
+        "volume 40"
+      ]
+    },
+    {
+      "id": "volume_50",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость пятьдесят",
+        "громкость 50",
+        "звук 50",
+        "громкость половину"
+      ],
+      "phrases_en": [
+        "volume 50",
+        "volume half"
+      ]
+    },
+    {
+      "id": "volume_60",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость шестьдесят",
+        "громкость 60",
+        "звук 60",
+        "звук шестьдесят"
+      ],
+      "phrases_en": [
+        "volume 60"
+      ]
+    },
+    {
+      "id": "volume_70",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость семьдесят",
+        "громкость 70",
+        "звук 70",
+        "звук семьдесят"
+      ],
+      "phrases_en": [
+        "volume 70"
+      ]
+    },
+    {
+      "id": "volume_80",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость восемьдесят",
+        "громкость 80",
+        "звук 80",
+        "звук восемьдесят"
+      ],
+      "phrases_en": [
+        "volume 80"
+      ]
+    },
+    {
+      "id": "volume_90",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость девяносто",
+        "громкость 90",
+        "звук 90",
+        "звук девяносто"
+      ],
+      "phrases_en": [
+        "volume 90"
+      ]
+    },
+    {
+      "id": "volume_100",
+      "group": "control",
+      "type": "lua",
+      "script": "volume-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "громкость сто",
+        "громкость 100",
+        "звук 100",
+        "максимальная громкость"
+      ],
+      "phrases_en": [
+        "volume 100",
+        "volume max"
+      ]
+    },
+    {
+      "id": "brightness_10",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана десять",
+        "яркость экрана 10",
+        "минимальная яркость экрана",
+        "яркость 10",
+        "яркость на 10",
+        "яркость десять"
+      ],
+      "phrases_en": [
+        "screen brightness 10",
+        "screen brightness min"
+      ]
+    },
+    {
+      "id": "brightness_20",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана двадцать",
+        "яркость экрана 20",
+        "яркость 20",
+        "яркость на 20",
+        "яркость двадцать"
+      ],
+      "phrases_en": [
+        "screen brightness 20"
+      ]
+    },
+    {
+      "id": "brightness_30",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана тридцать",
+        "яркость экрана 30",
+        "яркость 30",
+        "яркость на 30",
+        "яркость тридцать"
+      ],
+      "phrases_en": [
+        "screen brightness 30"
+      ]
+    },
+    {
+      "id": "brightness_40",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана сорок",
+        "яркость экрана 40",
+        "яркость 40",
+        "яркость на 40",
+        "яркость сорок"
+      ],
+      "phrases_en": [
+        "screen brightness 40"
+      ]
+    },
+    {
+      "id": "brightness_50",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана пятьдесят",
+        "яркость экрана 50",
+        "яркость экрана половину",
+        "яркость 50",
+        "яркость на 50",
+        "яркость пятьдесят",
+        "яркость половину"
+      ],
+      "phrases_en": [
+        "screen brightness 50",
+        "screen brightness half"
+      ]
+    },
+    {
+      "id": "brightness_60",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана шестьдесят",
+        "яркость экрана 60",
+        "яркость 60",
+        "яркость на 60",
+        "яркость шестьдесят"
+      ],
+      "phrases_en": [
+        "screen brightness 60"
+      ]
+    },
+    {
+      "id": "brightness_70",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана семьдесят",
+        "яркость экрана 70",
+        "яркость 70",
+        "яркость на 70",
+        "яркость семьдесят"
+      ],
+      "phrases_en": [
+        "screen brightness 70"
+      ]
+    },
+    {
+      "id": "brightness_80",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана восемьдесят",
+        "яркость экрана 80",
+        "яркость 80",
+        "яркость на 80",
+        "яркость восемьдесят"
+      ],
+      "phrases_en": [
+        "screen brightness 80"
+      ]
+    },
+    {
+      "id": "brightness_90",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана девяносто",
+        "яркость экрана 90",
+        "яркость 90",
+        "яркость на 90",
+        "яркость девяносто"
+      ],
+      "phrases_en": [
+        "screen brightness 90"
+      ]
+    },
+    {
+      "id": "brightness_100",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-level.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "яркость экрана сто",
+        "яркость экрана 100",
+        "максимальная яркость экрана",
+        "яркость 100",
+        "яркость на 100",
+        "яркость сто",
+        "максимальная яркость"
+      ],
+      "phrases_en": [
+        "screen brightness 100",
+        "screen brightness max"
+      ]
+    },
+    {
+      "id": "open_netflix",
+      "group": "control",
+      "type": "lua",
+      "script": "open-netflix.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой нетфликс",
+        "нетфликс"
+      ],
+      "phrases_en": [
+        "open netflix",
+        "netflix"
+      ]
+    },
+    {
+      "id": "open_vk",
+      "group": "control",
+      "type": "lua",
+      "script": "open-vk.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой вконтакте",
+        "открой вк",
+        "вконтакте"
+      ],
+      "phrases_en": [
+        "open vk",
+        "vkontakte"
+      ]
+    },
+    {
+      "id": "open_mail_ru",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой мейл",
+        "открой майл ру",
+        "майл ру"
+      ],
+      "phrases_en": [
+        "open mail.ru"
+      ]
+    },
+    {
+      "id": "switch_window",
+      "group": "control",
+      "type": "lua",
+      "script": "switch-window.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "переключи окно",
+        "другое окно",
+        "альт таб"
+      ],
+      "phrases_en": [
+        "switch window",
+        "alt tab"
+      ]
+    },
+    {
+      "id": "brightness_up",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-up.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "экран ярче",
+        "увеличь яркость экрана",
+        "сделай экран ярче"
+      ],
+      "phrases_en": [
+        "brighter",
+        "brightness up"
+      ]
+    },
+    {
+      "id": "brightness_down",
+      "group": "control",
+      "type": "lua",
+      "script": "brightness-down.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "экран темнее",
+        "уменьши яркость экрана",
+        "сделай экран темнее"
+      ],
+      "phrases_en": [
+        "dimmer",
+        "brightness down"
+      ]
+    },
+    {
+      "id": "gestures_on",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "управление жестами",
+        "включи управление жестами",
+        "включи жесты",
+        "жестовое управление",
+        "контроль жестами",
+        "включи камеру жестов",
+        "активируй режим управления компьютером с помощью рук",
+        "управление компьютером с помощью рук"
+      ],
+      "phrases_en": [
+        "gesture control",
+        "enable gestures",
+        "turn on gestures",
+        "start gesture control",
+        "control with gestures"
+      ]
+    },
+    {
+      "id": "gestures_off",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "выключи жесты",
+        "выключи управление жестами",
+        "закрой управление жестами",
+        "останови жесты",
+        "выключи камеру жестов",
+        "отключи жесты",
+        "отключи управление жестами",
+        "стоп жесты",
+        "выруби жесты",
+        "закрой жесты",
+        "выключи режим управления компьютером с помощью рук",
+        "выключаю режим управления компьютером"
+      ],
+      "phrases_en": [
+        "disable gestures",
+        "turn off gestures",
+        "stop gesture control",
+        "close gesture control",
+        "gestures off",
+        "stop gestures"
+      ]
+    },
+    {
+      "id": "gestures_toggle",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "переключи жесты",
+        "переключи управление жестами"
+      ],
+      "phrases_en": [
+        "toggle gestures",
+        "toggle gesture control"
+      ]
+    },
+    {
+      "id": "led_on",
+      "group": "control",
+      "type": "lua",
+      "script": "led-on.lua",
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Включить ленту",
+      "phrases_ru": [
+        "включи ленту",
+        "зажги ленту",
+        "включи подсветку",
+        "зажги подсветку"
+      ],
+      "phrases_en": [
+        "led on"
+      ]
+    },
+    {
+      "id": "led_off",
+      "group": "control",
+      "type": "lua",
+      "script": "led-off.lua",
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Выключить ленту",
+      "phrases_ru": [
+        "выключи ленту",
+        "погаси ленту",
+        "выключи подсветку",
+        "погаси подсветку"
+      ],
+      "phrases_en": [
+        "led off"
+      ]
+    },
+    {
+      "id": "led_scan",
+      "group": "control",
+      "type": "lua",
+      "script": "led-scan.lua",
+      "sandbox": "full",
+      "timeout_ms": 35000,
+      "description": "Найти ленту",
+      "phrases_ru": [
+        "найди ленту",
+        "найди лента",
+        "найди ленты",
+        "найди мою ленту",
+        "найти ленту",
+        "подключи ленту",
+        "найди подсветку"
+      ],
+      "phrases_en": [
+        "find led",
+        "find the led strip"
+      ]
+    },
+    {
+      "id": "led_bright_up",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Ярче ленту",
+      "phrases_ru": [
+        "лента ярче",
+        "сделай ленту ярче",
+        "подсветка ярче",
+        "прибавь яркость ленты"
+      ],
+      "phrases_en": [
+        "led brighter"
+      ]
+    },
+    {
+      "id": "led_bright_down",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Тусклее ленту",
+      "phrases_ru": [
+        "лента тусклее",
+        "сделай ленту тусклее",
+        "подсветка тусклее",
+        "убавь яркость ленты",
+        "приглуши ленту"
+      ],
+      "phrases_en": [
+        "led dimmer"
+      ]
+    },
+    {
+      "id": "led_bright_1",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Яркость ленты 1",
+      "phrases_ru": [
+        "яркость ленты один",
+        "яркость ленты 1",
+        "лента яркость один",
+        "лента уровень один",
+        "лента один",
+        "подсветка один"
+      ],
+      "phrases_en": [
+        "led brightness one"
+      ]
+    },
+    {
+      "id": "led_bright_2",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Яркость ленты 2",
+      "phrases_ru": [
+        "яркость ленты два",
+        "яркость ленты 2",
+        "лента яркость два",
+        "лента уровень два",
+        "лента два",
+        "подсветка два"
+      ],
+      "phrases_en": [
+        "led brightness two"
+      ]
+    },
+    {
+      "id": "led_bright_3",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Яркость ленты 3",
+      "phrases_ru": [
+        "яркость ленты три",
+        "яркость ленты 3",
+        "лента яркость три",
+        "лента уровень три",
+        "лента три",
+        "подсветка три"
+      ],
+      "phrases_en": [
+        "led brightness three"
+      ]
+    },
+    {
+      "id": "led_bright_4",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Яркость ленты 4",
+      "phrases_ru": [
+        "яркость ленты четыре",
+        "яркость ленты 4",
+        "лента яркость четыре",
+        "лента уровень четыре",
+        "лента четыре",
+        "подсветка четыре"
+      ],
+      "phrases_en": [
+        "led brightness four"
+      ]
+    },
+    {
+      "id": "led_bright_5",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Яркость ленты 5",
+      "phrases_ru": [
+        "яркость ленты пять",
+        "яркость ленты 5",
+        "лента яркость пять",
+        "лента уровень пять",
+        "лента пять",
+        "подсветка пять"
+      ],
+      "phrases_en": [
+        "led brightness five"
+      ]
+    },
+    {
+      "id": "led_bright_min",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Мин. яркость ленты",
+      "phrases_ru": [
+        "минимальная яркость ленты",
+        "минимум яркости ленты",
+        "лента минимум",
+        "самая тусклая лента"
+      ],
+      "phrases_en": [
+        "led brightness min"
+      ]
+    },
+    {
+      "id": "led_bright_max",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Макс. яркость ленты",
+      "phrases_ru": [
+        "максимальная яркость ленты",
+        "максимум яркости ленты",
+        "лента максимум",
+        "самая яркая лента"
+      ],
+      "phrases_en": [
+        "led brightness max"
+      ]
+    },
+    {
+      "id": "led_red",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Красный",
+      "phrases_ru": [
+        "лента красный",
+        "лента красная",
+        "красный свет",
+        "подсветка красный"
+      ],
+      "phrases_en": [
+        "led red"
+      ]
+    },
+    {
+      "id": "led_green",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Зелёный",
+      "phrases_ru": [
+        "лента зеленый",
+        "лента зелёный",
+        "лента зеленая",
+        "зеленый свет",
+        "зелёный свет",
+        "подсветка зеленый"
+      ],
+      "phrases_en": [
+        "led green"
+      ]
+    },
+    {
+      "id": "led_blue",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Синий",
+      "phrases_ru": [
+        "лента синий",
+        "лента синяя",
+        "синий свет",
+        "подсветка синий"
+      ],
+      "phrases_en": [
+        "led blue"
+      ]
+    },
+    {
+      "id": "led_white",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Белый",
+      "phrases_ru": [
+        "лента белый",
+        "лента белая",
+        "белый свет",
+        "подсветка белый"
+      ],
+      "phrases_en": [
+        "led white"
+      ]
+    },
+    {
+      "id": "led_orange",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Оранжевый",
+      "phrases_ru": [
+        "лента оранжевый",
+        "оранжевый свет",
+        "подсветка оранжевый"
+      ],
+      "phrases_en": [
+        "led orange"
+      ]
+    },
+    {
+      "id": "led_yellow",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Жёлтый",
+      "phrases_ru": [
+        "лента желтый",
+        "лента жёлтый",
+        "желтый свет",
+        "жёлтый свет"
+      ],
+      "phrases_en": [
+        "led yellow"
+      ]
+    },
+    {
+      "id": "led_lime",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Салатовый",
+      "phrases_ru": [
+        "лента салатовый",
+        "салатовый свет"
+      ],
+      "phrases_en": [
+        "led lime"
+      ]
+    },
+    {
+      "id": "led_cyan",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Голубой",
+      "phrases_ru": [
+        "лента голубой",
+        "голубой свет",
+        "подсветка голубой"
+      ],
+      "phrases_en": [
+        "led cyan"
+      ]
+    },
+    {
+      "id": "led_teal",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Бирюзовый",
+      "phrases_ru": [
+        "лента бирюзовый",
+        "бирюзовый свет"
+      ],
+      "phrases_en": [
+        "led teal"
+      ]
+    },
+    {
+      "id": "led_sky",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Небесный",
+      "phrases_ru": [
+        "лента небесный",
+        "небесный свет"
+      ],
+      "phrases_en": [
+        "led sky"
+      ]
+    },
+    {
+      "id": "led_purple",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Фиолетовый",
+      "phrases_ru": [
+        "лента фиолетовый",
+        "фиолетовый свет",
+        "подсветка фиолетовый"
+      ],
+      "phrases_en": [
+        "led purple"
+      ]
+    },
+    {
+      "id": "led_magenta",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Малиновый",
+      "phrases_ru": [
+        "лента малиновый",
+        "малиновый свет"
+      ],
+      "phrases_en": [
+        "led magenta"
+      ]
+    },
+    {
+      "id": "led_pink",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Розовый",
+      "phrases_ru": [
+        "лента розовый",
+        "лента розовая",
+        "розовый свет",
+        "подсветка розовый"
+      ],
+      "phrases_en": [
+        "led pink"
+      ]
+    },
+    {
+      "id": "led_jump3",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "JUMP3 — цветные прыжки",
+      "phrases_ru": [
+        "цветные прыжки",
+        "режим прыжки",
+        "прыжки на ленте",
+        "три цвета"
+      ],
+      "phrases_en": [
+        "led jump three"
+      ]
+    },
+    {
+      "id": "led_jump7",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "JUMP7 — радуга",
+      "phrases_ru": [
+        "радуга",
+        "режим радуга",
+        "лента радуга",
+        "радуга на ленте",
+        "сделай радугу",
+        "семь цветов"
+      ],
+      "phrases_en": [
+        "led rainbow"
+      ]
+    },
+    {
+      "id": "led_fade3",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "FADE3 — плавно",
+      "phrases_ru": [
+        "плавно",
+        "плавный режим",
+        "затухание",
+        "плавная смена",
+        "лента плавно"
+      ],
+      "phrases_en": [
+        "led fade"
+      ]
+    },
+    {
+      "id": "led_fade7",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "FADE7 — перелив",
+      "phrases_ru": [
+        "перелив",
+        "переливы",
+        "режим перелив",
+        "плавная радуга",
+        "лента перелив"
+      ],
+      "phrases_en": [
+        "led crossfade"
+      ]
+    },
+    {
+      "id": "led_flash",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "FLASH — мигание",
+      "phrases_ru": [
+        "мигание",
+        "мигай",
+        "режим мигания",
+        "мигание ленты",
+        "вспышки",
+        "лента мигает"
+      ],
+      "phrases_en": [
+        "led flash"
+      ]
+    },
+    {
+      "id": "led_auto",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "AUTO",
+      "phrases_ru": [
+        "авторежим",
+        "автоматический режим",
+        "режим авто",
+        "лента автомат",
+        "авто на ленте"
+      ],
+      "phrases_en": [
+        "led auto"
+      ]
+    },
+    {
+      "id": "led_quick",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "QUICK — быстрее",
+      "phrases_ru": [
+        "ускорь ленту",
+        "быстрее эффект",
+        "быстрый режим ленты",
+        "ускорь эффект",
+        "лента быстро"
+      ],
+      "phrases_en": [
+        "led quick"
+      ]
+    },
+    {
+      "id": "led_slow",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "SLOW — медленнее",
+      "phrases_ru": [
+        "замедли ленту",
+        "медленнее эффект",
+        "медленный режим ленты",
+        "замедли эффект",
+        "лента медленно"
+      ],
+      "phrases_en": [
+        "led slow"
+      ]
+    },
+    {
+      "id": "led_timer_1",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "1H",
+      "phrases_ru": [
+        "погаси через час",
+        "выключи ленту через час",
+        "лента на час",
+        "выключи подсветку через час"
+      ],
+      "phrases_en": [
+        "led timer one hour"
+      ]
+    },
+    {
+      "id": "led_timer_2",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "2H",
+      "phrases_ru": [
+        "погаси через два часа",
+        "выключи ленту через два часа",
+        "лента на два часа"
+      ],
+      "phrases_en": [
+        "led timer two hours"
+      ]
+    },
+    {
+      "id": "led_timer_3",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "3H",
+      "phrases_ru": [
+        "погаси через три часа",
+        "выключи ленту через три часа",
+        "лента на три часа"
+      ],
+      "phrases_en": [
+        "led timer three hours"
+      ]
+    },
+    {
+      "id": "led_timer_4",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "4H",
+      "phrases_ru": [
+        "погаси через четыре часа",
+        "выключи ленту через четыре часа",
+        "лента на четыре часа"
+      ],
+      "phrases_en": [
+        "led timer four hours"
+      ]
+    },
+    {
+      "id": "led_timer_10s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED off in 10 seconds",
+      "phrases_ru": [
+        "погаси через десять секунд",
+        "выключи ленту через десять секунд",
+        "лента на десять секунд"
+      ],
+      "phrases_en": [
+        "led timer ten seconds"
+      ]
+    },
+    {
+      "id": "led_timer_on_10s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED on in 10 seconds",
+      "phrases_ru": [
+        "включи ленту через десять секунд",
+        "зажги ленту через десять секунд"
+      ],
+      "phrases_en": [
+        "led on in ten seconds"
+      ]
+    },
+    {
+      "id": "led_timer_on_1m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED on in 1 minute",
+      "phrases_ru": [
+        "включи ленту через минуту",
+        "зажги ленту через минуту"
+      ],
+      "phrases_en": [
+        "led on in one minute"
+      ]
+    },
+    {
+      "id": "led_timer_on_5m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED on in 5 minutes",
+      "phrases_ru": [
+        "включи ленту через пять минут",
+        "зажги ленту через пять минут"
+      ],
+      "phrases_en": [
+        "led on in five minutes"
+      ]
+    },
+    {
+      "id": "led_timer_on_10m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED on in 10 minutes",
+      "phrases_ru": [
+        "включи ленту через десять минут",
+        "зажги ленту через десять минут"
+      ],
+      "phrases_en": [
+        "led on in ten minutes"
+      ]
+    },
+    {
+      "id": "led_timer_on_1h",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED on in 1 hour",
+      "phrases_ru": [
+        "включи ленту через час",
+        "зажги ленту через час"
+      ],
+      "phrases_en": [
+        "led on in one hour"
+      ]
+    },
+    {
+      "id": "led_timer_30s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED off in 30 seconds",
+      "phrases_ru": [
+        "погаси через тридцать секунд",
+        "выключи ленту через тридцать секунд",
+        "лента на тридцать секунд"
+      ],
+      "phrases_en": [
+        "led timer thirty seconds"
+      ]
+    },
+    {
+      "id": "led_timer_1m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED off in 1 minute",
+      "phrases_ru": [
+        "погаси через минуту",
+        "выключи ленту через минуту",
+        "лента на минуту"
+      ],
+      "phrases_en": [
+        "led timer one minute"
+      ]
+    },
+    {
+      "id": "led_timer_5m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED off in 5 minutes",
+      "phrases_ru": [
+        "погаси через пять минут",
+        "выключи ленту через пять минут",
+        "лента на пять минут"
+      ],
+      "phrases_en": [
+        "led timer five minutes"
+      ]
+    },
+    {
+      "id": "led_timer_10m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED off in 10 minutes",
+      "phrases_ru": [
+        "погаси через десять минут",
+        "выключи ленту через десять минут",
+        "лента на десять минут"
+      ],
+      "phrases_en": [
+        "led timer ten minutes"
+      ]
+    },
+    {
+      "id": "led_timer_30m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "LED off in 30 minutes",
+      "phrases_ru": [
+        "погаси через тридцать минут",
+        "выключи ленту через тридцать минут",
+        "лента на тридцать минут"
+      ],
+      "phrases_en": [
+        "led timer thirty minutes"
+      ]
+    },
+    {
+      "id": "led_timer_cancel",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Cancel LED off timer",
+      "phrases_ru": [
+        "отмени таймер ленты",
+        "отмени погашение ленты",
+        "не гаси ленту"
+      ],
+      "phrases_en": [
+        "cancel led timer"
+      ]
+    },
+    {
+      "id": "led_moon_1",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Ночник",
+      "phrases_ru": [
+        "ночник",
+        "ночной режим ленты",
+        "очень тусклая лента",
+        "лента ночник"
+      ],
+      "phrases_en": [
+        "led night"
+      ]
+    },
+    {
+      "id": "led_moon_2",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Тускло",
+      "phrases_ru": [
+        "тусклая лента",
+        "средняя яркость ленты",
+        "лента тускло"
+      ],
+      "phrases_en": [
+        "led dusk"
+      ]
+    },
+    {
+      "id": "led_moon_3",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Мягкий свет",
+      "phrases_ru": [
+        "мягкий свет",
+        "мягкая лента",
+        "мягкая подсветка"
+      ],
+      "phrases_en": [
+        "led soft"
+      ]
+    },
+    {
+      "id": "led_moon_4",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Ярко",
+      "phrases_ru": [
+        "яркая лента",
+        "полная яркость ленты",
+        "максимум ленты",
+        "лента на полную"
+      ],
+      "phrases_en": [
+        "led full"
+      ]
+    },
+    {
+      "id": "led_music_1",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Музыка 1",
+      "phrases_ru": [
+        "музыкальный режим",
+        "лента под музыку",
+        "включи музыку ленты",
+        "подсветка под музыку"
+      ],
+      "phrases_en": [
+        "led music"
+      ]
+    },
+    {
+      "id": "led_music_2",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Музыка 2",
+      "phrases_ru": [
+        "мягкая музыка ленты",
+        "спокойная музыка ленты"
+      ],
+      "phrases_en": [
+        "led soft music"
+      ]
+    },
+    {
+      "id": "led_music_3",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Музыка 3",
+      "phrases_ru": [
+        "динамичная музыка ленты",
+        "громкая музыка ленты"
+      ],
+      "phrases_en": [
+        "led dynamic music"
+      ]
+    },
+    {
+      "id": "led_music_4",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Музыка 4 — диско",
+      "phrases_ru": [
+        "диско",
+        "дискотека",
+        "режим диско",
+        "диско на ленте",
+        "лента диско"
+      ],
+      "phrases_en": [
+        "led disco"
+      ]
+    },
+    {
+      "id": "led_music_off",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Выкл музыку",
+      "phrases_ru": [
+        "выключи музыку ленты",
+        "отключи музыку ленты",
+        "стоп музыка ленты",
+        "без музыки лента"
+      ],
+      "phrases_en": [
+        "led music off"
+      ]
+    },
+    {
+      "id": "chitchat_hello",
+      "group": "control",
+      "type": "voice",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "Приветствие (один ответ, без цепочки — иначе слышит сам себя)",
+      "phrases_ru": [
+        "привет",
+        "привет джарвис",
+        "привет мита",
+        "здравствуй",
+        "здравствуйте",
+        "хай",
+        "здорово",
+        "добрый день джарвис"
+      ],
+      "phrases_en": [
+        "hello",
+        "hi jarvis",
+        "hey there"
+      ]
+    },
+    {
+      "id": "chitchat_howare",
+      "group": "control",
+      "type": "voice",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "Ответ на «как дела» (один ответ, без цепочки)",
+      "phrases_ru": [
+        "как дела",
+        "как ты",
+        "как жизнь",
+        "как настроение",
+        "что как",
+        "как сам"
+      ],
+      "phrases_en": [
+        "how are you",
+        "how's it going",
+        "how do you do"
+      ]
+    },
+    {
+      "id": "plug_on",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Включить умную розетку",
+      "phrases_ru": [
+        "включи розетку",
+        "вруби розетку",
+        "открой розетку",
+        "питание на",
+        "включи умную розетку"
+      ],
+      "phrases_en": [
+        "plug on",
+        "turn on outlet",
+        "outlet on"
+      ]
+    },
+    {
+      "id": "plug_off",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Выключить умную розетку",
+      "phrases_ru": [
+        "выключи розетку",
+        "отключи розетку",
+        "погаси розетку",
+        "питание выкл",
+        "выключи умную розетку"
+      ],
+      "phrases_en": [
+        "plug off",
+        "turn off outlet",
+        "outlet off"
+      ]
+    },
+    {
+      "id": "plug_toggle",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Переключить розетку",
+      "phrases_ru": [
+        "переключи розетку",
+        "тоггл розетку"
+      ],
+      "phrases_en": [
+        "toggle outlet",
+        "toggle plug"
+      ]
+    },
+    {
+      "id": "plug_status",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "Статус розетки",
+      "phrases_ru": [
+        "статус розетки",
+        "розетка включена",
+        "проверь розетку"
+      ],
+      "phrases_en": [
+        "outlet status",
+        "plug status"
+      ]
+    },
+    {
+      "id": "plug_setup",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Подсказка по настройке розетки",
+      "phrases_ru": [
+        "настрой розетку",
+        "подключи розетку",
+        "как настроить розетку"
+      ],
+      "phrases_en": [
+        "setup outlet",
+        "configure plug"
+      ]
+    },
+    {
+      "id": "plug_timer_10s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 10 секунд",
+      "phrases_ru": [
+        "выключи розетку через десять секунд",
+        "розетка на десять секунд",
+        "отключи розетку через десять секунд"
+      ],
+      "phrases_en": [
+        "outlet off in ten seconds"
+      ]
+    },
+    {
+      "id": "plug_timer_30s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 30 секунд",
+      "phrases_ru": [
+        "выключи розетку через тридцать секунд",
+        "розетка на тридцать секунд",
+        "отключи розетку через тридцать секунд"
+      ],
+      "phrases_en": [
+        "outlet off in thirty seconds"
+      ]
+    },
+    {
+      "id": "plug_timer_1m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 1 минуту",
+      "phrases_ru": [
+        "выключи розетку через минуту",
+        "розетка на минуту",
+        "отключи розетку через минуту"
+      ],
+      "phrases_en": [
+        "outlet off in one minute"
+      ]
+    },
+    {
+      "id": "plug_timer_5m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 5 минут",
+      "phrases_ru": [
+        "выключи розетку через пять минут",
+        "розетка на пять минут",
+        "отключи розетку через пять минут"
+      ],
+      "phrases_en": [
+        "outlet off in five minutes"
+      ]
+    },
+    {
+      "id": "plug_timer_10m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключи розетку через 10 минут",
+      "phrases_ru": [
+        "выключи розетку через десять минут",
+        "розетка на десять минут",
+        "отключи розетку через десять минут"
+      ],
+      "phrases_en": [
+        "outlet off in ten minutes"
+      ]
+    },
+    {
+      "id": "plug_timer_30m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 30 минут",
+      "phrases_ru": [
+        "выключи розетку через тридцать минут",
+        "розетка на тридцать минут",
+        "отключи розетку через тридцать минут"
+      ],
+      "phrases_en": [
+        "outlet off in thirty minutes"
+      ]
+    },
+    {
+      "id": "plug_timer_1h",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 1 час",
+      "phrases_ru": [
+        "выключи розетку через час",
+        "розетка на час",
+        "отключи розетку через час"
+      ],
+      "phrases_en": [
+        "outlet off in one hour"
+      ]
+    },
+    {
+      "id": "plug_timer_2h",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Выключить розетку через 2 часа",
+      "phrases_ru": [
+        "выключи розетку через два часа",
+        "розетка на два часа",
+        "отключи розетку через два часа"
+      ],
+      "phrases_en": [
+        "outlet off in two hours"
+      ]
+    },
+    {
+      "id": "plug_timer_on_10s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 10 секунд",
+      "phrases_ru": [
+        "включи розетку через десять секунд",
+        "вруби розетку через десять секунд"
+      ],
+      "phrases_en": [
+        "outlet on in ten seconds"
+      ]
+    },
+    {
+      "id": "plug_timer_on_30s",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 30 секунд",
+      "phrases_ru": [
+        "включи розетку через тридцать секунд"
+      ],
+      "phrases_en": [
+        "outlet on in thirty seconds"
+      ]
+    },
+    {
+      "id": "plug_timer_on_1m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 1 минуту",
+      "phrases_ru": [
+        "включи розетку через минуту",
+        "вруби розетку через минуту"
+      ],
+      "phrases_en": [
+        "outlet on in one minute"
+      ]
+    },
+    {
+      "id": "plug_timer_on_5m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 5 минут",
+      "phrases_ru": [
+        "включи розетку через пять минут"
+      ],
+      "phrases_en": [
+        "outlet on in five minutes"
+      ]
+    },
+    {
+      "id": "plug_timer_on_10m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 10 минут",
+      "phrases_ru": [
+        "включи розетку через десять минут"
+      ],
+      "phrases_en": [
+        "outlet on in ten minutes"
+      ]
+    },
+    {
+      "id": "plug_timer_on_30m",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 30 минут",
+      "phrases_ru": [
+        "включи розетку через тридцать минут"
+      ],
+      "phrases_en": [
+        "outlet on in thirty minutes"
+      ]
+    },
+    {
+      "id": "plug_timer_on_1h",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 1 час",
+      "phrases_ru": [
+        "включи розетку через час",
+        "вруби розетку через час"
+      ],
+      "phrases_en": [
+        "outlet on in one hour"
+      ]
+    },
+    {
+      "id": "plug_timer_on_2h",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Включить розетку через 2 часа",
+      "phrases_ru": [
+        "включи розетку через два часа"
+      ],
+      "phrases_en": [
+        "outlet on in two hours"
+      ]
+    },
+    {
+      "id": "plug_timer_cancel",
+      "group": "control",
+      "type": "cli",
+      "script": null,
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Отменить таймер розетки",
+      "phrases_ru": [
+        "отмени таймер розетки",
+        "отмени розетку",
+        "не выключай розетку",
+        "отмени включение розетки"
+      ],
+      "phrases_en": [
+        "cancel outlet timer",
+        "cancel plug timer"
+      ]
+    },
+    {
+      "id": "media_pause",
+      "group": "daily",
+      "type": "lua",
+      "script": "media-pause.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "пауза",
+        "поставь музыку на паузу",
+        "пауза в яндекс музыке",
+        "пауза в вк"
+      ],
+      "phrases_en": [
+        "pause music"
+      ]
+    },
+    {
+      "id": "media_resume",
+      "group": "daily",
+      "type": "lua",
+      "script": "media-resume.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "продолжи",
+        "продолжи музыку",
+        "продолжи воспроизведение",
+        "возобнови музыку",
+        "сними с паузы"
+      ],
+      "phrases_en": [
+        "resume music"
+      ]
+    },
+    {
+      "id": "media_play_pause",
+      "group": "daily",
+      "type": "lua",
+      "script": "media-play-pause.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "переключи паузу",
+        "плей",
+        "воспроизведение"
+      ],
+      "phrases_en": [
+        "pause",
+        "play",
+        "play pause",
+        "toggle music"
+      ]
+    },
+    {
+      "id": "media_next",
+      "group": "daily",
+      "type": "lua",
+      "script": "media-next.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "следующий трек",
+        "следующая песня",
+        "дальше трек",
+        "некст"
+      ],
+      "phrases_en": [
+        "next track",
+        "next song",
+        "skip"
+      ]
+    },
+    {
+      "id": "media_prev",
+      "group": "daily",
+      "type": "lua",
+      "script": "media-prev.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "предыдущий трек",
+        "прошлая песня",
+        "назад трек"
+      ],
+      "phrases_en": [
+        "previous track",
+        "previous song",
+        "last track"
+      ]
+    },
+    {
+      "id": "open_spotify",
+      "group": "daily",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой спотифай",
+        "спотифай"
+      ],
+      "phrases_en": [
+        "open spotify",
+        "spotify"
+      ]
+    },
+    {
+      "id": "open_gmail",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-gmail.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой почту",
+        "открой gmail",
+        "открой джимейл",
+        "почта"
+      ],
+      "phrases_en": [
+        "open mail",
+        "open gmail",
+        "email"
+      ]
+    },
+    {
+      "id": "open_maps",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-maps.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой карты",
+        "открой google maps",
+        "открой гугл карты",
+        "гугл карты",
+        "карты"
+      ],
+      "phrases_en": [
+        "open maps",
+        "google maps",
+        "maps"
+      ]
+    },
+    {
+      "id": "open_yandex_maps",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-yandex-maps.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой яндекс карты",
+        "открой яндекс.карты",
+        "открой карты яндекс",
+        "яндекс карты",
+        "яндекс.карты",
+        "покажи яндекс карты",
+        "открой яндекс map",
+        "яндекс map"
+      ],
+      "phrases_en": [
+        "open yandex maps",
+        "yandex maps",
+        "open maps yandex"
+      ]
+    },
+    {
+      "id": "open_whatsapp",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-whatsapp.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой ватсап",
+        "открой whatsapp",
+        "ватсап"
+      ],
+      "phrases_en": [
+        "open whatsapp",
+        "whatsapp"
+      ]
+    },
+    {
+      "id": "open_wifi",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-wifi.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой вайфай",
+        "открой вай-фай",
+        "настройки вайфай",
+        "сеть вайфай",
+        "параметры вайфай"
+      ],
+      "phrases_en": [
+        "open wifi",
+        "wifi settings",
+        "wireless settings",
+        "open wi-fi"
+      ]
+    },
+    {
+      "id": "open_bluetooth",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-bluetooth.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой блютуз",
+        "открой bluetooth",
+        "настройки блютуз"
+      ],
+      "phrases_en": [
+        "open bluetooth",
+        "bluetooth settings"
+      ]
+    },
+    {
+      "id": "clipboard_history",
+      "group": "daily",
+      "type": "lua",
+      "script": "clipboard-history.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой буфер обмена",
+        "история буфера",
+        "буфер обмена"
+      ],
+      "phrases_en": [
+        "clipboard history",
+        "open clipboard"
+      ]
+    },
+    {
+      "id": "minimize_window",
+      "group": "daily",
+      "type": "lua",
+      "script": "minimize-window.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "сверни",
+        "свернуть",
+        "сверни окно",
+        "свернуть окно",
+        "сверни это окно",
+        "сверни текущее окно",
+        "minimize",
+        "minimize window",
+        "minimize the window"
+      ],
+      "phrases_en": [
+        "minimize",
+        "minimize window",
+        "minimize the window"
+      ]
+    },
+    {
+      "id": "maximize_window",
+      "group": "daily",
+      "type": "lua",
+      "script": "maximize-window.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "разверни окно",
+        "на весь экран",
+        "разверни",
+        "развернуть",
+        "развернуть окно",
+        "полный экран",
+        "открой на весь экран",
+        "максимизируй",
+        "максимизируй окно",
+        "раскрой окно",
+        "раскрой",
+        "увеличь окно"
+      ],
+      "phrases_en": [
+        "maximize window",
+        "maximize",
+        "fullscreen window"
+      ]
+    },
+    {
+      "id": "maximize_video",
+      "group": "daily",
+      "type": "lua",
+      "script": "maximize-video.lua",
+      "sandbox": "full",
+      "timeout_ms": 12000,
+      "description": "",
+      "phrases_ru": [
+        "разверни ютуб",
+        "разверни youtube",
+        "разверни видео",
+        "разворот ютуб",
+        "разворот видео",
+        "разверни ролик",
+        "полный экран ютуб",
+        "полный экран youtube",
+        "полный экран видео",
+        "ютуб на весь экран",
+        "youtube на весь экран",
+        "развернуть ютуб",
+        "развернуть видео"
+      ],
+      "phrases_en": [
+        "fullscreen youtube",
+        "maximize youtube",
+        "fullscreen video",
+        "youtube fullscreen"
+      ]
+    },
+    {
+      "id": "minimize_video",
+      "group": "daily",
+      "type": "lua",
+      "script": "minimize-video.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "сверни ютуб",
+        "сверни youtube",
+        "сверни видео",
+        "свернуть ютуб",
+        "свернуть youtube",
+        "свернуть видео",
+        "выйди из полноэкранного ютуб",
+        "обычный режим ютуб"
+      ],
+      "phrases_en": [
+        "minimize youtube",
+        "exit youtube fullscreen",
+        "youtube normal",
+        "collapse youtube"
+      ]
+    },
+    {
+      "id": "open_screenshots_folder",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-screenshots-folder.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "мои скриншоты",
+        "открой папку скриншотов",
+        "открой скриншоты",
+        "папка скриншотов",
+        "покажи скриншоты"
+      ],
+      "phrases_en": [
+        "open screenshots",
+        "screenshots folder"
+      ]
+    },
+    {
+      "id": "open_cursor",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-cursor.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой курсор",
+        "открой cursor",
+        "открой редактор",
+        "открой vscode"
+      ],
+      "phrases_en": [
+        "open cursor",
+        "open vscode",
+        "open editor"
+      ]
+    },
+    {
+      "id": "open_translate",
+      "group": "daily",
+      "type": "lua",
+      "script": "open-translate.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой переводчик гугл",
+        "открой гугл переводчик",
+        "сайт переводчика"
+      ],
+      "phrases_en": [
+        "open translator",
+        "translator",
+        "google translate"
+      ]
+    },
+    {
+      "id": "set_wallpaper",
+      "group": "daily",
+      "type": "lua",
+      "script": "set-wallpaper.lua",
+      "sandbox": "full",
+      "timeout_ms": 120000,
+      "description": "",
+      "phrases_ru": [
+        "поставь обои",
+        "смени обои",
+        "поменяй обои",
+        "измени обои",
+        "новые обои",
+        "поставь обои на рабочий стол",
+        "смени обои на рабочем столе"
+      ],
+      "phrases_en": [
+        "set wallpaper",
+        "change wallpaper",
+        "new wallpaper",
+        "pick wallpaper"
+      ]
+    },
+    {
+      "id": "set_wallpaper_screenshot",
+      "group": "daily",
+      "type": "lua",
+      "script": "set-wallpaper-screenshot.lua",
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "",
+      "phrases_ru": [
+        "обои из скриншота",
+        "обои со скриншота",
+        "поставь скриншот на обои",
+        "сделай скриншот обоями",
+        "скриншот на рабочий стол"
+      ],
+      "phrases_en": [
+        "wallpaper from screenshot",
+        "screenshot wallpaper",
+        "set screenshot as wallpaper"
+      ]
+    },
+    {
+      "id": "set_wallpaper_random",
+      "group": "daily",
+      "type": "lua",
+      "script": "set-wallpaper-random.lua",
+      "sandbox": "full",
+      "timeout_ms": 15000,
+      "description": "",
+      "phrases_ru": [
+        "случайные обои",
+        "рандомные обои",
+        "рандом обои",
+        "поставь случайные обои",
+        "смени на случайные обои"
+      ],
+      "phrases_en": [
+        "random wallpaper",
+        "shuffle wallpaper",
+        "random desktop background"
+      ]
+    },
+    {
+      "id": "sleep_pc",
+      "group": "extras",
+      "type": "lua",
+      "script": "sleep-pc.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "спящий режим",
+        "отправь компьютер в сон",
+        "отправь пк в сон",
+        "отправь комп в сон",
+        "усыпи компьютер",
+        "сон компьютера",
+        "переведи компьютер в сон",
+        "переведи пк в сон"
+      ],
+      "phrases_en": [
+        "sleep computer",
+        "go to sleep",
+        "suspend pc"
+      ]
+    },
+    {
+      "id": "shutdown_pc",
+      "group": "extras",
+      "type": "lua",
+      "script": "shutdown-pc.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "выключи компьютер",
+        "выключи пк",
+        "заверши работу",
+        "выключение"
+      ],
+      "phrases_en": [
+        "shutdown computer",
+        "turn off pc",
+        "power off"
+      ]
+    },
+    {
+      "id": "shutdown_delayed",
+      "group": "extras",
+      "type": "lua",
+      "script": "shutdown-delayed.lua",
+      "sandbox": "full",
+      "timeout_ms": 12000,
+      "description": "Выключить ПК через секунды / минуты / часы",
+      "phrases_ru": [
+        "выключи через",
+        "выключи компьютер через",
+        "выключи пк через",
+        "выключи комп через",
+        "выключи ноут через",
+        "выключи ноутбук через",
+        "погаси компьютер через",
+        "погаси пк через",
+        "погаси комп через",
+        "заверши работу через",
+        "таймер выключения",
+        "таймер выключения на",
+        "отложи выключение",
+        "отложи выключение на",
+        "выключи через десять минут",
+        "выключи через пять минут",
+        "выключи через тридцать минут",
+        "выключи через час",
+        "выключи через два часа",
+        "выключи через тридцать секунд",
+        "выключи через минуту"
+      ],
+      "phrases_en": [
+        "shutdown in",
+        "power off in",
+        "turn off pc in"
+      ]
+    },
+    {
+      "id": "restart_pc",
+      "group": "extras",
+      "type": "lua",
+      "script": "restart-pc.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "перезагрузи компьютер",
+        "перезагрузи пк",
+        "рестарт",
+        "перезагрузка"
+      ],
+      "phrases_en": [
+        "restart computer",
+        "reboot pc",
+        "restart"
+      ]
+    },
+    {
+      "id": "cancel_shutdown",
+      "group": "extras",
+      "type": "lua",
+      "script": "cancel-shutdown.lua",
+      "sandbox": "full",
+      "timeout_ms": 6000,
+      "description": "Отменить выключение, перезагрузку, таймеры и озвучку",
+      "phrases_ru": [
+        "отмени выключение",
+        "отмени перезагрузку",
+        "отмена выключения",
+        "не выключай",
+        "отмена",
+        "отмени всё",
+        "отмена всего",
+        "не надо выключать",
+        "останови выключение"
+      ],
+      "phrases_en": [
+        "cancel shutdown",
+        "abort shutdown",
+        "cancel restart"
+      ]
+    },
+    {
+      "id": "empty_trash",
+      "group": "extras",
+      "type": "lua",
+      "script": "empty-trash.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "очисти корзину",
+        "очистить корзину",
+        "удали корзину"
+      ],
+      "phrases_en": [
+        "empty recycle bin",
+        "empty trash",
+        "clear recycle bin"
+      ]
+    },
+    {
+      "id": "open_youtube",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-youtube.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой ютуб",
+        "открой youtube",
+        "запусти ютуб",
+        "ютуб"
+      ],
+      "phrases_en": [
+        "open youtube",
+        "youtube",
+        "launch youtube"
+      ]
+    },
+    {
+      "id": "open_pubg",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-pubg.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой пабг",
+        "запусти пабг",
+        "открой pubg",
+        "запусти pubg",
+        "пабг",
+        "пабджи",
+        "pubg"
+      ],
+      "phrases_en": [
+        "open pubg",
+        "launch pubg",
+        "pubg",
+        "play pubg"
+      ]
+    },
+    {
+      "id": "open_notepad",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-notepad.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "открой блокнот",
+        "запусти блокнот",
+        "блокнот"
+      ],
+      "phrases_en": [
+        "open notepad",
+        "notepad",
+        "launch notepad"
+      ]
+    },
+    {
+      "id": "open_task_manager",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-task-manager.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "открой диспетчер задач",
+        "диспетчер задач",
+        "открой процессы"
+      ],
+      "phrases_en": [
+        "open task manager",
+        "task manager"
+      ]
+    },
+    {
+      "id": "open_downloads",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-downloads.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой загрузки",
+        "открой папку загрузок",
+        "папка загрузок"
+      ],
+      "phrases_en": [
+        "open downloads",
+        "downloads folder"
+      ]
+    },
+    {
+      "id": "open_documents",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-documents.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой документы",
+        "открой мои документы",
+        "открой папку документов",
+        "папка документы",
+        "открой папку мои документы"
+      ],
+      "phrases_en": [
+        "open documents",
+        "documents folder"
+      ]
+    },
+    {
+      "id": "open_desktop_folder",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-desktop-folder.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой десктоп",
+        "открой папку рабочего стола",
+        "открой рабочий стол",
+        "папка рабочего стола",
+        "папка рабочий стол"
+      ],
+      "phrases_en": [
+        "open desktop folder",
+        "desktop folder"
+      ]
+    },
+    {
+      "id": "open_settings",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-settings.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой параметры",
+        "открой настройки windows",
+        "настройки системы",
+        "параметры windows"
+      ],
+      "phrases_en": [
+        "open settings",
+        "windows settings",
+        "system settings"
+      ]
+    },
+    {
+      "id": "open_paint",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-paint.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой пейнт",
+        "запусти пейнт",
+        "открой paint",
+        "открой рисунок",
+        "пейнт"
+      ],
+      "phrases_en": [
+        "open paint",
+        "paint",
+        "launch paint"
+      ]
+    },
+    {
+      "id": "open_terminal",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-terminal.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой терминал",
+        "открой консоль",
+        "открой командную строку",
+        "терминал"
+      ],
+      "phrases_en": [
+        "open terminal",
+        "open console",
+        "command prompt"
+      ]
+    },
+    {
+      "id": "minimize_all",
+      "group": "extras",
+      "type": "lua",
+      "script": "minimize-all.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "сверни все",
+        "сверни всё",
+        "сверни все окна",
+        "свернуть всё",
+        "свернуть все",
+        "свернуть все окна"
+      ],
+      "phrases_en": [
+        "minimize all",
+        "minimize all windows",
+        "minimize everything"
+      ]
+    },
+    {
+      "id": "show_desktop",
+      "group": "extras",
+      "type": "lua",
+      "script": "show-desktop.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "покажи рабочий стол",
+        "рабочий стол"
+      ],
+      "phrases_en": [
+        "show desktop",
+        "desktop"
+      ]
+    },
+    {
+      "id": "open_recycle_bin",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-recycle-bin.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "открой корзину",
+        "покажи корзину",
+        "корзина"
+      ],
+      "phrases_en": [
+        "open recycle bin",
+        "recycle bin",
+        "trash"
+      ]
+    },
+    {
+      "id": "open_telegram",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-telegram.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой телеграм",
+        "открой telegram",
+        "открой телегу",
+        "запусти телеграм",
+        "запусти telegram",
+        "телеграм",
+        "телега"
+      ],
+      "phrases_en": [
+        "open telegram",
+        "telegram",
+        "launch telegram"
+      ]
+    },
+    {
+      "id": "open_telegram_web",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-telegram-web.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой телеграм веб",
+        "открой веб телеграм",
+        "телеграм веб",
+        "веб телеграм",
+        "открой telegram web",
+        "telegram web",
+        "открой телеграм в браузере"
+      ],
+      "phrases_en": [
+        "open telegram web",
+        "telegram web",
+        "open web telegram"
+      ]
+    },
+    {
+      "id": "open_discord",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-discord.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой дискорд",
+        "открой discord",
+        "запусти дискорд",
+        "запусти discord",
+        "дискорд",
+        "discord",
+        "диск орд",
+        "открой диск орд"
+      ],
+      "phrases_en": [
+        "open discord",
+        "discord",
+        "launch discord"
+      ]
+    },
+    {
+      "id": "open_camera",
+      "group": "extras",
+      "type": "lua",
+      "script": "open-camera.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "запусти камеру",
+        "запусти камеру windows",
+        "камера",
+        "открой камеру",
+        "открой камеру windows"
+      ],
+      "phrases_en": [
+        "open camera",
+        "camera",
+        "launch camera"
+      ]
+    },
+    {
+      "id": "companion_show",
+      "group": "extras",
+      "type": "lua",
+      "script": "companion-show.lua",
+      "sandbox": "full",
+      "timeout_ms": 3000,
+      "description": "",
+      "phrases_ru": [
+        "появись",
+        "появились"
+      ],
+      "phrases_en": [
+        "appear"
+      ]
+    },
+    {
+      "id": "companion_hide",
+      "group": "extras",
+      "type": "lua",
+      "script": "companion-hide.lua",
+      "sandbox": "full",
+      "timeout_ms": 3000,
+      "description": "",
+      "phrases_ru": [
+        "исчезни"
+      ],
+      "phrases_en": [
+        "disappear"
+      ]
+    },
+    {
+      "id": "companion_dance",
+      "group": "extras",
+      "type": "lua",
+      "script": "companion-dance.lua",
+      "sandbox": "full",
+      "timeout_ms": 3000,
+      "description": "",
+      "phrases_ru": [
+        "танцуй",
+        "потанцуй",
+        "станцуй"
+      ],
+      "phrases_en": [
+        "dance"
+      ]
+    },
+    {
+      "id": "companion_dance_stop",
+      "group": "extras",
+      "type": "lua",
+      "script": "companion-dance-stop.lua",
+      "sandbox": "full",
+      "timeout_ms": 3000,
+      "description": "",
+      "phrases_ru": [
+        "хватит танцевать",
+        "останови танец",
+        "перестань танцевать"
+      ],
+      "phrases_en": [
+        "stop dancing"
+      ]
+    },
+    {
+      "id": "companion_sleep",
+      "group": "extras",
+      "type": "lua",
+      "script": "companion-sleep.lua",
+      "sandbox": "full",
+      "timeout_ms": 3000,
+      "description": "",
+      "phrases_ru": [
+        "спать",
+        "ложись спать",
+        "иди спать",
+        "луна спать"
+      ],
+      "phrases_en": [
+        "go to sleep"
+      ]
+    },
+    {
+      "id": "companion_wake",
+      "group": "extras",
+      "type": "lua",
+      "script": "companion-wake.lua",
+      "sandbox": "full",
+      "timeout_ms": 3000,
+      "description": "",
+      "phrases_ru": [
+        "проснись",
+        "вставай",
+        "луна проснись"
+      ],
+      "phrases_en": [
+        "wake up"
+      ]
+    },
+    {
+      "id": "close_all_windows",
+      "group": "extras",
+      "type": "lua",
+      "script": "close-all-windows.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "закрой все окна"
+      ],
+      "phrases_en": [
+        "close all windows"
+      ]
+    },
+    {
+      "id": "obsidian_write",
+      "group": "notes",
+      "type": "lua",
+      "script": "obsidian-write.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Write a new note into the Obsidian vault Inbox",
+      "phrases_ru": [
+        "запиши в заметки",
+        "запиши в заметку",
+        "запиши заметки",
+        "запиши заметку",
+        "записать в заметки",
+        "добавь в заметки",
+        "добавь заметки",
+        "новая заметка"
+      ],
+      "phrases_en": [
+        "write note",
+        "write to notes",
+        "add note"
+      ]
+    },
+    {
+      "id": "obsidian_daily",
+      "group": "notes",
+      "type": "lua",
+      "script": "obsidian-daily.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Append to today's Obsidian daily note",
+      "phrases_ru": [
+        "добавь в ежедневную",
+        "добавь в ежедневную заметку",
+        "в дневник",
+        "запиши в дневник"
+      ],
+      "phrases_en": [
+        "daily note",
+        "add to daily"
+      ]
+    },
+    {
+      "id": "obsidian_search",
+      "group": "notes",
+      "type": "lua",
+      "script": "obsidian-search.lua",
+      "sandbox": "full",
+      "timeout_ms": 10000,
+      "description": "Search notes in the Obsidian vault",
+      "phrases_ru": [
+        "найди в заметках",
+        "найди в заметке",
+        "найди заметку",
+        "поиск в заметках"
+      ],
+      "phrases_en": [
+        "find note",
+        "search notes",
+        "find in notes"
+      ]
+    },
+    {
+      "id": "obsidian_open",
+      "group": "notes",
+      "type": "lua",
+      "script": "obsidian-open.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Open a note in Obsidian",
+      "phrases_ru": [
+        "открой заметку",
+        "открыть заметку"
+      ],
+      "phrases_en": [
+        "open note"
+      ]
+    },
+    {
+      "id": "browser_back",
+      "group": "popular",
+      "type": "lua",
+      "script": "browser-back.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "страница назад",
+        "вернись назад",
+        "браузер назад"
+      ],
+      "phrases_en": [
+        "go back",
+        "browser back",
+        "page back"
+      ]
+    },
+    {
+      "id": "browser_forward",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "страница вперёд",
+        "страница вперед",
+        "браузер вперёд"
+      ],
+      "phrases_en": [
+        "go forward",
+        "browser forward",
+        "page forward"
+      ]
+    },
+    {
+      "id": "browser_new_window",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "новое окно",
+        "открой новое окно"
+      ],
+      "phrases_en": [
+        "new window",
+        "open new window"
+      ]
+    },
+    {
+      "id": "browser_incognito",
+      "group": "popular",
+      "type": "lua",
+      "script": "browser-incognito.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой инкогнито",
+        "приватное окно",
+        "открой приватное окно"
+      ],
+      "phrases_en": [
+        "incognito",
+        "private window",
+        "open incognito"
+      ]
+    },
+    {
+      "id": "browser_zoom_reset",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "сбрось масштаб",
+        "масштаб сто",
+        "обычный масштаб"
+      ],
+      "phrases_en": [
+        "zoom reset",
+        "reset zoom"
+      ]
+    },
+    {
+      "id": "browser_zoom_in_cmd",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "увеличь масштаб",
+        "масштаб больше",
+        "приблизь страницу"
+      ],
+      "phrases_en": [
+        "zoom in",
+        "zoom bigger"
+      ]
+    },
+    {
+      "id": "browser_zoom_out_cmd",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "уменьши масштаб",
+        "масштаб меньше",
+        "отдались от страницы"
+      ],
+      "phrases_en": [
+        "zoom out",
+        "zoom smaller"
+      ]
+    },
+    {
+      "id": "scroll_up",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "прокрути вверх",
+        "скролл вверх",
+        "прокрутка вверх"
+      ],
+      "phrases_en": [
+        "scroll up"
+      ]
+    },
+    {
+      "id": "scroll_down",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "прокрути вниз",
+        "скролл вниз",
+        "прокрутка вниз"
+      ],
+      "phrases_en": [
+        "scroll down"
+      ]
+    },
+    {
+      "id": "scroll_page_up",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "страница вверх",
+        "на страницу вверх"
+      ],
+      "phrases_en": [
+        "page up"
+      ]
+    },
+    {
+      "id": "scroll_page_down",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "страница вниз",
+        "на страницу вниз"
+      ],
+      "phrases_en": [
+        "page down"
+      ]
+    },
+    {
+      "id": "scroll_top",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "в начало страницы",
+        "наверх страницы",
+        "в самый верх"
+      ],
+      "phrases_en": [
+        "page top",
+        "go to top"
+      ]
+    },
+    {
+      "id": "scroll_bottom",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "в конец страницы",
+        "вниз страницы",
+        "в самый низ"
+      ],
+      "phrases_en": [
+        "page bottom",
+        "go to bottom"
+      ]
+    },
+    {
+      "id": "input_switch_lang",
+      "group": "popular",
+      "type": "lua",
+      "script": "input-switch-lang.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "смени язык",
+        "переключи язык",
+        "смени раскладку",
+        "язык ввода"
+      ],
+      "phrases_en": [
+        "switch language",
+        "change layout",
+        "keyboard language"
+      ]
+    },
+    {
+      "id": "open_run_dialog",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой выполнить",
+        "окно выполнить",
+        "выполнить команду"
+      ],
+      "phrases_en": [
+        "open run",
+        "run dialog"
+      ]
+    },
+    {
+      "id": "open_emoji_panel",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-emoji-panel.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой эмодзи",
+        "панель эмодзи",
+        "эмодзи панель",
+        "вин точка"
+      ],
+      "phrases_en": [
+        "emoji panel",
+        "open emoji"
+      ]
+    },
+    {
+      "id": "open_snip",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-snip.lua",
+      "sandbox": "full",
+      "timeout_ms": 5000,
+      "description": "",
+      "phrases_ru": [
+        "открой ножницы",
+        "фрагмент экрана",
+        "снимок области"
+      ],
+      "phrases_en": [
+        "snipping tool",
+        "screen snip",
+        "capture region"
+      ]
+    },
+    {
+      "id": "open_magnifier",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой лупу",
+        "увеличительное стекло",
+        "открой увеличительное стекло"
+      ],
+      "phrases_en": [
+        "open magnifier",
+        "magnifier"
+      ]
+    },
+    {
+      "id": "open_clock",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой часы",
+        "открой будильники"
+      ],
+      "phrases_en": [
+        "open clock",
+        "alarms",
+        "timer"
+      ]
+    },
+    {
+      "id": "open_calendar",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-calendar.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой календарь",
+        "календарь виндовс",
+        "гугл календарь"
+      ],
+      "phrases_en": [
+        "open calendar",
+        "calendar",
+        "open google calendar",
+        "google calendar"
+      ]
+    },
+    {
+      "id": "open_photos",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-photos.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой фото",
+        "открой фотографии",
+        "открой галерею",
+        "галерея виндовс"
+      ],
+      "phrases_en": [
+        "open photos",
+        "photos app"
+      ]
+    },
+    {
+      "id": "open_sound_settings",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-sound-settings.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "настройки звука",
+        "открой звук",
+        "открой настройки звука",
+        "открой параметры звука",
+        "параметры звука"
+      ],
+      "phrases_en": [
+        "sound settings",
+        "audio settings"
+      ]
+    },
+    {
+      "id": "open_display_settings",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-display-settings.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "настройки дисплея",
+        "настройки экрана",
+        "открой настройки экрана",
+        "открой параметры экрана",
+        "параметры дисплея",
+        "разрешение экрана"
+      ],
+      "phrases_en": [
+        "display settings",
+        "screen settings"
+      ]
+    },
+    {
+      "id": "open_night_light",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-night-light.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "включи ночной свет",
+        "ночной режим экрана",
+        "ночной свет",
+        "открой ночной свет",
+        "поставь ночной свет",
+        "тёплый свет экрана",
+        "тёплый экран"
+      ],
+      "phrases_en": [
+        "night light",
+        "blue light filter"
+      ]
+    },
+    {
+      "id": "open_focus_assist",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "режим фокусировки",
+        "не беспокоить",
+        "открой фокус"
+      ],
+      "phrases_en": [
+        "focus assist",
+        "do not disturb"
+      ]
+    },
+    {
+      "id": "open_apps_features",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "установленные приложения",
+        "приложения и возможности",
+        "удалить программы"
+      ],
+      "phrases_en": [
+        "apps and features",
+        "installed apps"
+      ]
+    },
+    {
+      "id": "open_startup_apps",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-startup-apps.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "Открыть список программ, которые стартуют вместе с Windows",
+      "phrases_ru": [
+        "программы при запуске",
+        "автозагрузка программ",
+        "что запускается с виндовс",
+        "автозагрузка виндовс"
+      ],
+      "phrases_en": [
+        "startup apps",
+        "startup programs"
+      ]
+    },
+    {
+      "id": "open_storage",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-storage.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой хранилище",
+        "хранилище виндовс",
+        "открой память"
+      ],
+      "phrases_en": [
+        "storage settings",
+        "disk storage"
+      ]
+    },
+    {
+      "id": "open_update",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-update.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой обновления",
+        "обновления виндовс",
+        "проверь обновления",
+        "центр обновления"
+      ],
+      "phrases_en": [
+        "windows update",
+        "check updates"
+      ]
+    },
+    {
+      "id": "open_about_pc",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-about-pc.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "информация о компьютере",
+        "информация о системе",
+        "о компьютере",
+        "о системе",
+        "открой о системе",
+        "свойства компьютера",
+        "свойства системы"
+      ],
+      "phrases_en": [
+        "about pc",
+        "system info"
+      ]
+    },
+    {
+      "id": "reload_explorer",
+      "group": "popular",
+      "type": "lua",
+      "script": "reload-explorer.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "перезапусти проводник",
+        "перезапуск проводника",
+        "перезапусти эксплорер"
+      ],
+      "phrases_en": [
+        "restart explorer",
+        "reload explorer"
+      ]
+    },
+    {
+      "id": "open_chatgpt",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-chatgpt.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой чат джипити",
+        "открой чатгпт",
+        "открой чат гпт",
+        "чат джипити",
+        "чатгпт"
+      ],
+      "phrases_en": [
+        "open chatgpt",
+        "open chat gpt",
+        "chatgpt",
+        "chat gpt"
+      ]
+    },
+    {
+      "id": "open_deepseek",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-deepseek.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой дипсик",
+        "открой дип сик",
+        "дипсик",
+        "дип сик"
+      ],
+      "phrases_en": [
+        "open deepseek",
+        "deepseek"
+      ]
+    },
+    {
+      "id": "open_claude",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-claude.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой клод",
+        "открой клауд",
+        "открой клод ии"
+      ],
+      "phrases_en": [
+        "open claude",
+        "open claude ai",
+        "claude",
+        "claude ai"
+      ]
+    },
+    {
+      "id": "open_gemini",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-gemini.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой джемини",
+        "открой гемини",
+        "джемини",
+        "гугл джемини"
+      ],
+      "phrases_en": [
+        "open gemini",
+        "gemini"
+      ]
+    },
+    {
+      "id": "open_twitch",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-twitch.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой твич",
+        "твич"
+      ],
+      "phrases_en": [
+        "open twitch",
+        "twitch"
+      ]
+    },
+    {
+      "id": "open_tiktok",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-tiktok.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой тикток",
+        "тикток"
+      ],
+      "phrases_en": [
+        "open tiktok",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "open_instagram",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-instagram.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой инстаграм",
+        "открой инсту",
+        "инстаграм"
+      ],
+      "phrases_en": [
+        "open instagram",
+        "instagram"
+      ]
+    },
+    {
+      "id": "open_kinopoisk",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-kinopoisk.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой кинопоиск",
+        "кинопоиск",
+        "кино поиск"
+      ],
+      "phrases_en": [
+        "open kinopoisk",
+        "kinopoisk"
+      ]
+    },
+    {
+      "id": "open_ivi",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-ivi.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой иви",
+        "открой и ви"
+      ],
+      "phrases_en": [
+        "open ivi"
+      ]
+    },
+    {
+      "id": "open_wildberries",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-wildberries.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой вайлдберриз",
+        "открой вайлдбериз",
+        "вайлдберриз",
+        "вайлдбериз",
+        "открой вб"
+      ],
+      "phrases_en": [
+        "open wildberries"
+      ]
+    },
+    {
+      "id": "open_ozon",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-ozon.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой озон",
+        "открой озон магазин"
+      ],
+      "phrases_en": [
+        "open ozon"
+      ]
+    },
+    {
+      "id": "open_avito",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-avito.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой авито",
+        "авито"
+      ],
+      "phrases_en": [
+        "open avito"
+      ]
+    },
+    {
+      "id": "open_yandex",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-yandex.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой яндекс",
+        "открой я ру",
+        "яндекс"
+      ],
+      "phrases_en": [
+        "open yandex",
+        "yandex browser",
+        "open ya.ru"
+      ]
+    },
+    {
+      "id": "open_google_drive",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-google-drive.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой гугл диск",
+        "гугл диск",
+        "открой гугл драйв",
+        "гугл драйв"
+      ],
+      "phrases_en": [
+        "open google drive",
+        "google drive"
+      ]
+    },
+    {
+      "id": "open_yandex_disk",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-yandex-disk.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой яндекс диск",
+        "открой яндекс.диск",
+        "яндекс диск",
+        "яндекс.диск"
+      ],
+      "phrases_en": [
+        "open yandex disk"
+      ]
+    },
+    {
+      "id": "open_weather",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-weather.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой погоду",
+        "покажи погоду",
+        "прогноз погоды"
+      ],
+      "phrases_en": [
+        "weather",
+        "open weather"
+      ]
+    },
+    {
+      "id": "open_news",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-news.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой новости",
+        "гугл новости",
+        "открой гугл новости"
+      ],
+      "phrases_en": [
+        "open news",
+        "news"
+      ]
+    },
+    {
+      "id": "open_speedtest",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "проверь скорость интернета",
+        "спидтест",
+        "тест скорости"
+      ],
+      "phrases_en": [
+        "speedtest",
+        "internet speed"
+      ]
+    },
+    {
+      "id": "open_steam",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-steam.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой стим",
+        "стим"
+      ],
+      "phrases_en": [
+        "open steam",
+        "steam",
+        "launch steam"
+      ]
+    },
+    {
+      "id": "open_yandex_music",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-yandex-music.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой яндекс музыку",
+        "яндекс музыка",
+        "запусти яндекс музыку"
+      ],
+      "phrases_en": [
+        "open yandex music",
+        "yandex music"
+      ]
+    },
+    {
+      "id": "open_youtube_music",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-youtube-music.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой ютуб музыку",
+        "ютуб музыка",
+        "открой ютуб мьюзик"
+      ],
+      "phrases_en": [
+        "open youtube music",
+        "youtube music"
+      ]
+    },
+    {
+      "id": "open_epic",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "открой эпик",
+        "открой эпик геймс",
+        "эпик геймс"
+      ],
+      "phrases_en": [
+        "open epic",
+        "epic games"
+      ]
+    },
+    {
+      "id": "open_obs",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-obs.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой обс",
+        "открой обс студио"
+      ],
+      "phrases_en": [
+        "open obs",
+        "obs studio"
+      ]
+    },
+    {
+      "id": "open_zoom",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-zoom.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой зум",
+        "открой зум конференцию"
+      ],
+      "phrases_en": [
+        "open zoom",
+        "zoom"
+      ]
+    },
+    {
+      "id": "open_teams",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-teams.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой тимс",
+        "открой майкрософт тимс",
+        "тимс"
+      ],
+      "phrases_en": [
+        "open teams",
+        "microsoft teams"
+      ]
+    },
+    {
+      "id": "open_meet",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-meet.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой мит",
+        "открой гугл мит",
+        "гугл мит"
+      ],
+      "phrases_en": [
+        "open google meet",
+        "meet"
+      ]
+    },
+    {
+      "id": "open_word",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-word.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой ворд",
+        "открой майкрософт ворд",
+        "ворд"
+      ],
+      "phrases_en": [
+        "open word",
+        "microsoft word"
+      ]
+    },
+    {
+      "id": "open_excel",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-excel.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой эксель",
+        "открой майкрософт эксель",
+        "эксель"
+      ],
+      "phrases_en": [
+        "open excel",
+        "microsoft excel"
+      ]
+    },
+    {
+      "id": "open_powerpoint",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-powerpoint.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой поверпоинт",
+        "открой презентацию",
+        "поверпоинт",
+        "презентация"
+      ],
+      "phrases_en": [
+        "open powerpoint",
+        "powerpoint"
+      ]
+    },
+    {
+      "id": "open_notion",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-notion.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой ноушен",
+        "открой ноушн",
+        "ноушен",
+        "ноушн"
+      ],
+      "phrases_en": [
+        "open notion",
+        "notion"
+      ]
+    },
+    {
+      "id": "input_save_as",
+      "group": "popular",
+      "type": "cli",
+      "script": null,
+      "sandbox": null,
+      "timeout_ms": null,
+      "description": "",
+      "phrases_ru": [
+        "сохрани как",
+        "сохранить как"
+      ],
+      "phrases_en": [
+        "save as"
+      ]
+    },
+    {
+      "id": "input_find",
+      "group": "popular",
+      "type": "lua",
+      "script": "input-find.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "найди на странице",
+        "поиск на странице",
+        "контрол эф",
+        "найди на экране"
+      ],
+      "phrases_en": [
+        "find on page",
+        "page find"
+      ]
+    },
+    {
+      "id": "input_print",
+      "group": "popular",
+      "type": "lua",
+      "script": "input-print.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "отправь на печать",
+        "распечатай",
+        "распечатать документ"
+      ],
+      "phrases_en": [
+        "print",
+        "print document"
+      ]
+    },
+    {
+      "id": "input_new_doc",
+      "group": "popular",
+      "type": "lua",
+      "script": "input-new-doc.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "новый документ",
+        "новый файл",
+        "создай документ",
+        "создай новый документ",
+        "создаю новый документ"
+      ],
+      "phrases_en": [
+        "new document"
+      ]
+    },
+    {
+      "id": "media_stop",
+      "group": "popular",
+      "type": "lua",
+      "script": "media-stop.lua",
+      "sandbox": "full",
+      "timeout_ms": 4000,
+      "description": "",
+      "phrases_ru": [
+        "останови медиа",
+        "стоп медиа",
+        "останови видео",
+        "останови воспроизведение"
+      ],
+      "phrases_en": [
+        "stop media",
+        "stop music"
+      ]
+    },
+    {
+      "id": "open_github",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-github.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой гитхаб",
+        "открой гит хаб",
+        "гитхаб",
+        "гит хаб",
+        "запусти гитхаб"
+      ],
+      "phrases_en": [
+        "open github",
+        "github",
+        "open git hub"
+      ]
+    },
+    {
+      "id": "open_rutube",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-rutube.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой рутуб",
+        "рутуб",
+        "открой рот",
+        "рот убы",
+        "открой рот убы",
+        "ру туб"
+      ],
+      "phrases_en": [
+        "open rutube"
+      ]
+    },
+    {
+      "id": "open_pinterest",
+      "group": "popular",
+      "type": "lua",
+      "script": "open-pinterest.lua",
+      "sandbox": "full",
+      "timeout_ms": 8000,
+      "description": "",
+      "phrases_ru": [
+        "открой пинтерест",
+        "пинтерест",
+        "пинтерес",
+        "пинты рост"
+      ],
+      "phrases_en": [
+        "open pinterest"
+      ]
+    }
+  ]
+}

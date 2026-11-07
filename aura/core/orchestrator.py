@@ -754,7 +754,11 @@ class Orchestrator(QObject):
         self.speaker.stop()
         self.listening_mode = mode
 
-        auto_stop = bool(self.cfg.get("voice.continuous", False)) or mode == "wake"
+        auto_stop = (
+            bool(self.cfg.get("voice.continuous", False))
+            or mode == "wake"
+            or self.jarvis_commands.chat_session_active
+        )
 
         try:
             self.recorder.start(auto_stop=auto_stop)
@@ -831,7 +835,9 @@ class Orchestrator(QObject):
             self.voice_state_changed.emit("idle")
 
     def _maybe_continue_listening_after_response(self) -> None:
-        if bool(self.cfg.get("voice.continuous", False)):
+        if self.jarvis_commands.chat_session_active:
+            self.request_start_voice.emit("command")
+        elif bool(self.cfg.get("voice.continuous", False)):
             mode = "wake" if bool(self.cfg.get("voice.wake_enabled", False)) else "command"
             self.request_start_voice.emit(mode)
         else:
@@ -839,7 +845,9 @@ class Orchestrator(QObject):
             self.status_changed.emit("Готов.")
 
     def _maybe_continue_listening_after_silence(self) -> None:
-        if bool(self.cfg.get("voice.continuous", False)):
+        if self.jarvis_commands.chat_session_active:
+            self.request_start_voice.emit("command")
+        elif bool(self.cfg.get("voice.continuous", False)):
             mode = "wake" if bool(self.cfg.get("voice.wake_enabled", False)) else "command"
             self.request_start_voice.emit(mode)
         else:

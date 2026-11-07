@@ -24,6 +24,9 @@ if ($LASTEXITCODE -ne 0) { throw "Не удалось установить PyIns
   --collect-all edge_tts `
   --collect-all pygame `
   --collect-all sounddevice `
+  --collect-all keyring `
+  --collect-all pycaw `
+  --collect-all comtypes `
   --add-data "resources;resources" `
   --add-data "integration;integration" `
   main.py

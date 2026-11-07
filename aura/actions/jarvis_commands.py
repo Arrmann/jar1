@@ -59,6 +59,9 @@ URLS = {
     "open_github": "https://github.com",
     "open_rutube": "https://rutube.ru",
     "open_pinterest": "https://www.pinterest.com",
+    "open_netflix": "https://www.netflix.com",
+    "open_vk": "https://vk.com",
+    "open_mail_ru": "https://e.mail.ru",
 }
 
 APPS = {
@@ -180,11 +183,17 @@ READY_IDS = (
         "maximize_video", "open_recycle_bin", "reload_explorer",
         "shutdown_pc", "shutdown_delayed", "restart_pc", "cancel_shutdown",
         "sleep_pc", "empty_trash", "open_translate",
-    }
+        "browser_close", "switch_window", "brightness_up", "brightness_down",
+        "translate", "speak", "speak_stop", "input_delete_word",
+        "chitchat_hello", "chitchat_howare",
+    } |
+    {f"volume_{value}" for value in range(0, 101, 10)} |
+    {f"brightness_{value}" for value in range(10, 101, 10)}
 )
 
 OPTIONAL_IDS = {
     "ask_screen", "create_photo", "dictate", "dictate_stop",
+    "screen_record_start", "screen_record_stop",
     "led_on", "led_off", "led_color", "led_brightness",
     "plug_on", "plug_off", "plug_status", "plug_timer",
     "obsidian_write", "obsidian_daily", "obsidian_search", "obsidian_open",
@@ -277,7 +286,7 @@ class JarvisCommandService:
                 "win": Key.cmd, "enter": Key.enter, "esc": Key.esc,
                 "tab": Key.tab, "left": Key.left, "right": Key.right,
                 "up": Key.up, "down": Key.down, "f5": Key.f5,
-                "f11": Key.f11, "space": Key.space,
+                "f11": Key.f11, "space": Key.space, "backspace": Key.backspace,
             }
             pressed = []
             try:
@@ -517,6 +526,19 @@ class JarvisCommandService:
 
         if command_id == "browser_open":
             return self._open_url("https://www.google.com")
+        if command_id == "browser_close":
+            ok, title = self._require_browser()
+            if not ok:
+                return {"success": False, "message": title}
+            try:
+                import pygetwindow as gw
+                active = gw.getActiveWindow()
+                if active:
+                    active.close()
+                    return {"success": True, "message": "Окно браузера закрыто."}
+            except Exception as exc:
+                return {"success": False, "message": f"Не удалось закрыть браузер: {exc}"}
+            return {"success": False, "message": "Активное окно браузера не найдено."}
         if command_id in {"search_google", "search_web"}:
             return browser.search_web({"query": query or utterance, "engine": "google"})
         if command_id == "search_yandex":
@@ -526,6 +548,11 @@ class JarvisCommandService:
         if command_id == "search_wiki":
             term = query or utterance
             return self._open_url("https://ru.wikipedia.org/w/index.php?search=" + quote_plus(term))
+        if command_id == "translate":
+            term = query or utterance
+            if not term.strip():
+                return self._open_url("https://translate.google.com")
+            return self._open_url("https://translate.google.com/?sl=auto&tl=ru&text=" + quote_plus(term) + "&op=translate")
 
         if command_id == "volume_set":
             percent = self._number(query or utterance)
@@ -538,6 +565,17 @@ class JarvisCommandService:
                 return {"success": False, "message": "Назови яркость в процентах от 0 до 100."}
             return self._set_brightness(percent)
 
+        if command_id.startswith("volume_") and command_id[7:].isdigit():
+            return apps.set_volume({"percent": int(command_id[7:])})
+        if command_id.startswith("brightness_") and command_id[11:].isdigit():
+            return self._set_brightness(int(command_id[11:]))
+        if command_id in {"brightness_up", "brightness_down"}:
+            current = self._get_brightness()
+            if current is None:
+                return {"success": False, "message": "Не удалось прочитать яркость. Возможно, монитор не поддерживает WMI brightness."}
+            step = 10 if command_id == "brightness_up" else -10
+            return self._set_brightness(max(0, min(100, current + step)))
+
         if command_id in {"timer_set", "timer_list", "remind", "remind_cancel"}:
             if command_id == "timer_list":
                 return self._list_timers()
@@ -546,7 +584,26 @@ class JarvisCommandService:
             kind = "timer" if command_id == "timer_set" else "reminder"
             return self._set_timer(query or utterance, kind)
         if command_id in {"task_add", "task_list", "task_speak", "task_clear"}:
-            return self._task_command(command_id, query or utterance)
+            result = self._task_command(command_id, query or utterance)
+            if command_id == "task_speak" and result.get("success"):
+                self.speaker.speak(str(result.get("message", "")))
+            return result
+
+        if command_id == "speak":
+            text = (query or utterance).strip()
+            if not text:
+                return {"success": False, "message": "Скажи, какой текст произнести."}
+            self.speaker.speak(text)
+            return {"success": True, "message": "Текст озвучен."}
+        if command_id == "speak_stop":
+            self.speaker.stop()
+            return {"success": True, "message": "Озвучивание остановлено."}
+        if command_id == "chitchat_hello":
+            self.speaker.speak("Здравствуйте. Я слушаю вас.")
+            return {"success": True, "message": "Здравствуйте. Я слушаю вас."}
+        if command_id == "chitchat_howare":
+            self.speaker.speak("Все системы работают штатно. Чем могу помочь?")
+            return {"success": True, "message": "Все системы работают штатно. Чем могу помочь?"}
 
         if command_id == "lock_pc":
             try:
@@ -591,6 +648,16 @@ class JarvisCommandService:
                 return {"success": True, "message": "Корзина открыта."}
             except Exception as exc:
                 return {"success": False, "message": f"Не удалось открыть корзину: {exc}"}
+
+        if command_id == "switch_window":
+            title = (query or utterance).strip()
+            for prefix in ("переключись на окно", "переключи окно", "перейди в окно", "switch window"):
+                if title.casefold().startswith(prefix):
+                    title = title[len(prefix):].strip(" ,.:;-")
+                    break
+            if not title:
+                return {"success": False, "message": "Назови окно, на которое нужно переключиться."}
+            return apps.switch_window({"title": title})
 
         if command_id in {"close_active", "minimize_window", "maximize_window"}:
             try:
@@ -643,6 +710,9 @@ class JarvisCommandService:
                 return {"success": True, "message": "Прокрутка выполнена."}
             except Exception as exc:
                 return {"success": False, "message": f"Не удалось прокрутить страницу: {exc}"}
+
+        if command_id == "input_delete_word":
+            return self._press(("ctrl", "backspace"))
 
         if command_id == "minimize_video":
             return self._press(("esc",))

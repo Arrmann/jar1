@@ -249,13 +249,28 @@ class JarvisCommandService:
             result[self.status(str(command.get("id", "")))] += 1
         return result
 
-    def llm_context(self, limit: int = 90) -> str:
+    def llm_context(self, limit: int = 150) -> str:
         rows = []
-        for item in self.catalog.commands:
+        priority = {
+            "popular": 0,
+            "basics": 1,
+            "daily": 2,
+            "control": 3,
+            "extras": 4,
+            "notes": 5,
+        }
+        ordered = sorted(
+            self.catalog.commands,
+            key=lambda item: (
+                priority.get(str(item.get("group", "")), 99),
+                str(item.get("id", "")),
+            ),
+        )
+        for item in ordered:
             command_id = str(item.get("id", ""))
             if command_id not in self.ready_ids:
                 continue
-            aliases = list(item.get("phrases_ru") or [])[:3]
+            aliases = list(item.get("phrases_ru") or [])[:2]
             desc = str(item.get("description", "")).strip()
             rows.append(f"- {command_id}: {desc}; фразы: {', '.join(aliases)}")
             if len(rows) >= limit:

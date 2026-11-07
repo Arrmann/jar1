@@ -806,10 +806,20 @@ class Orchestrator(QObject):
                 return
 
             if mode == "wake":
-                wake_phrase = str(self.cfg.get("voice.wake_phrase", "джарвис") or "").strip().lower()
-                if wake_phrase and wake_phrase in text.lower():
-                    self.status_changed.emit("Активация по фразе.")
-                    self.request_start_voice.emit("command")
+                configured = str(self.cfg.get("voice.wake_phrase", "джарвис") or "").strip().casefold()
+                candidates = [configured, "джарвис", "джервис", "jarvis", "hey jarvis"]
+                source = text.casefold().replace("ё", "е")
+                hits = [(source.find(item.replace("ё", "е")), item) for item in candidates if item]
+                hits = [(index, phrase) for index, phrase in hits if index >= 0]
+                if hits:
+                    index, phrase = min(hits, key=lambda item: item[0])
+                    command_text = text[index + len(phrase):].lstrip(" ,.!?:;—-")
+                    self.status_changed.emit("JARVIS активирован.")
+                    if command_text.strip():
+                        # Accept one-breath commands such as "Джарвис, открой YouTube".
+                        self.submit_text(command_text.strip())
+                    else:
+                        self.request_start_voice.emit("command")
                 else:
                     self._maybe_continue_listening_after_silence()
             else:

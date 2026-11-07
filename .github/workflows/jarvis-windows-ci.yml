@@ -1,0 +1,90 @@
+name: JARVIS Windows CI
+
+on:
+  push:
+    branches:
+      - chatgpt/aura-jarvis-integration
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-smoke:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          architecture: "x64"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --only-binary=:all: pygame-ce==2.5.8
+          python -m pip install -r requirements.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q aura main.py
+
+      - name: Runtime and catalog smoke tests
+        shell: pwsh
+        run: |
+          @'
+          import json
+          from pathlib import Path
+
+          from aura.core.command_catalog import CommandCatalog
+          from aura.actions.jarvis_commands import JarvisCommandService
+
+          catalog = CommandCatalog()
+          assert len(catalog.commands) == 308, len(catalog.commands)
+          assert len(catalog.by_id) == 308
+
+          all_ids = set(catalog.by_id)
+          cases = [
+              ("Джарвис, открой ютуб", "open_youtube"),
+              ("Джарвис, громче", "volume_up"),
+              ("Джарвис, поставь таймер на 5 минут", "timer_set"),
+              ("Джарвис, сделай скриншот", "screenshot"),
+          ]
+          for phrase, expected in cases:
+              result = catalog.match(phrase, enabled_ids=all_ids, wake_phrase="джарвис")
+              assert result and result["command_id"] == expected, (phrase, result, expected)
+
+          assert JarvisCommandService._duration_seconds("5 минут") == 300
+          assert JarvisCommandService._duration_seconds("30 секунд") == 30
+          print("Catalog:", len(catalog.commands))
+          print("Groups:", catalog.data.get("categories"))
+          print("Voice alias matching:", len(cases), "passed")
+          print("Timer parsing: passed")
+          '@ | Set-Content -Encoding utf8 .ci_smoke.py
+          python .ci_smoke.py
+
+      - name: Verify dependency imports
+        run: |
+          python -c "import PySide6, faster_whisper, pygame, PIL, sounddevice, edge_tts; print('Runtime imports: OK')"
+          python -m pip check
+
+      - name: Build desktop executable
+        shell: pwsh
+        run: |
+          ./build.ps1
+          if (-not (Test-Path "dist/JARVIS.exe")) { throw "PyInstaller did not produce dist/JARVIS.exe" }
+          Get-Item "dist/JARVIS.exe" | Format-List Name,Length,LastWriteTime
+
+      - name: Upload Windows executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: JARVIS-Windows-x64-EXE
+          path: dist/JARVIS.exe
+          if-no-files-found: error
+          retention-days: 14

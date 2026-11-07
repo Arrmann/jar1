@@ -48,7 +48,13 @@ jobs:
 
           from aura.core.command_catalog import CommandCatalog
           from aura.actions.jarvis_commands import JarvisCommandService
+          from aura.llm import create_llm
 
+          class TestConfig:
+              def get(self, key, default=None):
+                  return {"llm.provider": "offline"}.get(key, default)
+
+          assert create_llm(TestConfig()).name == "offline"
           catalog = CommandCatalog()
           assert len(catalog.commands) == 308, len(catalog.commands)
           assert len(catalog.by_id) == 308

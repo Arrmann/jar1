@@ -1,84 +1,115 @@
 * {
-    font-family: "Segoe UI", "Segoe UI Variable", Arial, sans-serif;
+    font-family: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
     font-size: 10pt;
 }
 
 QWidget {
-    background-color: #070b14;
-    color: #e8ecf7;
+    background-color: #05090D;
+    color: #E8F4F5;
+    selection-background-color: #174A54;
 }
 
 QMainWindow {
-    background-color: #070b14;
+    background-color: #05090D;
+}
+
+QWidget#Sidebar {
+    background-color: #080E13;
+    border-right: 1px solid #18313A;
 }
 
 QPushButton {
-    background-color: #121a2b;
-    border: 1px solid #263457;
-    border-radius: 10px;
-    padding: 8px 14px;
-    color: #e8ecf7;
+    background-color: #0D171D;
+    border: 1px solid #1A343D;
+    border-radius: 9px;
+    padding: 9px 13px;
+    color: #D9EAEC;
+    text-align: left;
 }
 
 QPushButton:hover {
-    background-color: #1a2742;
-    border-color: #4c6fff;
+    background-color: #10232B;
+    border-color: #3A9EA8;
+    color: #FFFFFF;
 }
 
 QPushButton:pressed {
-    background-color: #0f1727;
+    background-color: #0A1419;
 }
 
 QPushButton:checked {
-    background-color: #1b2b52;
-    border-color: #7b5cff;
+    background-color: #102C34;
+    border: 1px solid #5CF6F0;
+    color: #F5FFFF;
 }
 
 QLineEdit, QTextEdit, QPlainTextEdit, QComboBox, QSpinBox, QDoubleSpinBox {
-    background-color: #0d1422;
-    border: 1px solid #263457;
+    background-color: #091318;
+    border: 1px solid #1B3841;
     border-radius: 8px;
-    padding: 6px;
-    selection-background-color: #3351ff;
+    padding: 7px 9px;
+    color: #EAFBFC;
+    selection-background-color: #17606A;
 }
 
 QLineEdit:focus, QTextEdit:focus, QComboBox:focus {
-    border: 1px solid #5d7dff;
+    border: 1px solid #5CF6F0;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #0A151A;
+    color: #EAFBFC;
+    selection-background-color: #174A54;
+    border: 1px solid #28545D;
 }
 
 QTextBrowser {
-    background-color: #0a101d;
-    border: 1px solid #1d2a47;
+    background-color: #080F14;
+    border: 1px solid #19353E;
     border-radius: 12px;
+    padding: 10px;
 }
 
 QListWidget, QTableWidget, QTreeWidget {
-    background-color: #0a101d;
-    border: 1px solid #1d2a47;
+    background-color: #080F14;
+    border: 1px solid #19353E;
     border-radius: 10px;
-    alternate-background-color: #0d1422;
+    alternate-background-color: #0B161C;
+    gridline-color: #142A31;
 }
 
-QListWidget::item:selected {
-    background-color: #22356b;
+QTableWidget {
+    selection-background-color: #12343D;
+    selection-color: #F5FFFF;
 }
 
-QHeaderView::section {
-    background-color: #101827;
-    color: #c8d3ff;
-    border: none;
+QTableWidget::item {
     padding: 6px;
 }
 
+QHeaderView::section {
+    background-color: #0D1B21;
+    color: #91C8CC;
+    border: none;
+    border-bottom: 1px solid #21434C;
+    padding: 8px;
+    font-weight: 600;
+}
+
 QScrollBar:vertical {
-    background: #070b14;
+    background: #05090D;
     width: 12px;
+    margin: 2px;
 }
 
 QScrollBar::handle:vertical {
-    background: #223055;
-    border-radius: 6px;
-    min-height: 30px;
+    background: #1B4650;
+    border-radius: 5px;
+    min-height: 28px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #287986;
 }
 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
@@ -86,22 +117,46 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 }
 
 QStatusBar {
-    background-color: #060910;
-    color: #97a3c6;
+    background-color: #070D11;
+    color: #7FAEB4;
+    border-top: 1px solid #18313A;
 }
 
 QLabel#TitleLabel {
-    font-size: 18pt;
+    font-size: 22pt;
     font-weight: 700;
-    color: #ffffff;
+    letter-spacing: 3px;
+    color: #F5FFFF;
+}
+
+QLabel#SectionTitle {
+    font-size: 16pt;
+    font-weight: 650;
+    letter-spacing: 1px;
+    color: #CFFBFC;
 }
 
 QLabel#SubtitleLabel {
-    color: #93a0c7;
+    color: #77949A;
+}
+
+QLabel#SidebarFooter {
+    color: #44636B;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    padding-top: 12px;
+}
+
+QLabel#CommandSummary {
+    color: #5CF6F0;
+    background-color: #0B1E24;
+    border: 1px solid #1B414A;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 QFrame#Card {
-    background-color: #0b1220;
-    border: 1px solid #1d2a47;
+    background-color: #080F14;
+    border: 1px solid #19353E;
     border-radius: 14px;
 }

@@ -16,7 +16,6 @@ ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
 OutputDir=..\dist-installer
 OutputBaseFilename=JARVIS-Assistant-Setup-{#MyAppVersion}-x64
-SetupIconFile=
 UninstallDisplayIcon={app}\{#MyAppExeName}
 Compression=lzma2/ultra64
 SolidCompression=yes

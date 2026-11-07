@@ -3,9 +3,9 @@
   "theme": "dark",
   "voice": {
     "hotkey": "<ctrl>+<alt>+<space>",
-    "continuous": false,
-    "wake_enabled": false,
-    "wake_phrase": "аура",
+    "continuous": true,
+    "wake_enabled": true,
+    "wake_phrase": "джарвис",
     "silence_threshold": 0.01,
     "silence_seconds": 1.2
   },
@@ -17,7 +17,7 @@
   "tts": {
     "enabled": true,
     "engine": "edge",
-    "voice": "ru-RU-SvetlanaNeural",
+    "voice": "ru-RU-DmitryNeural",
     "edge_rate": "+0%",
     "pyttsx3_rate": 185
   },

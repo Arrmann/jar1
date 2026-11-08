@@ -1,5 +1,5 @@
 #define MyAppName "JARVIS Assistant"
-#define MyAppVersion "1.2.1"
+#define MyAppVersion "1.2.2"
 #define MyAppPublisher "JARVIS Assistant"
 #define MyAppExeName "JARVIS.exe"
 

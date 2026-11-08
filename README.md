@@ -1,4 +1,4 @@
-# JARVIS Assistant 1.2.1 — AURA command integration
+# JARVIS Assistant 1.2.2 — AURA command integration
 
 Настольный голосовой помощник для Windows 10/11 x64. Объединяет AURA AI (PySide6, SQLite, Whisper, Edge-TTS, OpenAI/Groq/Ollama) с каталогом команд JARVIS demo.
 

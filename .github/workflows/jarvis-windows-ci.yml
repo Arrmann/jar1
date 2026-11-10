@@ -63,7 +63,7 @@ jobs:
               store = CustomCommandStore(Path(temp_dir) / "custom_commands.json")
               scenario = store.upsert({
                   "name": "Рабочий режим",
-                  "phrases_ru": ["рабочий режим", "собери рабочее место"],
+                  "phrases_ru": ["рабочий режим", "рабочий режим для офиса", "собери рабочее место"],
                   "enabled": True,
                   "steps": [
                       {"type": "command", "command_id": "open_telegram_web"},
@@ -73,7 +73,18 @@ jobs:
               })
               matched = store.match("Джарвис, рабочий режим")
               assert matched and matched["command"]["id"] == scenario["id"]
+              assert store.match("Джарвис, рабочий режим для офиса")["command"]["id"] == scenario["id"]
               assert store.import_data(store.export_data()) == 1
+              conflict_rejected = False
+              try:
+                  store.upsert({
+                      "name": "Пересекающийся сценарий",
+                      "phrases_ru": ["рабочий режим вечером"],
+                      "steps": [{"type": "speak", "text": "Готово"}]
+                  })
+              except CustomCommandError:
+                  conflict_rejected = True
+              assert conflict_rejected, "Overlapping triggers must be rejected across scenarios"
               rejected = False
               try:
                   store.validate({

@@ -126,8 +126,24 @@ class CustomCommandStore:
         temp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         temp.replace(self.path)
 
+    @staticmethod
+    def _validate_trigger_collisions(commands: list[dict[str, Any]]) -> None:
+        seen: list[tuple[str, str]] = []
+        for command in commands:
+            for phrase in command.get("phrases_ru", []):
+                key = normalize_phrase(phrase)
+                for other_key, other_name in seen:
+                    if key == other_key or key.startswith(other_key + " ") or other_key.startswith(key + " "):
+                        raise CustomCommandError(
+                            f"Фраза «{phrase}» конфликтует с фразой сценария «{other_name}». "
+                            "Используйте более уникальный триггер."
+                        )
+                seen.append((key, str(command.get("name", "сценарий"))))
+
     def upsert(self, command: dict[str, Any]) -> dict[str, Any]:
         clean = self.validate(command)
+        candidate = [row for row in self.commands if row["id"] != clean["id"]] + [clean]
+        self._validate_trigger_collisions(candidate)
         existing = next((i for i, row in enumerate(self.commands) if row["id"] == clean["id"]), None)
         if existing is None:
             if len(self.commands) >= MAX_COMMANDS:
@@ -192,6 +208,8 @@ class CustomCommandStore:
             by_id[row["id"]] = row
         if len(by_id) > MAX_COMMANDS:
             raise CustomCommandError(f"После импорта будет больше {MAX_COMMANDS} команд.")
-        self.commands = list(by_id.values())
+        merged = list(by_id.values())
+        self._validate_trigger_collisions(merged)
+        self.commands = merged
         self.save()
         return len(validated)

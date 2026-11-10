@@ -302,8 +302,13 @@ class CustomCommandsWidget(QWidget):
             system_phrases.update(normalize_phrase(p) for p in command.get("phrases_ru", []))
         for phrase in phrases:
             key = normalize_phrase(phrase)
-            if key in system_phrases:
-                return phrase
+            for system_phrase in system_phrases:
+                if (
+                    key == system_phrase
+                    or key.startswith(system_phrase + " ")
+                    or system_phrase.startswith(key + " ")
+                ):
+                    return phrase
         return None
 
     def save_command(self) -> None:

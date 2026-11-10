@@ -1,11 +1,15 @@
+import base64
+import io
 import json
 import logging
 import threading
+import time
 import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 from PySide6.QtCore import QObject, QTimer, Signal
+from PIL import ImageGrab
 
 from ..actions import apps, browser, files, system
 from ..actions.jarvis_commands import JarvisCommandService
@@ -17,6 +21,7 @@ from ..secure_storage import get_secret
 from ..stt.recorder import Recorder
 from ..stt.whisper_stt import WhisperSTT
 from ..tts.speaker import Speaker
+from .custom_commands import CustomCommandStore
 from .memory import MemoryManager
 from .tool_registry import ToolRegistry
 
@@ -58,6 +63,11 @@ class Orchestrator(QObject):
         self.speaker = Speaker(cfg)
         self.recorder = Recorder(cfg)
         self.jarvis_commands = JarvisCommandService(self.db, self.speaker)
+        self.custom_commands = CustomCommandStore()
+        self.mode = str(cfg.get("assistant.mode", "normal") or "normal")
+        if self.mode not in {"normal", "agent", "vision"}:
+            self.mode = "normal"
+        self.vision_authorized = False
 
         self.registry = ToolRegistry()
         self._register_tools()
@@ -142,6 +152,95 @@ class Orchestrator(QObject):
 
     def set_conversation(self, conversation_id: int) -> None:
         self.current_conversation = conversation_id
+
+    def set_mode(self, mode: str, authorized: bool = False) -> None:
+        mode = str(mode or "normal").strip().lower()
+        if mode not in {"normal", "agent", "vision"}:
+            raise ValueError("Неизвестный режим ассистента.")
+        if mode == "vision" and not authorized:
+            raise PermissionError("Для режима Vision требуется явное разрешение на передачу снимков экрана.")
+        self.mode = mode
+        self.vision_authorized = mode == "vision" and bool(authorized)
+        self.cfg.set("assistant.mode", mode)
+        self.cfg.save()
+        labels = {"normal": "Обычный", "agent": "Agent", "vision": "Vision"}
+        self.status_changed.emit(f"Режим ассистента: {labels[mode]}")
+
+    def _execute_custom_command(self, matched: Dict[str, Any]) -> Dict[str, Any]:
+        command = matched["command"]
+        completed = 0
+        for index, step in enumerate(command.get("steps", []), start=1):
+            kind = str(step.get("type", ""))
+            if kind == "command":
+                result = self._run_jarvis_command({
+                    "command_id": step["command_id"],
+                    "utterance": matched.get("utterance", ""),
+                    "query": step.get("query") or matched.get("query", ""),
+                })
+            elif kind == "speak":
+                self.speaker.speak(str(step["text"]))
+                result = {"success": True, "message": "Голосовой ответ воспроизведён."}
+            elif kind == "wait":
+                time.sleep(float(step.get("seconds", 0)))
+                result = {"success": True, "message": "Пауза завершена."}
+            elif kind == "open_url":
+                result = browser.open_url({"url": str(step["url"])})
+            else:
+                result = {"success": False, "message": f"Неизвестный шаг сценария: {kind}"}
+
+            try:
+                status = "success" if result.get("success") else "error"
+                args = {"scenario_id": command.get("id"), "scenario": command.get("name"), "step": index, "data": step}
+                self.db.log_action("custom_command", args, result, status)
+                self.action_logged.emit({
+                    "tool": "custom_command",
+                    "args": args,
+                    "result": result,
+                    "status": status,
+                    "created_at": datetime.now().isoformat(timespec="seconds"),
+                })
+            except Exception:
+                pass
+
+            if not result.get("success"):
+                return {
+                    "success": False,
+                    "message": f"Сценарий «{command['name']}» остановлен на шаге {index}: "
+                               f"{result.get('message', 'действие не выполнено')}",
+                    "completed_steps": completed,
+                }
+            completed += 1
+
+        return {
+            "success": True,
+            "message": f"Сценарий «{command['name']}» выполнен. Шагов: {completed}.",
+            "completed_steps": completed,
+        }
+
+    def _attach_screen_snapshot(self, messages: List[Dict[str, Any]], user_text: str) -> None:
+        if not self.vision_authorized or self.mode != "vision":
+            raise PermissionError("Режим Vision не авторизован. Включите его через панель режимов.")
+        provider = str(self.cfg.get("llm.provider", "offline") or "offline").lower()
+        if provider == "offline":
+            raise RuntimeError("Vision недоступен в офлайн-режиме. Выберите мультимодальную AI-модель.")
+        if provider == "ollama":
+            raise RuntimeError("Vision для Ollama пока не подключён в этой версии. Выберите OpenAI/Groq и модель с поддержкой изображений.")
+
+        screenshot = ImageGrab.grab(all_screens=True)
+        screenshot.thumbnail((1600, 1200))
+        buffer = io.BytesIO()
+        screenshot.convert("RGB").save(buffer, format="JPEG", quality=82, optimize=True)
+        encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
+
+        for message in reversed(messages):
+            if message.get("role") == "user":
+                message["content"] = [
+                    {"type": "text", "text": user_text},
+                    {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encoded}"}},
+                ]
+                break
+        else:
+            raise RuntimeError("Не удалось прикрепить запрос к снимку экрана.")
 
     def get_conversations(self) -> List[Dict[str, Any]]:
         return self.db.get_conversations()
@@ -616,13 +715,26 @@ class Orchestrator(QObject):
             }
         )
 
-        threading.Thread(target=self._process_user_text, args=(text,), daemon=True).start()
+        threading.Thread(target=self._process_user_text, args=(text, self.mode), daemon=True).start()
 
-    def _system_prompt(self, user_text: str) -> str:
+    def _system_prompt(self, user_text: str, mode: str | None = None) -> str:
         relevant = self.memory.relevant_context(user_text)
         now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
+        active_mode = mode or self.mode
         prompt = SYSTEM_PROMPT_BASE + f"\nТекущее время: {now}."
+        if active_mode == "agent":
+            prompt += (
+                "\\n\\nРЕЖИМ AGENT: разбивай многошаговую задачу на последовательные действия. "
+                "Используй доступные инструменты, выполняй только необходимые шаги, проверяй результат "
+                "каждого действия и продолжай после успешного результата. Не заявляй об успехе, если инструмент вернул ошибку."
+            )
+        elif active_mode == "vision":
+            prompt += (
+                "\\n\\nРЕЖИМ VISION: анализируй приложенный снимок экрана. Описывай видимые элементы, "
+                "объясняй, куда нажать, и используй инструменты только когда пользователь явно просит выполнить действие. "
+                "Не делай выводов о скрытом содержимом."
+            )
 
         command_context = self.jarvis_commands.llm_context(limit=150)
         if command_context:
@@ -634,7 +746,7 @@ class Orchestrator(QObject):
         return prompt
 
     def _build_messages(self, user_text: str) -> List[Dict[str, Any]]:
-        messages = [{"role": "system", "content": self._system_prompt(user_text)}]
+        messages = [{"role": "system", "content": self._system_prompt(user_text, self.mode)}]
 
         history = self.db.get_messages(self.current_conversation, limit=16)
         for msg in history:
@@ -642,14 +754,34 @@ class Orchestrator(QObject):
 
         return messages
 
-    def _process_user_text(self, user_text: str) -> None:
+    def _process_user_text(self, user_text: str, mode: str | None = None) -> None:
         try:
             self.voice_state_changed.emit("thinking")
             self.status_changed.emit("JARVIS анализирует запрос...")
 
-            # Exact command aliases are handled locally first. This keeps
-            # volume, browser, timer and Windows shortcuts available offline.
-            matched = self.jarvis_commands.match(user_text)
+            active_mode = mode or self.mode
+            # User-defined workflows are resolved before the AI planner in normal/agent mode.
+            custom_match = self.custom_commands.match(user_text) if active_mode != "vision" else None
+            if custom_match:
+                result = self._execute_custom_command(custom_match)
+                final_content = str(result.get("message") or "Сценарий завершён.")
+                self.db.add_message(self.current_conversation, "assistant", final_content)
+                self.message_added.emit({
+                    "conversation_id": self.current_conversation,
+                    "role": "assistant",
+                    "content": final_content,
+                })
+                self.voice_state_changed.emit("speaking")
+                self.status_changed.emit("JARVIS отвечает...")
+                self.speaker.speak(final_content)
+                if not self.speaker.interrupted:
+                    self._maybe_continue_listening_after_response()
+                else:
+                    self.voice_state_changed.emit("idle")
+                return
+
+            # Exact system command aliases are handled locally first.
+            matched = self.jarvis_commands.match(user_text) if active_mode != "vision" else None
             if matched:
                 command_id = matched["command_id"]
                 self.status_changed.emit(f"Выполняю команду: {command_id}")
@@ -679,9 +811,13 @@ class Orchestrator(QObject):
 
             tools = self.registry.schemas() if bool(self.cfg.get("safety.computer_control_enabled", True)) else None
             messages = self._build_messages(user_text)
+            if active_mode == "vision":
+                self.status_changed.emit("Снимаю экран для анализа Vision...")
+                self._attach_screen_snapshot(messages, user_text)
             final_content = ""
 
-            for _ in range(4):
+            max_tool_rounds = 8 if active_mode == "agent" else 4
+            for _ in range(max_tool_rounds):
                 response: LLMResponse = self.llm.chat(messages, tools=tools, tool_choice="auto")
 
                 if not response.tool_calls:

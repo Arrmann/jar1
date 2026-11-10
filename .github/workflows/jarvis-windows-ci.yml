@@ -49,12 +49,42 @@ jobs:
           from aura.core.command_catalog import CommandCatalog
           from aura.actions.jarvis_commands import JarvisCommandService
           from aura.llm import create_llm
+          from aura.core.custom_commands import CustomCommandStore, CustomCommandError
+          from aura.ui.dashboard_widget import DashboardWidget
+          from aura.ui.custom_commands_widget import CustomCommandsWidget
+          import tempfile
 
           class TestConfig:
               def get(self, key, default=None):
                   return {"llm.provider": "offline"}.get(key, default)
 
           assert create_llm(TestConfig()).name == "offline"
+          with tempfile.TemporaryDirectory() as temp_dir:
+              store = CustomCommandStore(Path(temp_dir) / "custom_commands.json")
+              scenario = store.upsert({
+                  "name": "Рабочий режим",
+                  "phrases_ru": ["рабочий режим", "собери рабочее место"],
+                  "enabled": True,
+                  "steps": [
+                      {"type": "command", "command_id": "open_telegram_web"},
+                      {"type": "wait", "seconds": 0.2},
+                      {"type": "speak", "text": "Рабочий режим готов."}
+                  ]
+              })
+              matched = store.match("Джарвис, рабочий режим")
+              assert matched and matched["command"]["id"] == scenario["id"]
+              assert store.import_data(store.export_data()) == 1
+              rejected = False
+              try:
+                  store.validate({
+                      "name": "Unsafe",
+                      "phrases_ru": ["unsafe phrase"],
+                      "steps": [{"type": "open_url", "url": "powershell://calc"}]
+                  })
+              except CustomCommandError:
+                  rejected = True
+              assert rejected, "Unsafe URL scheme must be rejected"
+          assert DashboardWidget is not None and CustomCommandsWidget is not None
           catalog = CommandCatalog()
           assert len(catalog.commands) == 308, len(catalog.commands)
           assert len(catalog.by_id) == 308
@@ -84,6 +114,8 @@ jobs:
           service = JarvisCommandService(None, None)
           assert service.execute("dictate")["success"] and service.dictation_active
           assert service.execute("dictate_stop")["success"] and not service.dictation_active
+          print("Custom workflows: create/match/import/export + URL validation passed")
+          print("Dashboard and custom scenario UI imports: passed")
           print("Catalog:", len(catalog.commands))
           print("Groups:", catalog.data.get("categories"))
           print("Voice alias matching:", len(cases), "passed")

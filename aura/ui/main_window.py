@@ -16,7 +16,9 @@ from PySide6.QtWidgets import (
 from ..config import Config
 from ..core.orchestrator import Orchestrator
 from .commands_widget import CommandsWidget
-from .widgets import ActionsWidget, ChatWidget, MemoryWidget, SettingsWidget
+from .custom_commands_widget import CustomCommandsWidget
+from .dashboard_widget import DashboardWidget
+from .widgets import ActionsWidget, MemoryWidget, SettingsWidget
 
 
 class MainWindow(QMainWindow):
@@ -27,8 +29,8 @@ class MainWindow(QMainWindow):
         self.orch = orchestrator
 
         self.setWindowTitle("JARVIS Assistant")
-        self.resize(1480, 920)
-        self.setMinimumSize(1120, 720)
+        self.resize(1540, 960)
+        self.setMinimumSize(1180, 760)
 
         central = QWidget()
         self.setCentralWidget(central)
@@ -39,10 +41,10 @@ class MainWindow(QMainWindow):
 
         sidebar = QWidget()
         sidebar.setObjectName("Sidebar")
-        sidebar.setMinimumWidth(224)
-        sidebar.setMaximumWidth(260)
+        sidebar.setMinimumWidth(218)
+        sidebar.setMaximumWidth(252)
         sidebar_layout = QVBoxLayout(sidebar)
-        sidebar_layout.setContentsMargins(18, 22, 18, 18)
+        sidebar_layout.setContentsMargins(16, 22, 16, 18)
         sidebar_layout.setSpacing(9)
 
         title = QLabel("JARVIS")
@@ -58,15 +60,17 @@ class MainWindow(QMainWindow):
         self.nav_group = QButtonGroup(self)
         self.nav_group.setExclusive(True)
 
-        self.chat_btn = QPushButton("◉   Чат")
-        self.commands_btn = QPushButton("⌘   Команды")
-        self.memory_btn = QPushButton("◈   Память")
-        self.actions_btn = QPushButton("▤   Журнал действий")
+        self.dashboard_btn = QPushButton("◈   Главная")
+        self.commands_btn = QPushButton("⌘   Системные команды")
+        self.custom_btn = QPushButton("◇   Мои сценарии")
+        self.memory_btn = QPushButton("◉   Память")
+        self.actions_btn = QPushButton("▤   История действий")
         self.settings_btn = QPushButton("⚙   Настройки")
 
         self.buttons = [
-            self.chat_btn,
+            self.dashboard_btn,
             self.commands_btn,
+            self.custom_btn,
             self.memory_btn,
             self.actions_btn,
             self.settings_btn,
@@ -79,7 +83,7 @@ class MainWindow(QMainWindow):
             self.nav_group.addButton(button, index)
             sidebar_layout.addWidget(button)
 
-        self.chat_btn.setChecked(True)
+        self.dashboard_btn.setChecked(True)
         sidebar_layout.addStretch(1)
 
         footer = QLabel("JARVIS CORE  ·  LOCAL CONTROL")
@@ -88,14 +92,16 @@ class MainWindow(QMainWindow):
         sidebar_layout.addWidget(footer)
 
         self.stack = QStackedWidget()
-        self.chat_page = ChatWidget(orchestrator)
+        self.dashboard_page = DashboardWidget(orchestrator)
         self.commands_page = CommandsWidget(orchestrator)
+        self.custom_page = CustomCommandsWidget(orchestrator)
         self.memory_page = MemoryWidget(orchestrator)
         self.actions_page = ActionsWidget(orchestrator)
         self.settings_page = SettingsWidget(orchestrator)
 
-        self.stack.addWidget(self.chat_page)
+        self.stack.addWidget(self.dashboard_page)
         self.stack.addWidget(self.commands_page)
+        self.stack.addWidget(self.custom_page)
         self.stack.addWidget(self.memory_page)
         self.stack.addWidget(self.actions_page)
         self.stack.addWidget(self.settings_page)

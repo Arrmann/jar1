@@ -172,7 +172,9 @@ class Orchestrator(QObject):
         completed = 0
         for index, step in enumerate(command.get("steps", []), start=1):
             kind = str(step.get("type", ""))
-            if kind == "command":
+            if kind in {"command", "open_url"} and not bool(self.cfg.get("safety.computer_control_enabled", True)):
+                result = {"success": False, "message": "Управление компьютером отключено в настройках."}
+            elif kind == "command":
                 result = self._run_jarvis_command({
                     "command_id": step["command_id"],
                     "utterance": matched.get("utterance", ""),
@@ -222,7 +224,7 @@ class Orchestrator(QObject):
         if not self.vision_authorized or self.mode != "vision":
             raise PermissionError("Режим Vision не авторизован. Включите его через панель режимов.")
         provider = str(self.cfg.get("llm.provider", "offline") or "offline").lower()
-        if provider == "offline":
+        if getattr(self.llm, "name", "") == "offline" or provider == "offline":
             raise RuntimeError("Vision недоступен в офлайн-режиме. Выберите мультимодальную AI-модель.")
         if provider == "ollama":
             raise RuntimeError("Vision для Ollama пока не подключён в этой версии. Выберите OpenAI/Groq и модель с поддержкой изображений.")

@@ -65,7 +65,7 @@ class Orchestrator(QObject):
         self.jarvis_commands = JarvisCommandService(self.db, self.speaker)
         self.custom_commands = CustomCommandStore()
         self.mode = str(cfg.get("assistant.mode", "normal") or "normal")
-        if self.mode not in {"normal", "agent", "vision"}:
+        if self.mode not in {"normal", "agent"}:
             self.mode = "normal"
         self.vision_authorized = False
 
@@ -161,7 +161,8 @@ class Orchestrator(QObject):
             raise PermissionError("Для режима Vision требуется явное разрешение на передачу снимков экрана.")
         self.mode = mode
         self.vision_authorized = mode == "vision" and bool(authorized)
-        self.cfg.set("assistant.mode", mode)
+        # Vision authorization is session-only and must never survive an app restart.
+        self.cfg.set("assistant.mode", "normal" if mode == "vision" else mode)
         self.cfg.save()
         labels = {"normal": "Обычный", "agent": "Agent", "vision": "Vision"}
         self.status_changed.emit(f"Режим ассистента: {labels[mode]}")
@@ -725,13 +726,13 @@ class Orchestrator(QObject):
         prompt = SYSTEM_PROMPT_BASE + f"\nТекущее время: {now}."
         if active_mode == "agent":
             prompt += (
-                "\\n\\nРЕЖИМ AGENT: разбивай многошаговую задачу на последовательные действия. "
+                "\n\nРЕЖИМ AGENT: разбивай многошаговую задачу на последовательные действия. "
                 "Используй доступные инструменты, выполняй только необходимые шаги, проверяй результат "
                 "каждого действия и продолжай после успешного результата. Не заявляй об успехе, если инструмент вернул ошибку."
             )
         elif active_mode == "vision":
             prompt += (
-                "\\n\\nРЕЖИМ VISION: анализируй приложенный снимок экрана. Описывай видимые элементы, "
+                "\n\nРЕЖИМ VISION: анализируй приложенный снимок экрана. Описывай видимые элементы, "
                 "объясняй, куда нажать, и используй инструменты только когда пользователь явно просит выполнить действие. "
                 "Не делай выводов о скрытом содержимом."
             )
@@ -745,8 +746,8 @@ class Orchestrator(QObject):
 
         return prompt
 
-    def _build_messages(self, user_text: str) -> List[Dict[str, Any]]:
-        messages = [{"role": "system", "content": self._system_prompt(user_text, self.mode)}]
+    def _build_messages(self, user_text: str, mode: str | None = None) -> List[Dict[str, Any]]:
+        messages = [{"role": "system", "content": self._system_prompt(user_text, mode or self.mode)}]
 
         history = self.db.get_messages(self.current_conversation, limit=16)
         for msg in history:
@@ -810,7 +811,7 @@ class Orchestrator(QObject):
                 return
 
             tools = self.registry.schemas() if bool(self.cfg.get("safety.computer_control_enabled", True)) else None
-            messages = self._build_messages(user_text)
+            messages = self._build_messages(user_text, active_mode)
             if active_mode == "vision":
                 self.status_changed.emit("Снимаю экран для анализа Vision...")
                 self._attach_screen_snapshot(messages, user_text)

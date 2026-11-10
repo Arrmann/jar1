@@ -1,2 +1,2 @@
-__version__ = "1.0.0"
-__app_name__ = "AURA AI"
+__version__ = "1.3.0"
+__app_name__ = "JARVIS Assistant"

@@ -128,17 +128,18 @@ class CustomCommandStore:
 
     @staticmethod
     def _validate_trigger_collisions(commands: list[dict[str, Any]]) -> None:
-        seen: list[tuple[str, str]] = []
+        seen: list[tuple[str, str, str]] = []
         for command in commands:
             for phrase in command.get("phrases_ru", []):
                 key = normalize_phrase(phrase)
-                for other_key, other_name in seen:
-                    if key == other_key or key.startswith(other_key + " ") or other_key.startswith(key + " "):
+                command_id = str(command.get("id", ""))
+                for other_key, other_name, other_id in seen:
+                    if other_id != command_id and (key == other_key or key.startswith(other_key + " ") or other_key.startswith(key + " ")):
                         raise CustomCommandError(
                             f"Фраза «{phrase}» конфликтует с фразой сценария «{other_name}». "
                             "Используйте более уникальный триггер."
                         )
-                seen.append((key, str(command.get("name", "сценарий"))))
+                seen.append((key, str(command.get("name", "сценарий")), command_id))
 
     def upsert(self, command: dict[str, Any]) -> dict[str, Any]:
         clean = self.validate(command)
